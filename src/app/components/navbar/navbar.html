@@ -2,20 +2,28 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Gulp Angular
+        <span class="glyphicon glyphicon-home"></span> Make Data Public
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+        <li ui-sref="main.home" ui-sref-active="selected"><a>Home</a></li>
+        <li class="pull-right"  ui-sref="main.login" ui-sref-active="selected"><a>Login</a></li>
       </ul>
+      <div class="row">
+        <div class="col-xs-7" style="padding-top: 8px;">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+          </div>
+        </div>
+      </div>
 
-      <ul class="nav navbar-nav navbar-right acme-navbar-text">
-        <li>Application was created {{ vm.relativeDate }}.</li>
-      </ul>
     </div>
   </div>
 </nav>
+
+

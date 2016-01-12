@@ -1,3 +1,9 @@
 .acme-navbar-text{
   color: white;
 }
+
+ul {
+    li.selected{
+      background-color: #cacaca;
+  }
+}
