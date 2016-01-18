@@ -17,15 +17,15 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
     })
     .state('main.home.tab1', {
       url: '/tab1',
-      template: "<h3>Tab1:</h3><ul><li>First....</li><li>Second...</li><li>Third...</li></ul>"
+      template: "<h3>Tab1:</h3><div class='well tab1'><ul><li>First....</li><li>Second...</li><li>Third...</li></ul></div>"
     })
     .state('main.home.tab2', {
       url: '/tab2',
-      template: "<h3>Tab2:</h3><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul>"
+      template: "<h3>Tab2:</h3><div class='well tab2'><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul></div>"
     })
     .state('main.home.tab3', {
       url: '/tab3',
-      template: "<h3>Tab3:</h3><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul>"
+      template: "<h3>Tab3:</h3><div class='well tab3'><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul></div>"
     })
     .state('main.login', {
       url: 'login',
