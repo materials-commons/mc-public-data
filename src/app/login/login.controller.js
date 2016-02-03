@@ -1,7 +1,8 @@
 export class LoginController {
   constructor (loginService) {
     'ngInject';
-    this.help = "test";
+    this.email = "test@gmail.com";
+    this.password = "123";
     this.loginService = loginService;
   }
 

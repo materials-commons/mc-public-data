@@ -9,6 +9,7 @@ export class loginService {
   authenticate() {
     return this.Restangular.one('users').get()
       .then((response) => {
+        this.$log("response is "+ response.data);
         return response.data;
       })
       .catch((error) => {
