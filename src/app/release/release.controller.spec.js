@@ -1,5 +1,7 @@
 
-describe('controller', function () {
+'use strict';
+
+describe('controllers', function () {
 
   let vm;
 
@@ -17,7 +19,6 @@ describe('controller', function () {
   }));
 
   it('should have list of releases', function() {
-    //expect(vm.releases.length).toBe(2);
     expect(vm.releaseService.getAll().length).toBe(3);
   });
 });

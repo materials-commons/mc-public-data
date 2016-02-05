@@ -10,14 +10,4 @@ export class releaseService{
             return releases.plain();
         });
     }
-
-    add(release){
-        return this.Restangular.all('releases').post(release).then(function(response){
-            return response;
-        });
-    }
-
-    setList(releases){
-        this.releases = releases;
-    }
 }
