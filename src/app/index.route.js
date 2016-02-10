@@ -19,12 +19,18 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
             }
         })
       .state('main.home', {
-        url: 'home',
+        url: '/home',
         templateUrl: 'app/home/home.html',
         controller: 'HomeController',
         controllerAs: 'home',
         sticky: true,
         dsr: true
+      })
+      .state('main.login', {
+        url: '/login',
+        templateUrl: 'app/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login',
       })
       .state('main.home.tab1', {
         url: '/tab1',
