@@ -1,24 +1,23 @@
-<nav class="navbar navbar-static-top navbar-inverse">
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Make Data Public
-      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Public Data</a>
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+    <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li ui-sref="main.home" ui-sref-active="selected"><a>Home</a></li>
-        <!--<li   ui-sref="main.login" ui-sref-active="selected"><a>Login</a></li>-->
-        <li   ui-sref="main.release" ui-sref-active="selected"><a> Releases</a></li>
+        <li class="active"><a href="#">Home</a></li>
+        <li><a ui-sref="main.release">Releases</a></li>
       </ul>
-        <span class="input-group col-sm-5 pull-right" style="padding-top: 8px;">
-            <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-        </span>
-    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../navbar/"><i class="fa fa-fw fa-user fa-1x"></i>tammasr@umich.edu</a> </li>
+      </ul>
+    </div><!--/.nav-collapse -->
   </div>
 </nav>
 
