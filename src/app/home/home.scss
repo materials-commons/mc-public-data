@@ -1,31 +1,10 @@
-
-@mixin padding($padding: 20px){
-  padding: $padding;
+label{
+  font-weight: normal;
+  margin-bottom: 0px;
 }
 
-.home{
-  .list-group-item{
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-    border-radius: 0;
-    div{
-      border-bottom: 1px dotted darkgrey;
-    }
-  }
-  .home-tabs{
-    .tab1{
-      @include padding;
-    }
-    .tab2{
-      @include padding(60px);
-    }
-    .tab3{
-      @include padding(30px);
-    }
-  }
+.text-light{
+  color: grey;
 }
-
-
 
 

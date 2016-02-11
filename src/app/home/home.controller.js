@@ -1,17 +1,7 @@
 export class HomeController {
-
-  constructor() {
+  constructor(releases) {
     'ngInject';
-    //this.homeService = homeService;
-    //search();
+    this.releases = releases;
   }
-
-  //search() {
-  //  var hits = this.homeService.search(vm.query || '*');
-  //  hits.then(function(resp){
-  //    vm.results = resp.hits.hits;
-  //  });
-  //};
-
 }
 

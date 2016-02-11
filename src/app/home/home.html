@@ -1,39 +1,66 @@
-<div class="row">
-  <div class="col-sm-12">
-    <div class="jumbotron">
-      <h1>Home Page</h1>
-      <p>...</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+<div class="jumbotron">
+  <div class="container">
+    <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes
+      the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+
+    <div class="row">
+      <div class="col-xs-8 col-sm-offset-1">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">DOI</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+          <input type="text" class="form-control" placeholder="Search for...">
+        </div><!-- /input-group -->
+      </div>
+    </div>
+  </div><!-- /container -->
+</div><!-- /Jumbotron -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9" style="border-right: 1px solid #cfcfcf;">
+      <h4 class="text-uppercase">Top Projects</h4><br>
+      <div class="form-horizontal" ng-repeat="dataset in home.releases">
+        <h5>{{dataset.project}}</h5>
+        <div class="text-light">
+          <div class="form-group">
+            <label class="col-sm-2">Description</label>
+            <div class="col-sm-10">
+              {{dataset.description}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2">Author</label>
+            <div class="col-sm-10">
+              <span ng-repeat="a in dataset.authors">{{a}}<span ng-show=" ! $last ">, </span></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2  ">Files</label>
+            <div class="col-sm-10">
+              <a>{{dataset.files.length}} </a><i class="fa fa-fw fa-download"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2  ">DOI</label>
+            <div class="col-sm-10">
+              <a>ABC123</a>
+            </div>
+          </div>
+        </div>
+        <hr style="border-color: #cfcfcf"/>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <h4 class="text-uppercase">Popular Tags</h4>
     </div>
   </div>
-</div>
-<div class="row home">
-  <div class="col-sm-6">
-    <b>Recent Releases</b>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <div class="row">
-          <h4>Project 1 <i class="glyphicon glyphicon-download"></i></h4>
-          DOI: <a>354bjdsfj32582bmnbd8974924jkjfh87326</a><br>
-          Authors: Emmanuelle Marquis, John Allison, Krishna Garikipati
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <h4>Project 2 <i class="glyphicon glyphicon-download"></i></h4>
-          DOI: <a>354bjdsfj32582bmnbd8974924jkjfh87326</a><br>
-          Authors: Emmanuelle Marquis, John Allison, Krishna Garikipati
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <h4>Project 3 <i class="glyphicon glyphicon-download"></i></h4>
-          DOI: <a>354bjdsfj32582bmnbd8974924jkjfh87326</a><br>
-          Authors: Emmannuelle Marquis, John Allison, Krishna Garikipati
-        </div>
-      </li>
-    </ul>
-    <button class="btn btn-success">Add</button>
-  </div>
-  <div class="home-tabs" home-tab-directive></div>
 </div>
