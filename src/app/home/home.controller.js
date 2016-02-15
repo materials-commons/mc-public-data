@@ -4,11 +4,13 @@ export class HomeController {
     this.datasets = datasets;
     this.$state = $state;
     this.dropdown_list  = ["DOI", "Project name", "Authors"];
+    this.selection = "DOI";
+    this.searchTerm = "";
   }
-  //
-  //searchResults = function(type){
-  //  this.$state.go("main.search", {term: type});
-  //}
+
+  searchResults(){
+    this.$state.go("main.search", {selection: this.selection, searchTerm: this.searchTerm});
+  }
 
 }
 

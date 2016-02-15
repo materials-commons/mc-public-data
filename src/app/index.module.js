@@ -14,6 +14,7 @@ import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { HomeTabDirective } from '../app/home/home-tab-directive';
 import { loginService } from './login/login.service';
 import { releaseService } from './release/release-service';
+import { searchService } from './search/search-service';
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr',  'ct.ui.router.extras'])
   .config(config)
@@ -29,4 +30,5 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .controller('TopDatasetsController', TopDatasetsController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('homeTabDirective', HomeTabDirective)
-  .service('releaseService', releaseService);
+  .service('releaseService', releaseService)
+  .service('searchService', searchService);
