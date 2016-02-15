@@ -10,12 +10,9 @@
             <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle=""  data-toggle="dropdown">
               Search By <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">DOI</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li ng-repeat="item in home.dropdown_list"><a ng-click="searchResults(item)">{{item}}</a></li>
             </ul>
+
           </div><!-- /btn-group -->
           <input type="text" class="form-control" placeholder="Search for...">
         </div><!-- /input-group -->

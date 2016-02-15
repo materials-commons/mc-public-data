@@ -58,6 +58,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
           }]
         },
         templateUrl: 'app/home/datasets/recent-datasets.html'
+      })
+      .state('main.search', {
+        url: '/search/:term',
+        templateUrl: 'app/search/search_results.html',
+        controller: 'SearchController',
+        controllerAs: 'search'
       });
     $urlRouterProvider.otherwise('/');
 }
