@@ -1,7 +1,6 @@
-export class HomeController {
+export class TopDatasetsController {
   constructor(datasets) {
     'ngInject';
     this.datasets = datasets;
   }
 }
-

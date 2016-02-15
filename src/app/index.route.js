@@ -26,7 +26,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         sticky: true,
         dsr: true,
         resolve: {
-          releases: ["releaseService", function(releaseService){
+          datasets: ["releaseService", function(releaseService){
             return releaseService.getAll();
           }]
         }
@@ -37,18 +37,27 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         controller: 'LoginController',
         controllerAs: 'login'
       })
-      .state('main.home.tab1', {
-        url: '/tab1',
-        template: "<h3>Tab1:</h3><div class='well tab1'><ul><li>First....</li><li>Second...</li><li>Third...</li></ul></div>"
+      .state('main.home.top', {
+        url: '/top',
+        controller: 'TopDatasetsController',
+        controllerAs: 'top',
+        resolve: {
+          datasets: ["releaseService", function(releaseService){
+            return releaseService.topList();
+          }]
+        },
+        templateUrl: 'app/home/datasets/top-datasets.html'
       })
-      .state('main.home.tab2', {
-        url: '/tab2',
-        template: "<h3>Tab2:</h3><div class='well tab2'><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul></div>"
-      })
-      .state('main.home.tab3', {
-        url: '/tab3',
-        template: "<h3>Tab3:</h3><div class='well tab3'><ul><li>stuff 1</li><li>stuff 2</li><li>stuff 3</li></ul></div>"
+      .state('main.home.recent', {
+        url: '/recent',
+        controller: 'RecentDatasetsController',
+        controllerAs: 'recent',
+        resolve: {
+          datasets: ["releaseService", function(releaseService){
+            return releaseService.getRecent();
+          }]
+        },
+        templateUrl: 'app/home/datasets/recent-datasets.html'
       });
-
     $urlRouterProvider.otherwise('/');
 }

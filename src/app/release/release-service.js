@@ -10,4 +10,16 @@ export class releaseService{
             return releases.plain();
         });
     }
+
+    getRecent(){
+      return this.Restangular.one('releases').getList().then(function(releases){
+        return releases.plain();
+      });
+    }
+
+    topList(){
+      return this.Restangular.one('releases').getList().then(function(releases){
+        return releases.plain();
+      });
+    }
 }
