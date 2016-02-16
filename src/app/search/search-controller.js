@@ -1,17 +1,12 @@
 export class SearchController {
-  constructor($state, searchService) {
+  constructor($state, searchService, results) {
     'ngInject';
 
     this.searchService = searchService;
     this.dropdown_list  = ["DOI", "Project name", "Authors"];
     this.selection = $state.params.selection;
     this.searchTerm = $state.params.searchTerm;
-    //search(this.searchTerm, this.selection);
-  }
-
-  search(query, by){
-    //query searchservice
-
+    this.results = results;
   }
 }
 

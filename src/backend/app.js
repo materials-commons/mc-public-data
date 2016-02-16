@@ -17,7 +17,7 @@ app.use(cors());
 router.prefix('/api/v1');
 
 router
-    .get('/releases', release.getMockReleases);
+    .get('/datasets', release.getReleases);
 
 app.use(router.routes());
 app.use(router.allowedMethods());

@@ -63,7 +63,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/search/:selection/:searchTerm',
       templateUrl: 'app/search/search_results.html',
       controller: 'SearchController',
-      controllerAs: 'search'
+      controllerAs: 'search',
+      resolve: {
+        results: ["searchService", function (searchService) {
+          return searchService.searchByDOI();
+        }]
+      }
     });
   $urlRouterProvider.otherwise('/');
 }

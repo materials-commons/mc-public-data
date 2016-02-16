@@ -6,19 +6,19 @@ export class releaseService{
     }
 
     getAll(){
-        return this.Restangular.one('releases').getList().then(function(releases){
+        return this.Restangular.one('datasets').getList().then(function(releases){
             return releases.plain();
         });
     }
 
     getRecent(){
-      return this.Restangular.one('releases').getList().then(function(releases){
+      return this.Restangular.one('datasets').getList().then(function(releases){
         return releases.plain();
       });
     }
 
     topList(){
-      return this.Restangular.one('releases').getList().then(function(releases){
+      return this.Restangular.one('datasets').getList().then(function(releases){
         return releases.plain();
       });
     }

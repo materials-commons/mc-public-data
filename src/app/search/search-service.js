@@ -5,19 +5,7 @@ export class searchService{
   }
 
   searchByDOI(){
-    return this.Restangular.one('releases').getList().then(function(releases){
-      return releases.plain();
-    });
-  }
-
-  searchByProjectName(){
-    return this.Restangular.one('releases').getList().then(function(releases){
-      return releases.plain();
-    });
-  }
-
-  searchByAuthors(){
-    return this.Restangular.one('releases').getList().then(function(releases){
+    return this.Restangular.one('datasets').getList().then(function(releases){
       return releases.plain();
     });
   }
