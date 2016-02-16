@@ -11,12 +11,13 @@ import { SearchController } from './search/search-controller';
 import { RecentDatasetsController } from './home/datasets/recent-datasets-controller';
 import { TopDatasetsController } from './home/datasets/top-datasets-controller';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+import { SearchBarDirective } from '../app/directives/search-bar-directive';
 import { HomeTabDirective } from '../app/home/home-tab-directive';
 import { loginService } from './login/login.service';
 import { releaseService } from './release/release-service';
 import { searchService } from './search/search-service';
 
-angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr',  'ct.ui.router.extras'])
+angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr',  'ct.ui.router.extras', 'angularUtils.directives.dirPagination'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)
@@ -30,5 +31,6 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .controller('TopDatasetsController', TopDatasetsController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('homeTabDirective', HomeTabDirective)
+  .directive('searchBarDirective', SearchBarDirective)
   .service('releaseService', releaseService)
   .service('searchService', searchService);

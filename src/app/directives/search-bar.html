@@ -1,0 +1,12 @@
+<form class="search" ng-submit="search.searchResults(item)">
+  <div class="input-group">
+    <div class="input-group-btn dropdown" dropdown="">
+      <button type="button" class="btn btn-default" dropdown-toggle="" data-toggle="dropdown">
+        {{search.selection}} <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li ng-repeat="item in search.dropdown_list"><a ng-click="search.selection = item">{{item}}</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+    <input type="text" class="form-control" ng-model="search.searchTerm" placeholder="Search for...">
+  </div><!-- /input-group -->
+</form>

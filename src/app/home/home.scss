@@ -7,4 +7,22 @@ label{
   color: grey;
 }
 
+.jumbotron.custom{
+  background-color: $orange;
+  margin-top: -20px;
+}
+
+.nav.nav-tabs{
+  li{
+    a{
+      color: $orange;
+      font-weight: bold;
+    }
+  }
+}
+
+.theme{
+  color: $orange;
+}
+
 

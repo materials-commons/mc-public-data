@@ -1,22 +1,25 @@
-<div class="jumbotron">
+<div class="jumbotron custom">
   <div class="container">
     <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes
       the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
 
     <div class="row">
       <div class="col-xs-8 col-sm-offset-1">
-        <form ng-submit="home.searchResults(item)">
-          <div class="input-group">
-            <div class="input-group-btn dropdown" dropdown="">
-              <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle=""  data-toggle="dropdown">
-                {{home.selection}}  <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li ng-repeat="item in home.dropdown_list" ><a ng-click="home.selection = item">{{item}}</a></li>
-              </ul>
-            </div><!-- /btn-group -->
-            <input type="text" class="form-control" ng-model="home.searchTerm" placeholder="Search for...">
-          </div><!-- /input-group -->
-        </form>
+        <search-bar-directive>
+
+        </search-bar-directive>
+        <!--<form ng-submit="home.searchResults(item)">-->
+        <!--<div class="input-group">-->
+        <!--<div class="input-group-btn dropdown" dropdown="">-->
+        <!--<button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle=""  data-toggle="dropdown">-->
+        <!--{{home.selection}}  <span class="caret"></span></button>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li ng-repeat="item in home.dropdown_list" ><a ng-click="home.selection = item">{{item}}</a></li>-->
+        <!--</ul>-->
+        <!--</div>&lt;!&ndash; /btn-group &ndash;&gt;-->
+        <!--<input type="text" class="form-control" ng-model="home.searchTerm" placeholder="Search for...">-->
+        <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
+        <!--</form>-->
       </div>
     </div>
   </div><!-- /container -->
@@ -28,7 +31,7 @@
       <div home-tab-directive></div>
     </div>
     <div class="col-sm-3">
-      <h4 class="text-uppercase">Popular Tags</h4>
+      <h4 class="text-uppercase theme">Popular Tags</h4>
     </div>
   </div>
 </div>

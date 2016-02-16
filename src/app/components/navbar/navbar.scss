@@ -1,3 +1,30 @@
-.navbar-default .navbar-nav > li > a {
-  color: #F47D64;
+
+.navbar-default{
+  background-color: #fff;
+  border-color: #fff;
+  .navbar-nav {
+    li {
+      a{
+        color: $orange;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      a:focus{
+        background-color: #fff;
+      }
+    }
+    .active {
+      a{
+        background-color: #fff;
+        color: $orange;
+      }
+      a:hover{
+        background-color: #fff;
+        color: #555;
+      }
+      a:focus{
+        background-color: #fff;
+      }
+    }
+  }
 }
