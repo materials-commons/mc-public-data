@@ -7,6 +7,7 @@ export class SearchController {
     this.selection = $state.params.selection;
     this.searchTerm = $state.params.searchTerm;
     this.results = results;
+    console.dir(results);
     this.pageSize = 2;
   }
 

@@ -8,9 +8,5 @@ export class HomeController {
     this.searchTerm = "";
   }
 
-  searchResults(){
-    this.$state.go("main.search", {selection: this.selection, searchTerm: this.searchTerm});
-  }
-
 }
 
