@@ -16,7 +16,7 @@ class SearchBarController {
 
   constructor ($state) {
     'ngInject';
-    this.dropdown_list  = ["DOI", "Project name", "Authors"];
+    this.dropdown_list  = ["DOI", "Project name", "Authors", "Institution", "Process Type", "Material Type"];
     this.$state = $state;
     if (Object.keys($state.params).length > 0){
       this.selection = $state.params.selection;
