@@ -7,10 +7,10 @@ export class PopUpController {
 
   ok() {
     this.$uibModalInstance.close();
-  };
+  }
 
   cancel() {
     this.$uibModalInstance.dismiss('cancel');
-  };
+  }
 }
 
