@@ -5,7 +5,7 @@ export function SearchBarDirective() {
     restrict: 'E',
     templateUrl: 'app/directives/search-bar.html',
     controller: SearchBarController,
-    controllerAs: 'searchBar',
+    controllerAs: 'ctrl',
     bindToController: true
   };
 

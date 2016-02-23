@@ -1,14 +1,17 @@
 <div>
-  <form class="search" ng-submit="searchBar.searchResults(item)">
+  <form class="search" ng-submit="ctrl.searchResults(item)">
     <div class="input-group">
-      <div class="input-group-btn dropdown" dropdown="">
-        <button type="button" class="btn btn-default" dropdown-toggle="" data-toggle="dropdown">
-          {{searchBar.selection}} <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li ng-repeat="item in searchBar.dropdown_list"><a ng-click="searchBar.selection = item">{{item}}</a></li>
-        </ul>
+      <div class="input-group-btn">
+        <div class="btn-group" uib-dropdown >
+          <button  type="button" class="btn btn-default" uib-dropdown-toggle>
+            {{ctrl.selection}} <span class="caret"></span>
+          </button>
+          <ul uib-dropdown-menu>
+            <li ng-repeat="item in ctrl.dropdown_list"><a ng-click="ctrl.selection = item">{{item}}</a></li>
+          </ul>
+        </div>
       </div><!-- /btn-group -->
-      <input type="text" class="form-control" ng-model="searchBar.searchTerm" placeholder="Search for...">
+      <input type="text" class="form-control" ng-model="ctrl.searchTerm" placeholder="Search for...">
     </div><!-- /input-group -->
   </form>
 </div>

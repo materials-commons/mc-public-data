@@ -12,7 +12,6 @@ export class SearchController {
   }
 
   open(size, dataset){
-    console.dir(dataset);
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: 'app/search/pop-up.html',
@@ -29,10 +28,8 @@ export class SearchController {
     });
 
     modalInstance.result.then(function (selectedItem) {
-      console.log('called selected');
       this.selected = selectedItem;
     });
-  };
-
+  }
 }
 
