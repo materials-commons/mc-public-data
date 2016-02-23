@@ -18,7 +18,6 @@ class SearchBarController {
     'ngInject';
     this.dropdown_list  = ["DOI", "Project name", "Authors"];
     this.$state = $state;
-    console.dir($state);
     if (Object.keys($state.params).length > 0){
       this.selection = $state.params.selection;
       this.searchTerm = $state.params.searchTerm;
