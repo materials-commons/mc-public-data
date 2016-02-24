@@ -69,6 +69,17 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
           return searchService.searchByDOI();
         }]
       }
+    })
+    .state('main.details', {
+      url: '/details/:id',
+      templateUrl: 'app/details/details.html',
+      controller: 'DetailsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        dataset: ["releaseService", "$stateParams",function (releaseService, $stateParams) {
+          return releaseService.getByID($stateParams.id);
+        }]
+      }
     });
   $urlRouterProvider.otherwise('/');
 }

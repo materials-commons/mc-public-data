@@ -22,4 +22,10 @@ export class releaseService{
         return releases.plain();
       });
     }
+
+    getByID(id){
+      return this.Restangular.one('datasets', id).get().then(function(dataset){
+        return dataset.plain();
+      });
+    }
 }

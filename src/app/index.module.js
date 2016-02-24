@@ -16,6 +16,7 @@ import { releaseService } from './release/release-service';
 import { searchService } from './search/search-service';
 import { SearchBarDirective } from '../app/directives/search-bar-directive';
 import { PopUpController } from './search/pop-up-controller';
+import { DetailsController } from './details/details-controller';
 
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr',  'ct.ui.router.extras', 'angularUtils.directives.dirPagination'])
@@ -35,5 +36,6 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .service('releaseService', releaseService)
   .service('searchService', searchService)
   .directive('searchBarDirective', SearchBarDirective)
-  .controller('PopUpController', PopUpController);
+  .controller('PopUpController', PopUpController)
+  .controller('DetailsController', DetailsController);
 

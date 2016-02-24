@@ -16,8 +16,9 @@ var app =  koa();
 app.use(cors());
 router.prefix('/api/v1');
 
-router
-    .get('/datasets', release.getReleases);
+router.get('/datasets', release.getAll);
+router.get('/datasets/:id', release.getOne);
+
 
 app.use(router.routes());
 app.use(router.allowedMethods());
