@@ -6,3 +6,4 @@ coverage/
 .tmp/
 dist/
 rethinkdb_data/
+db_dumps/
