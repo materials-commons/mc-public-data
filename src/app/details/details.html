@@ -6,8 +6,8 @@
         <p class="small"><span>44 views </span> <span>10 Appreciations</span><span class="pull-right"><i
           class="fa fa-fw fa-bookmark-o"></i>Bookmark</span></p>
         <p><b>Files ({{ctrl.dataset.datafiles.length}})</b>
-          <a class="pull-right" style="padding-left:10px;"><i class="theme fa fa-fw fa-th"></i></a>
           <a class="pull-right" style="padding-left:20px;"><i class="fa fa-fw fa-list"></i></a>
+          <a class="pull-right theme" style="padding-left:10px;"><i class="fa fa-fw fa-th"></i></a>
           <a class="pull-right"><i class="fa fa-fw fa-download"></i>Download All</a>
         </p>
         <hr/>
@@ -18,7 +18,7 @@
             <img src="app/ui-bootstrap.png" alt="...">
           </div>
           <p class="row">
-               {{file}}
+            {{file}}
           </p>
         </div>
       </div>
@@ -30,11 +30,43 @@
           <label for="comment">Comments (25)</label>
           <hr/>
           <textarea class="form-control" rows="5" id="comment"></textarea>
+          <button class="btn pull-right theme text-uppercase">Post</button>
         </div>
       </div>
     </div>
     <div class="col-sm-4">
+      <div class="bold">Description</div>
+      <p>Loreum ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard
+        dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble</p>
 
+      <div class="form-horizontal">
+        <div class="text-light">
+          <div class="form-group">
+            <label class="col-sm-2">DOI</label>
+            <div class="col-sm-10 theme">
+              {{ctrl.dataset.DOI}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2">Published</label>
+            <div class="col-sm-10">
+              {{ctrl.dataset.birthtime}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2">Authors</label>
+            <div class="col-sm-10">
+              <span ng-repeat="a in ctrl.dataset.authors" class="theme">{{a}}<span ng-show=" ! $last ">, </span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <button type="button" class="btn btn-circle btn-xl">
+          <i class="fa fa-thumbs-o-up"></i></button>
+      </div>
     </div>
   </div>
 </div>
