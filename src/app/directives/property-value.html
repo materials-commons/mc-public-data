@@ -1,0 +1,37 @@
+<div ng-switch on="ctrl.property">
+  <!--Authors-->
+  <div ng-switch-when="Authors" >
+    <div class="form-group">
+      <label class="col-sm-2">{{ctrl.property}}</label>
+      <div class="col-sm-10">
+        <span ng-repeat="a in ctrl.value">{{a}}<span ng-show=" ! $last ">, </span></span>
+      </div>
+    </div>
+  </div>
+  <!--Files-->
+  <div ng-switch-when="Files">
+    <div class="form-group">
+      <label class="col-sm-2">{{ctrl.property}}</label>
+      <div class="col-sm-10">
+        {{ctrl.value}}
+        <p class="theme"><a class="theme">download zip</a><i class="fa fa-fw fa-download"></i></p>
+      </div>
+    </div>
+  </div>
+  <!--Others-->
+  <div ng-switch-default>
+    <div class="form-group">
+      <label class="col-sm-2">{{ctrl.property}}</label>
+      <div ng-if="!ctrl.apply" class="col-sm-10">
+        {{ctrl.value}}
+      </div>
+      <div ng-if="ctrl.apply" class="col-sm-10">
+        <a class="theme">{{ctrl.value}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

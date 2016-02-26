@@ -3,7 +3,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/',
-      templateUrl: 'app/main/main.html',
+      templateUrl: 'app/main.html',
       controller: 'MainController',
       controllerAs: 'main'
     })
@@ -33,7 +33,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     })
     .state('main.login', {
       url: '/login',
-      templateUrl: 'app/login/login.html',
+      templateUrl: 'app/components/login/login.html',
       controller: 'LoginController',
       controllerAs: 'login'
     })
