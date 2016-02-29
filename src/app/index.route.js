@@ -35,7 +35,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: 'app/components/login/login.html',
       controller: 'LoginController',
-      controllerAs: 'login'
+      controllerAs: 'ctrl'
     })
     .state('main.home.top', {
       url: '/top',
@@ -83,6 +83,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
           return searchService.searchByDOI();
         }]
       }
+    })
+    .state('main.register', {
+      url: '/register',
+      templateUrl: 'app/components/register/register.html',
+      controller: 'RegisterController',
+      controllerAs: 'vm'
     });
   $urlRouterProvider.otherwise('/');
 }

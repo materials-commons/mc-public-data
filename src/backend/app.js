@@ -10,14 +10,16 @@ var koa = require('koa');
 var router = require('koa-router')();
 var cors = require('koa-cors');
 var release = require('./db/release');
+var user = require('./db/user');
 
 
 var app =  koa();
 app.use(cors());
 router.prefix('/api/v1');
-
 router.get('/datasets', release.getAll);
 router.get('/datasets/:id', release.getOne);
+router.post('/users', user.create);
+router.get('/user/:email', user.get);
 
 
 app.use(router.routes());
