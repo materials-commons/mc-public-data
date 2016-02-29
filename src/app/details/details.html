@@ -76,6 +76,17 @@
           <p class="small theme">Appreciate Work</p>
       </div><br>
       <h4>More data sets by these authors</h4>
+      <div class="form-horizontal" ng-repeat="ds in ctrl.datasets">
+        <h5>{{ds.title}}</h5>
+        <div class="text-light">
+          {{ds.description}}
+          <property-value property="Authors" value="ds.authors"></property-value>
+          <property-value property="Files" value="ds.files.length"></property-value>
+          <property-value property="DOI" value="ds.DOI" ui-sref="main.details({id: ds.id})"
+                          apply="theme"></property-value>
+        </div>
+        <hr/>
+      </div>
     </div>
   </div>
 </div>
