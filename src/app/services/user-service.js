@@ -24,5 +24,5 @@ export class userService {
   //    .then(function(result){
   //      return result;
   //    });
-  //}
+  }
 }
