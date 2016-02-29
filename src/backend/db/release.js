@@ -12,7 +12,11 @@ module.exports.getAll = function* (next){
 };
 
 module.exports.getOne = function* (next){
-  this.body = yield r.table('datasets').get(this.params.id);
+  this.body = yield r.table('datasets').get(this.params.id).merge(function(rel){
+    return {
+      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
+    }
+  });
   yield next;
 };
 

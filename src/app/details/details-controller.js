@@ -3,6 +3,7 @@ export class DetailsController {
     'ngInject';
 
     this.dataset = dataset;
+    console.dir(this.dataset);
   }
 }
 
