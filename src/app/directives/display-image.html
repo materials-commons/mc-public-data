@@ -1,7 +1,7 @@
 <div ng-switch="ctrl.file.fileType">
   <div ng-switch-when="image">
     <a><img class="no-padding img-responsive center-block"
-            ngxls-src="{{ctrl.file.src}}"> </a>
+            ng-src="{{ctrl.file.src}}"> </a>
     <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
   </div>
   <div ng-switch-when="pdf">
@@ -24,6 +24,7 @@
   </div>
   <div ng-switch-default>
     <div ng-if="ctrl.file.size <= 10000"
+         ng-click="ctrl.showImage(ctrl.file)"
          hljs include="ctrl.file.src">
     </div>
     <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
