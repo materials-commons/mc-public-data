@@ -15,26 +15,17 @@
       </div>
       <div class="row body">
         <div dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12" class="col-sm-3">
-          <div class="thumbnail">
-            <img src="app/test.jpg" alt="...">
-          </div>
-          <div ng-switch="file.mediatype.description" class="row" style="padding-left: 25px">
-              <div ng-switch-when="TIFF"> <i class="fa fa-fw fa-file-image-o theme"></i>{{file.name | limitTo: 10}}...</div>
-              <div ng-switch-when="JPEG"> <i class="fa fa-fw fa-file-image-o theme"></i>{{file.name | limitTo: 10}}...</div>
-              <div ng-switch-when="BMP"> <i class="fa fa-fw fa-file-image-o theme"></i>{{file.name | limitTo: 10}}...</div>
-              <div ng-switch-when="Binary"> <i class="fa fa-fw fa-file-code-o theme"></i>{{file | limitTo: 10}}...</div>
-              <div ng-switch-when="Text"> <i class="fa fa-fw fa-file-text-o theme"></i>{{file | limitTo: 10}}...</div>
-              <div ng-switch-when="MS-Excel"> <i class="fa fa-fw fa-file-excel-o theme"></i>{{file | limitTo: 10}}...</div>
-          </div>
+          <display-image file="file"></display-image>
         </div>
       </div>
       <div class="row">
         <dir-pagination-controls></dir-pagination-controls>
-      </div> <br>
+      </div>
+      <br>
       <div class="row">
         <div class="form-group">
           <label for="comment">Comments (25)</label>
-          <hr style="margin-top: 5px;" />
+          <hr style="margin-top: 5px;"/>
           <textarea class="form-control" rows="5" id="comment"></textarea>
           <button class="btn pull-right theme text-uppercase">Post</button>
         </div>
@@ -46,37 +37,38 @@
       <p>Loreum ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard
         dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble</p>
-        <div class="form-horizontal">
-          <div class="text-light">
-            <div class="form-group">
-              <label class="col-sm-2">DOI:</label>
-              <div class="col-sm-10 theme">
-                {{ctrl.dataset.DOI}}
-              </div>
+      <div class="form-horizontal">
+        <div class="text-light">
+          <div class="form-group">
+            <label class="col-sm-2">DOI:</label>
+            <div class="col-sm-10 theme">
+              {{ctrl.dataset.DOI}}
             </div>
-            <div class="form-group">
-              <label class="col-sm-2">Published:</label>
-              <div class="col-sm-10">
-                {{ctrl.dataset.birthtime}}
-              </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2">Published:</label>
+            <div class="col-sm-10">
+              {{ctrl.dataset.birthtime}}
             </div>
-            <div class="form-group">
-              <label class="col-sm-2">Authors:</label>
-              <div class="col-sm-10">
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2">Authors:</label>
+            <div class="col-sm-10">
                 <span ng-repeat="a in ctrl.dataset.authors" class="theme">{{a}}<span
                   ng-show=" ! $last ">, </span></span>
-              </div>
             </div>
           </div>
         </div>
+      </div>
       <br>
       <div class="row text-center">
         <button type="button" class="btn btn-circle btn-xl">
-          <i class="fa fa-thumbs-up fa-1x" ></i></button>
-          <p class="small theme">Appreciate Work</p>
-      </div><br>
+          <i class="fa fa-thumbs-up fa-1x"></i></button>
+        <p class="small theme">Appreciate Work</p>
+      </div>
+      <br>
       <h4>More data sets by these authors</h4>
-      <div class="form-horizontal" ng-repeat="ds in ctrl.datasets">
+      <div class="form-horizontal" ng-repeat="ds in ctrl.other_datasets">
         <h5>{{ds.title}}</h5>
         <div class="text-light">
           {{ds.description}}

@@ -12,17 +12,10 @@ export class userService {
     });
   }
 
-  authenticate(user) {
+  getUser(user) {
     return this.Restangular.one('user', user.email).get()
       .then(function (result) {
-        return result;
+        return result[0];
       });
-  }
-
-  getApikey() {
-      return this.Restangular.one('user', user.email).get().pluck('apikey')
-        .then(function(result){
-          return result;
-        });
   }
 }

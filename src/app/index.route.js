@@ -81,6 +81,9 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }],
         datasets: ["searchService", function (searchService) {
           return searchService.searchByDOI();
+        }],
+        user: ["userService", function (userService) {
+          return userService.getUser({email: "tammasr@umich.edu"});
         }]
       }
     })

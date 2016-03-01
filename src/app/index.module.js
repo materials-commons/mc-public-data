@@ -15,6 +15,7 @@ import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { HomeTabDirective } from '../app/home/home-tab-directive';
 import { SearchBarDirective } from '../app/directives/search-bar-directive';
 import { PropertyValueDirective } from '../app/directives/property-value-directive';
+import { DisplayImageDirective } from '../app/directives/display-image-directive';
 import { releaseService } from './services/release-service';
 import { searchService } from './search/search-service';
 import { userService } from './services/user-service';
@@ -37,7 +38,8 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .directive('homeTabDirective', HomeTabDirective)
   .directive('searchBarDirective', SearchBarDirective)
   .directive('propertyValue', PropertyValueDirective)
+  .directive('displayImage', DisplayImageDirective)
   .service('releaseService', releaseService)
   .service('searchService', searchService)
-  .service('userService', userService);
+  .service('userService', userService)
 

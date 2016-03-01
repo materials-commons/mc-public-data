@@ -9,7 +9,7 @@ export class LoginController {
   }
 
   login() {
-    this.user = this.userService.authenticate(this.user);
+    this.user = this.userService.getUser(this.user);
   }
 }
 
