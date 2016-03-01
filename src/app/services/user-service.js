@@ -1,5 +1,5 @@
 export class userService {
-  constructor ($log, Restangular) {
+  constructor($log, Restangular) {
     'ngInject';
 
     this.$log = $log;
@@ -7,22 +7,22 @@ export class userService {
   }
 
   create(user) {
-    return this.Restangular.one('users').customPOST(user).then(function(result){
+    return this.Restangular.one('users').customPOST(user).then(function (result) {
       return result;
     });
   }
 
   authenticate(user) {
     return this.Restangular.one('user', user.email).get()
-      .then(function(result){
+      .then(function (result) {
         return result;
       });
   }
 
-  getApikey(){
-  //  return this.Restangular.one('user', user.email).get()
-  //    .then(function(result){
-  //      return result;
-  //    });
+  getApikey() {
+      return this.Restangular.one('user', user.email).get().pluck('apikey')
+        .then(function(result){
+          return result;
+        });
   }
 }

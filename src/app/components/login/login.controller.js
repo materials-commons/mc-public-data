@@ -1,5 +1,5 @@
 export class LoginController {
-  constructor (userService) {
+  constructor(userService) {
     'ngInject';
     this.user = {
       email: "",
@@ -8,7 +8,7 @@ export class LoginController {
     this.userService = userService;
   }
 
-  login(){
+  login() {
     this.user = this.userService.authenticate(this.user);
   }
 }
