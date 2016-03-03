@@ -1,11 +1,14 @@
 export class LoginController {
-  constructor(userService, $state) {
+  constructor(userService, $state, $uibModalInstance) {
     'ngInject';
+
     this.user = {
       email: "",
       password: ""
     };
+    this.tab = "login";
     this.userService = userService;
+    this.$uibModalInstance = $uibModalInstance;
     this.$state = $state;
   }
 
@@ -16,5 +19,17 @@ export class LoginController {
       this.$state.go("main.home");
     });
   }
+
+  setTab(tab) {
+    this.tab = tab;
+  }
+
+  isSet(tabId) {
+    return this.tab === tabId;
+  }
+
+  //ok() {
+  //  this.$uibModalInstance.close($scope.selected.item);
+  //}
 }
 
