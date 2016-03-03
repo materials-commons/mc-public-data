@@ -12,16 +12,19 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="main.login"><i class="fa fa-fw fa-home"></i>Login</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul ng-show="!email_address" class="nav navbar-nav navbar-right">
+        <li ui-sref-active="active">
+          <a ui-sref="main.login"><i class="fa fa-fw fa-home"></i>Login</a></li>
+      </ul>
+      <ul ng-show="email_address" class="nav navbar-nav navbar-right">
         <li uib-dropdown on-toggle="toggled(open)">
           <a uib-dropdown-toggle><i class="fa fa-fw fa-user fa-1x"></i>
-            tammasr@umich.edu <span class="caret"></span></a>
+            {{email_address}}<span class="caret"></span></a>
             <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
               <li><a><i class="fa fa-cog"></i>
                 Settings</a></li>
-              <li><a><i class="fa fa-sign-out"></i>
+              <li><a ng-click="ctrl.logout()"><i class="fa fa-sign-out"></i>
                 Logout</a></li>
             </ul>
         </li>

@@ -3,7 +3,6 @@ export class DetailsController {
     'ngInject';
 
     this.dataset = dataset;
-    console.dir(this.dataset);
     this.other_datasets = datasets;
     this.user = user;
   }

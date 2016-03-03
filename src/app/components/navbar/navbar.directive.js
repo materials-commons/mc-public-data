@@ -8,7 +8,7 @@ export function NavbarDirective() {
     //    //creationDate: '='
     //},
     controller: NavbarController,
-    controllerAs: 'vm',
+    controllerAs: 'ctrl',
     bindToController: true
   };
 
@@ -16,10 +16,13 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor () {
+  constructor (userService) {
     'ngInject';
 
-    // "this.creation" is available by directive option "bindToController: true"
-    //this.relativeDate = moment(this.creationDate).fromNow();
+    this.userService= userService;
+  }
+
+  logout(){
+    this.userService.removeAuthentication();
   }
 }
