@@ -3,7 +3,7 @@
     <div class="col-sm-7 details">
       <div class="header">
         <h4>{{ctrl.dataset.title}}</h4>
-        <p class="small"><span>44 views </span> <span>10 Appreciations</span><span class="pull-right"><i
+        <p class="small"><span>{{ctrl.user_actions.views}} views </span> <span>{{ctrl.user_actions.appreciations}} Appreciations</span><span class="pull-right"><i
           class="fa fa-fw fa-bookmark-o"></i>Bookmark</span></p>
         <div style="padding-top: 10px;">
           <b>Files ({{ctrl.dataset.datafiles.length}})</b>
@@ -62,7 +62,7 @@
       </div>
       <br>
       <div class="row text-center">
-        <button type="button" class="btn btn-circle btn-xl">
+        <button ng-click="ctrl.appreciate()" type="button" class="btn btn-circle btn-xl">
           <i class="fa fa-thumbs-up fa-1x"></i></button>
         <p class="small theme">Appreciate Work</p>
       </div>
