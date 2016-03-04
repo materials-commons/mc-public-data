@@ -1,0 +1,31 @@
+<div class="form-login">
+  <form name="form" ng-submit="ctrl.register()" role="form">
+    <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+      <label for="firstname">First name</label>
+      <input type="text" name="firstName" id="firstName" class="form-control" ng-model="ctrl.user.firstName" required/>
+      <span ng-show="form.firstName.$dirty && form.firstName.$error.required"
+            class="help-block">First name is required</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+      <label for="lastname">Last name</label>
+      <input type="text" name="lastName" id="lastname" class="form-control" ng-model="ctrl.user.lastName" required/>
+      <span ng-show="form.lastName.$dirty && form.lastName.$error.required"
+            class="help-block">Last name is required</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-control" ng-model="ctrl.user.email" required/>
+      <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Username is required</span>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" ng-model="ctrl.user.password" required/>
+      <span ng-show="form.password.$dirty && form.password.$error.required"
+            class="help-block">Password is required</span>
+    </div>
+    <div class="form-actions">
+      <button type="submit" ng-disabled="form.$invalid || ctrl.dataLoading" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>
+

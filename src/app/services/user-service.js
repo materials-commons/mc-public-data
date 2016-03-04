@@ -1,5 +1,5 @@
 export class userService {
-  constructor($log, Restangular, $window, $state, $rootScope) {
+  constructor($log, Restangular, $window, $state, $rootScope, $uibModal) {
     'ngInject';
 
     this.$log = $log;
@@ -7,6 +7,7 @@ export class userService {
     this.$window = $window;
     this.$state = $state;
     this.$rootScope = $rootScope;
+    this.$uibModal = $uibModal;
 
 
     if (this.$window.sessionStorage.mcuser) {
@@ -51,4 +52,20 @@ export class userService {
   email(){
     return this.mcuser ? this.mcuser.email: 'Login';
   }
+
+  openModal(){
+    var modalInstance = this.$uibModal.open({
+      animation: true,
+      templateUrl: '/app/components/sign/sign.html',
+      controller: 'SignController',
+      controllerAs: 'ctrl',
+      size: 'lg'
+    });
+
+    modalInstance.result.then((selectedItem)=> {
+    }, function () {
+      this.$log.info('Modal dismissed at : ' + new Date());
+    });
+  };
+
 }

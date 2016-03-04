@@ -16,31 +16,21 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor (userService, $uibModal, $log) {
+  constructor (userService, $uibModal, $log, $state) {
     'ngInject';
 
     this.userService= userService;
     this.$uibModal= $uibModal;
     this.$log= $log;
+    this.$state= $state;
   }
 
   logout(){
     this.userService.removeAuthentication();
+    this.$state.go("main.home");
   }
 
-  login(size){
-    var modalInstance = this.$uibModal.open({
-      animation: true,
-      templateUrl: '/app/components/login/login.html',
-      controller: 'LoginController',
-      controllerAs: 'ctrl',
-      size: size
-    });
-
-    modalInstance.result.then((selectedItem)=> {
-    }, function () {
-      this.$log.info('Modal dismissed at : ' + new Date());
-    });
-  };
-
+  sign() {
+    this.userService.openModal();
+  }
 }

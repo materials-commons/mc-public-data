@@ -4,8 +4,9 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main.controller.js';
 import { HomeController } from './home/home.controller';
-import { LoginController } from '../app/components/login/login.controller';
-import { RegisterController } from '../app/components/register/register-controller';
+import { SignController } from '../app/components/sign/sign-controller';
+import { LoginDirective } from '../app/components/sign/login/login.directive';
+import { RegisterDirective } from '../app/components/sign/register/register-directive';
 import { SearchController } from './search/search-controller';
 import { RecentDatasetsController } from './home/datasets/recent-datasets-controller';
 import { TopDatasetsController } from './home/datasets/top-datasets-controller';
@@ -27,8 +28,7 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .run(runBlock)
   .controller('MainController', MainController)
   .controller('HomeController', HomeController)
-  .controller('LoginController', LoginController)
-  .controller('RegisterController', RegisterController)
+  .controller('SignController', SignController)
   .controller('SearchController', SearchController)
   .controller('RecentDatasetsController', RecentDatasetsController)
   .controller('TopDatasetsController', TopDatasetsController)
@@ -39,7 +39,9 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .directive('searchBarDirective', SearchBarDirective)
   .directive('propertyValue', PropertyValueDirective)
   .directive('displayImage', DisplayImageDirective)
+  .directive('loginDirective', LoginDirective)
+  .directive('registerDirective', RegisterDirective)
   .service('releaseService', releaseService)
   .service('searchService', searchService)
-  .service('userService', userService)
+  .service('userService', userService);
 
