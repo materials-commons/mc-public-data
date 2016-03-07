@@ -76,14 +76,11 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'DetailsController',
       controllerAs: 'ctrl',
       resolve: {
-        dataset: ["releaseService", "$stateParams",function (releaseService, $stateParams) {
+        dataset: ["releaseService", "$stateParams", function (releaseService, $stateParams) {
           return releaseService.getByID($stateParams.id);
         }],
         datasets: ["searchService", function (searchService) {
           return searchService.searchByDOI();
-        }],
-        user: ["userService", function (userService) {
-          return userService.getUser({email: "tammasr@umich.edu"});
         }]
       }
     })

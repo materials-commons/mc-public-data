@@ -20,7 +20,7 @@ import { DisplayImageDirective } from '../app/directives/display-image-directive
 import { releaseService } from './services/release-service';
 import { searchService } from './search/search-service';
 import { userService } from './services/user-service';
-import { userActionsService } from './services/user-actions-service';
+import { actionsService } from './services/actions-service';
 
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ui.bootstrap', 'toastr',  'ct.ui.router.extras', 'angularUtils.directives.dirPagination'])
@@ -45,5 +45,5 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .service('releaseService', releaseService)
   .service('searchService', searchService)
   .service('userService', userService)
-  .service('userActionsService', userActionsService);
+  .service('actionsService', actionsService);
 

@@ -32,12 +32,12 @@ export class userService {
   }
 
 
-  setAuthentication(user){
+  setAuthentication(user) {
     this.$window.sessionStorage.mcuser = JSON.stringify(user);
     this.mcuser = user;
   }
 
-  removeAuthentication(){
+  removeAuthentication() {
     this.$window.sessionStorage.removeItem('mcuser');
     this.$window.sessionStorage.mcuser = null;
     this.mcuser = undefined;
@@ -45,15 +45,19 @@ export class userService {
     this.$rootScope.email_address = "";
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     return this.mcuser;
   }
 
-  email(){
-    return this.mcuser ? this.mcuser.email: 'Login';
+  email() {
+    return this.mcuser ? this.mcuser.email : undefined;
   }
 
-  openModal(){
+  u(){
+    return this.mcuser;
+  }
+
+  openModal() {
     var modalInstance = this.$uibModal.open({
       animation: true,
       templateUrl: '/app/components/sign/sign.html',
