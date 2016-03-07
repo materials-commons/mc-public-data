@@ -12,7 +12,8 @@ export class userActionsService{
   }
 
   appreciate(){
-    this.user_actions.appreciations++;
+    //this.user_actions.appreciations++;
+    Restangular.one('users')
   }
 
   view(){
