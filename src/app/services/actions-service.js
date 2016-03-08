@@ -27,4 +27,10 @@ export class actionsService{
       return result.plain();
     });
   }
+
+  addComment(msg, dataset_id, user_id){
+    return this.Restangular.one('comments').customPOST({message: msg, user_id:  user_id, dataset_id: dataset_id}).then((result)=> {
+      this.toastr.success("Your comment has been registered");
+    });
+  }
 }

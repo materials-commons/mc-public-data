@@ -25,13 +25,9 @@ export class DetailsController {
 
 
   getActions(){
-    //if (this.email) {
-    //  this.actionsService.getActionsByUser(this.user.id, this.dataset.id).then((result)=>{
-    //    this.actions_by_user = result;
-    //  });
-    //}
     this.actionsService.getAllActions(this.dataset.id).then((result) =>{
       this.all_actions = result;
+      console.log(this.all_actions);
     });
   }
 
@@ -47,6 +43,16 @@ export class DetailsController {
     //var apikey = this.user.apikey;
     //var url = "datafiles/static/" + fileID + "?apikey=" + apikey + "&original=true";
     //return url;
+  }
+
+  addComment(){
+    if (this.email) {
+      this.actionsService.addComment(this.comment, this.dataset.id, this.user.id).then((res) => {
+        this.getActions();
+      });
+    }else{
+      toastr.warning("Please sign in to add comment");
+    }
   }
 }
 

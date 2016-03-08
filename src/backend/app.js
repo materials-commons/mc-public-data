@@ -25,6 +25,7 @@ router.get('/user/:email', user.get);
 router.get('/actions/:dataset_id', action.getAll);
 router.post('/appreciate', action.appreciate);
 router.post('/views', action.view);
+router.post('/comments', action.comment);
 
 
 app.use(router.routes());
