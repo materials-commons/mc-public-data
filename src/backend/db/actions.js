@@ -1,6 +1,7 @@
 var r = require('./../dash');
 var parse = require('co-body');
 
+
 module.exports.appreciate = function* (next) {
   var params = yield parse(this);
   var inserted = yield r.table('appreciations').insert(params);

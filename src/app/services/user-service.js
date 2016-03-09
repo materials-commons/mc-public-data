@@ -27,8 +27,8 @@ export class userService {
     });
   }
 
-  getUser(user) {
-    return this.Restangular.one('user', user.email).get()
+  getUser(email) {
+    return this.Restangular.one('user', email).get()
   }
 
 
