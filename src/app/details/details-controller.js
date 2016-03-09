@@ -3,6 +3,7 @@ export class DetailsController {
     'ngInject';
 
     this.dataset = dataset;
+    console.log(this.dataset);
     this.other_datasets = datasets;
     this.toastr = toastr;
     this.userService = userService;
@@ -15,6 +16,7 @@ export class DetailsController {
 
   appreciate() {
     if (this.email) {
+      this.dataset.appreciate =  !this.dataset.appreciate;
       this.actionsService.appreciate(this.dataset.id, this.user.id).then((res) => {
         this.getActions();
       });
@@ -23,11 +25,21 @@ export class DetailsController {
     }
   }
 
+  dontAppreciate() {
+    console.log('remove apprec');
+    if (this.email) {
+      this.actionsService.removeAppreciation(this.dataset.id, this.user.id).then((res) => {
+        this.dataset.appreciate = false;
+        this.getActions();
+      });
+    }else{
+      toastr.warning("Please sign in to appreciate the work");
+    }
+  }
 
   getActions(){
     this.actionsService.getAllActions(this.dataset.id).then((result) =>{
       this.all_actions = result;
-      console.log(this.all_actions);
     });
   }
 

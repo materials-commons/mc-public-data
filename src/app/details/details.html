@@ -10,7 +10,8 @@
           <b>Files ({{ctrl.dataset.datafiles.length}})</b>
           <a class="pull-right" style="padding-left:20px;"><i class="fa fa-fw fa-list"></i></a>
           <a class="pull-right theme" style="padding-left:10px;"><i class="fa fa-fw fa-th"></i></a>
-          <a href="/app/test.jpg" download="files.zip" class="pull-right"><i class="fa fa-fw fa-download"></i>Download All</a>
+          <a href="/app/test.jpg" download="files.zip" class="pull-right"><i class="fa fa-fw fa-download"></i>Download
+            All</a>
         </div>
         <hr style="margin-top: 5px;"/>
       </div>
@@ -72,13 +73,22 @@
       </div>
       <br>
       <div class="row text-center">
-        <button ng-click="ctrl.appreciate()" type="button" class="btn btn-circle btn-xl active">
-          <i class="fa fa-thumbs-up fa-1x"></i></button>
-        <p ng-if="" class="small theme">Appreciate work</p>
-        <p ng-class="{}" class="small theme">Appreciated</p>
+        <div ng-if="ctrl.dataset.appreciate">
+          <button ng-click="ctrl.dontAppreciate()" type="button" class="btn btn-circle btn-xl">
+            <i class="fa fa-thumbs-up fa-1x" style="color:lightgrey"></i>
+          </button>
+          <p class="small theme">Appreciated</p>
+
+        </div>
+        <div ng-if="!ctrl.dataset.appreciate">
+          <button ng-click="ctrl.appreciate()" type="button" class="btn btn-circle btn-xl">
+            <i class="fa fa-thumbs-up fa-1x"></i>
+          </button>
+          <p class="small theme">Appreciate Work</p>
+        </div>
       </div>
       <br>
-      <h4>More data sets by these authors</h4>
+      <h4>More data sets by these authors{{ctrl.dataset.appreciate}}</h4>
       <div class="form-horizontal" ng-repeat="ds in ctrl.other_datasets">
         <h5>{{ds.title}}</h5>
         <div class="text-light">

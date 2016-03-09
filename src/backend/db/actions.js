@@ -10,6 +10,15 @@ module.exports.appreciate = function* (next) {
   yield next;
 };
 
+module.exports.removeAppreciation = function* (next) {
+  console.log('inside server');
+  var params = yield parse(this);
+  var deleted = yield r.table('appreciations').delete(params);
+  this.status = 200;
+  this.body = deleted;
+  yield next;
+};
+
 module.exports.view = function* (next) {
   var params = yield parse(this);
   var inserted = yield r.table('views').insert(params);

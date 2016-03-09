@@ -23,7 +23,6 @@ export class SignController {
 
   login() {
     this.userService.getUser(this.user.email).then((result)=> {
-      console.log(result);
       this.user = result;
       this.userService.setAuthentication(this.user);
       this.$uibModalInstance.close();
