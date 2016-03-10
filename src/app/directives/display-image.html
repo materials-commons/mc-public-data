@@ -14,7 +14,7 @@
   </div>
   <div ng-switch-when="xls">
         <span><i class="fa fa-fw fa-file-excel-o"></i>
-            <a  ng-href="{{ctrl.downloadSrc()}}" class="text-uppercase small"
+            <a ng-href="{{ctrl.downloadSrc()}}" class="text-uppercase small"
                download="{{ctrl.file.name}}"> Download</a>  the excel file
         </span>
     <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
@@ -27,12 +27,14 @@
          ng-click="ctrl.showImage(ctrl.file)"
          hljs include="ctrl.file.src">
     </div>
-    <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+    <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...
+    </p>
 
     <code ng-if="ctrl.file.size > 10000 && ctrl.file.size <= 2000000"
-           style="white-space: pre-line" ng-include="ctrl.file.src">
+          style="white-space: pre-line" ng-include="ctrl.file.src">
     </code>
-    <p ng-if="ctrl.file.size >= 10000 && ctrl.file.size <= 2000000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+    <p ng-if="ctrl.file.size >= 10000 && ctrl.file.size <= 2000000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name
+      | limitTo: 10}}...</p>
 
     <div ng-if="ctrl.file.size > 2000000">
             <span class="fa-stack fa-lg">
