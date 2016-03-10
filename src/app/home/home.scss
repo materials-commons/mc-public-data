@@ -34,22 +34,6 @@ hr{
   margin-bottom: 5px;
 }
 
-.dataset{
-  .title{
-    color: $heading;
-  }
-  .action-count {
-    margin-top: -8px;
-    margin-bottom: 10px;
-    color: $values;
-  }
-  .field-label{
-    color: $label;
-  }
-  .field-value{
-    color: $values;
-  }
-}
 
 a:hover{
   cursor: pointer;

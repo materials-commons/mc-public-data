@@ -1,40 +1,40 @@
 <div ng-switch="ctrl.file.fileType">
   <div ng-switch-when="image">
-    <a><img class="no-padding img-responsive center-block"
+    <a><img class="thumbnail img-responsive center-block object-fit_fill"
             ng-src="{{ctrl.file.src}}"> </a>
-    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
   </div>
   <div ng-switch-when="pdf">
-    <div class="embed-responsive embed-responsive-4by3">
-      <embed class="col-xs-8 embed-responsive-item"
+    <div class="thumbnail embed-responsive embed-responsive-4by3">
+      <embed class="col-xs-8 thumbnail embed-responsive-item"
              ng-src="{{ctrl.file.src}}">
       </embed>
     </div>
-    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
   </div>
   <div ng-switch-when="xls">
         <span><i class="fa fa-fw fa-file-excel-o"></i>
-            <a ng-href="{{ctrl.downloadSrc()}}" class="text-uppercase small"
+            <a ng-href="{{ctrl.downloadSrc()}}" class="thumbnail text-uppercase small"
                download="{{ctrl.file.name}}"> Download</a>  the excel file
         </span>
-    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+    <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
   </div>
   <div ng-switch-when="binary">
     <span><i class="fa fa-fw fa-file-o"></i>Binary file cannot be displayed</span>
   </div>
   <div ng-switch-default>
-    <div ng-if="ctrl.file.size <= 10000"
+    <div class="thumbnail" ng-if="ctrl.file.size <= 10000"
          ng-click="ctrl.showImage(ctrl.file)"
          hljs include="ctrl.file.src">
     </div>
-    <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...
+    <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...
     </p>
 
     <code ng-if="ctrl.file.size > 10000 && ctrl.file.size <= 2000000"
           style="white-space: pre-line" ng-include="ctrl.file.src">
     </code>
     <p ng-if="ctrl.file.size >= 10000 && ctrl.file.size <= 2000000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name
-      | limitTo: 10}}...</p>
+      | limitTo: 12}}...</p>
 
     <div ng-if="ctrl.file.size > 2000000">
             <span class="fa-stack fa-lg">
@@ -42,7 +42,7 @@
                 <i class="fa fa-ban fa-stack-2x text-danger"></i>
             </span>
       File too big to display
-      <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 10}}...</p>
+      <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
     </div>
   </div>
 </div>

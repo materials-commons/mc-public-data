@@ -24,6 +24,22 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   padding: 0.2em 0;
 }
 
+.field-label{
+  color: $label;
+}
+.field-value{
+  color: $values;
+}
+
+.title{
+  color: $heading;
+}
+
+.action-count {
+  margin-top: -8px;
+  margin-bottom: 10px;
+  color: $values;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

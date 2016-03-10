@@ -54,15 +54,5 @@ export class DetailsController {
     //var url = "datafiles/static/" + fileID + "?apikey=" + apikey + "&original=true";
     //return url;
   }
-
-  addComment(){
-    if (this.email) {
-      this.actionsService.addComment(this.comment, this.dataset.id, this.user.id).then((res) => {
-        this.getActions();
-      });
-    }else{
-      toastr.warning("Please sign in to add comment");
-    }
-  }
 }
 

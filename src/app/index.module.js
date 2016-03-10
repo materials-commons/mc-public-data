@@ -12,6 +12,7 @@ import { RecentDatasetsController } from './home/datasets/recent-datasets-contro
 import { TopDatasetsController } from './home/datasets/top-datasets-controller';
 import { PopUpController } from './search/pop-up-controller';
 import { DetailsController } from './details/details-controller';
+import { CommentDirective } from './details/comment-directive';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { HomeTabDirective } from '../app/home/home-tab-directive';
 import { SearchBarDirective } from '../app/directives/search-bar-directive';
@@ -42,6 +43,7 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .directive('displayImage', DisplayImageDirective)
   .directive('loginDirective', LoginDirective)
   .directive('registerDirective', RegisterDirective)
+  .directive('commentDirective', CommentDirective)
   .service('releaseService', releaseService)
   .service('searchService', searchService)
   .service('userService', userService)
