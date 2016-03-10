@@ -11,7 +11,6 @@ module.exports.appreciate = function* (next) {
 };
 
 module.exports.removeAppreciation = function* (next) {
-  console.log('inside server');
   var params = yield parse(this);
   var deleted = yield r.table('appreciations').delete(params);
   this.status = 200;

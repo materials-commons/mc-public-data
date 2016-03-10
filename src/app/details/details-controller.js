@@ -3,7 +3,6 @@ export class DetailsController {
     'ngInject';
 
     this.dataset = dataset;
-    console.log(this.dataset);
     this.other_datasets = datasets;
     this.toastr = toastr;
     this.userService = userService;
@@ -25,8 +24,7 @@ export class DetailsController {
     }
   }
 
-  dontAppreciate() {
-    console.log('remove apprec');
+  removeAppreciate() {
     if (this.email) {
       this.actionsService.removeAppreciation(this.dataset.id, this.user.id).then((res) => {
         this.dataset.appreciate = false;
