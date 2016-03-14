@@ -6,8 +6,7 @@ export function PropertyValueDirective() {
     templateUrl: 'app/directives/property-value.html',
     scope:{
       property: "@",
-      value: "=",
-      apply: "@"
+      value: "="
     },
     controller: PropertyValueController,
     controllerAs: 'ctrl',
@@ -21,4 +20,5 @@ class PropertyValueController {
   constructor () {
     'ngInject';
   }
+
 }

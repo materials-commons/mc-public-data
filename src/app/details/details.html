@@ -19,11 +19,11 @@
             <display-image file="file"></display-image>
           </div>
         </div>
-      <div class="row">
-        <dir-pagination-controls></dir-pagination-controls>
+        <div class="row">
+          <dir-pagination-controls></dir-pagination-controls>
+        </div>
+        <comment-directive comments="ctrl.all_actions.comments" dataset-id="ctrl.dataset.id"></comment-directive>
       </div>
-      <comment-directive comments="ctrl.all_actions.comments" dataset-id="ctrl.dataset.id"></comment-directive>
-    </div>
     </div>
     <div class="col-sm-4 col-sm-offset-1">
       <div class="">
@@ -31,7 +31,7 @@
         <p class="field-value">{{ctrl.dataset.description}}</p>
         <div class="form-horizontal">
           <div class="dataset">
-            <property-value property="Authors" value="ctrl.dataset.authors" apply="theme"></property-value>
+            <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
             <property-value property="Published on" value="ctrl.dataset.birthtime"></property-value>
             <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
           </div>

@@ -4,7 +4,6 @@ export class releaseService {
     this.releases = [];
     this.Restangular = Restangular;
     this.user = userService.u();
-    console.log('user'+ this.user);
   }
 
   getAll() {

@@ -2,6 +2,7 @@ export class DetailsController {
   constructor(dataset, datasets, actionsService, toastr, userService) {
     'ngInject';
     this.dataset = dataset;
+    console.log(this.dataset);
     this.other_datasets = datasets;
     this.toastr = toastr;
     this.userService = userService;
