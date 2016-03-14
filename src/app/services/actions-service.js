@@ -22,12 +22,6 @@ export class actionsService {
     return this.Restangular.one('views').customPOST({user_id: user_id, dataset_id: dataset_id});
   }
 
-  getActionsByUser(user_id, dataset_id) {
-    return this.Restangular.one('actions').one('user', user_id).customGET(dataset_id).then(function (result) {
-      return result.plain();
-    });
-  }
-
   getAllActions(dataset_id) {
     return this.Restangular.one('actions').customGET(dataset_id).then(function (result) {
       return result.plain();

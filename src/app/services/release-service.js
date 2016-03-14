@@ -3,7 +3,8 @@ export class releaseService {
   constructor(Restangular, userService) {
     this.releases = [];
     this.Restangular = Restangular;
-    this.email = userService.email();
+    this.user = userService.u();
+    console.log('user'+ this.user);
   }
 
   getAll() {
@@ -25,8 +26,15 @@ export class releaseService {
   }
 
   getByID(id) {
-    return this.Restangular.one('datasets', id).one('user', this.email).get().then(function (dataset) {
-      return dataset.plain();
-    });
+    if(this.user){
+      return this.Restangular.one('datasets', id).get('user', this.user.email).then(function (dataset) {
+        return dataset.plain();
+      });
+    } else{
+      return this.Restangular.one('datasets', id).one('user', "anonymous").get().then(function (dataset) {
+        return dataset.plain();
+      });
+    }
+
   }
 }

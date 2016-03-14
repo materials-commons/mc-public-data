@@ -3,9 +3,9 @@ export function runBlock ($log, userService, $state, $rootScope) {
   $log.debug('runBlock end');
 
   $rootScope.$on('$stateChangeStart', function () {
-    if (userService.isAuthenticated()) {
+    //if (userService.isAuthenticated()) {
       $rootScope.email_address = userService.email();
-    }
+    //}
   });
   $rootScope.$on('$stateChangeError', function () {
     $state.go("main.login");

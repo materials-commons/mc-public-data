@@ -11,14 +11,16 @@ module.exports.getAll = function* (next) {
 };
 
 module.exports.getOne = function* (next) {
-  var is_appreciated = yield r.table('appreciations').getAll([this.params.user_id, this.params.id], {index: 'user_dataset'}).coerceTo('array');
   this.body = yield r.table('datasets').get(this.params.id).merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
     }
   });
-  if(is_appreciated.length > 0){
-    this.body.appreciate = true;
+  if (this.params.user_id) {
+    var is_appreciated = yield r.table('appreciations').getAll([this.params.user_id,this.params.id], {index: 'user_dataset'}).coerceTo('array');
+    if (is_appreciated.length > 0) {
+      this.body.appreciate = true;
+    }
   }
   yield next;
 };

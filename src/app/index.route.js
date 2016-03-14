@@ -77,6 +77,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'ctrl',
       resolve: {
         dataset: ["releaseService", "$stateParams", function (releaseService, $stateParams) {
+          console.log($stateParams);
           return releaseService.getByID($stateParams.id);
         }],
         datasets: ["searchService", function (searchService) {

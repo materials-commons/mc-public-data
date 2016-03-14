@@ -1,20 +1,18 @@
 export class DetailsController {
-  constructor(dataset, datasets,  actionsService, toastr, userService) {
+  constructor(dataset, datasets, actionsService, toastr, userService) {
     'ngInject';
-
     this.dataset = dataset;
     this.other_datasets = datasets;
     this.toastr = toastr;
     this.userService = userService;
     this.actionsService =actionsService;
     this.user = this.userService.u();
-    this.email = this.userService.email();
     this.getActions();
     this.viewDataset();
   }
 
   appreciate() {
-    if (this.email) {
+    if (this.user) {
       this.dataset.appreciate =  !this.dataset.appreciate;
       this.actionsService.appreciate(this.dataset.id, this.user.id).then((res) => {
         this.getActions();
@@ -25,7 +23,7 @@ export class DetailsController {
   }
 
   removeAppreciate() {
-    if (this.email) {
+    if (this.user) {
       this.actionsService.removeAppreciation(this.dataset.id, this.user.id).then((res) => {
         this.dataset.appreciate = false;
         this.getActions();
@@ -42,7 +40,7 @@ export class DetailsController {
   }
 
   viewDataset(){
-    if (this.email) {
+    if (this.user) {
       this.actionsService.viewDataset( this.dataset.id, this.user.id);
     }else{
       this.actionsService.viewDataset( this.dataset.id,"anonymous");
