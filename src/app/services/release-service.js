@@ -4,6 +4,7 @@ export class releaseService {
     this.releases = [];
     this.Restangular = Restangular;
     this.user = userService.u();
+    console.log(this.user);
   }
 
   getAll() {
@@ -26,7 +27,7 @@ export class releaseService {
 
   getByID(id) {
     if(this.user){
-      return this.Restangular.one('datasets', id).get('user', this.user.email).then(function (dataset) {
+      return this.Restangular.one('datasets', id).one('user', this.user.email).get().then(function (dataset) {
         return dataset.plain();
       });
     } else{

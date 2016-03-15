@@ -4,9 +4,6 @@ export function NavbarDirective() {
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/navbar/navbar.html',
-    //scope: {
-    //    //creationDate: '='
-    //},
     controller: NavbarController,
     controllerAs: 'ctrl',
     bindToController: true
@@ -16,13 +13,14 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor (userService, $uibModal, $log, $state) {
+  constructor (userService, $uibModal, $log, $state, $rootScope) {
     'ngInject';
 
     this.userService= userService;
     this.$uibModal= $uibModal;
     this.$log= $log;
     this.$state= $state;
+    this.$rootScope= $rootScope;
   }
 
   logout(){

@@ -1,15 +1,15 @@
 export class DetailsController {
-  constructor(dataset, datasets, actionsService, toastr, userService) {
+  constructor(dataset,actionsService, toastr, userService) {
     'ngInject';
     this.dataset = dataset;
-    console.log(this.dataset);
-    this.other_datasets = datasets;
+    console.dir(this.dataset);
     this.toastr = toastr;
     this.userService = userService;
     this.actionsService =actionsService;
     this.user = this.userService.u();
     this.getActions();
     this.viewDataset();
+    this.view = "thumbnail";
   }
 
   appreciate() {
@@ -52,6 +52,13 @@ export class DetailsController {
     //var apikey = this.user.apikey;
     //var url = "datafiles/static/" + fileID + "?apikey=" + apikey + "&original=true";
     //return url;
+  }
+
+  setView(view){
+    this.view =  view;
+  }
+  isActive(what){
+    return this.view === what;
   }
 }
 

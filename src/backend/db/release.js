@@ -4,7 +4,9 @@ var r = require('./../dash');
 module.exports.getAll = function* (next) {
   this.body = yield r.table('datasets').merge(function (rel) {
     return {
-      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
+      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array') ,
+      'appreciations': r.table('appreciations').getAll(rel('id'), {index: 'dataset_id'}).coerceTo('array'),
+      'views': r.table('views').getAll(rel('id'), {index: 'dataset_id'}).coerceTo('array')
     }
   });
   yield next;
@@ -13,7 +15,8 @@ module.exports.getAll = function* (next) {
 module.exports.getOne = function* (next) {
   this.body = yield r.table('datasets').get(this.params.id).merge(function (rel) {
     return {
-      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
+      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
+      'other_datasets': r.table('datasets').getAll(r.args(rel('authors')), {index: "authors"}).coerceTo('array')
     }
   });
   if (this.params.user_id) {

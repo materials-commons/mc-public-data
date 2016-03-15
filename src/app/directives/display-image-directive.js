@@ -5,7 +5,8 @@ export function DisplayImageDirective() {
     restrict: 'E',
     templateUrl: 'app/directives/display-image.html',
     scope: {
-      file: "="
+      file: "=",
+      miniThumbnail: "@"
     },
     controller: DisplayImageController,
     controllerAs: 'ctrl',
@@ -33,6 +34,8 @@ class DisplayImageController {
         return "xls";
       case "application/octet-stream":
         return "binary";
+      case "text/plain":
+        return "txt";
       default:
         return mediatype.mime;
       }

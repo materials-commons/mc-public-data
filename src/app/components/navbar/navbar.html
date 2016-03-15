@@ -14,9 +14,9 @@
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-home"></i>Home</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-upload"></i>Upload a Dataset</a></li>
-
         <li ng-show="!email_address" ui-sref-active="active">
           <a ng-click="ctrl.sign()"><span style="border: 1px solid red; padding: 6px;" ><i class="fa fa-fw fa-home"></i>Sign Up / Login</span></a></li>
 
@@ -31,6 +31,9 @@
           </ul>
         </li>
       </ul>
+      <div ng-if="showSearchBar" style="padding-top: 10px;" class="col-sm-5 pull-right">
+        <search-bar-directive></search-bar-directive>
+      </div>
     </div><!--/.nav-collapse -->
   </div>
 </nav>

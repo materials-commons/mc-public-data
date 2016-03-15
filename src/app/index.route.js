@@ -5,24 +5,13 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/main.html',
       controller: 'MainController',
-      controllerAs: 'main'
-    })
-    .state('main.release', {
-      url: '/release',
-      templateUrl: 'app/release/release.html',
-      controller: 'ReleaseController',
-      controllerAs: 'release',
-      resolve: {
-        releases: ["releaseService", function (releaseService) {
-          return releaseService.getAll();
-        }]
-      }
+      controllerAs: 'ctrl'
     })
     .state('main.home', {
       url: '/home',
       templateUrl: 'app/home/home.html',
       controller: 'HomeController',
-      controllerAs: 'home',
+      controllerAs: 'ctrl',
       sticky: true,
       dsr: true,
       resolve: {
@@ -40,7 +29,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     .state('main.home.top', {
       url: '/top',
       controller: 'TopDatasetsController',
-      controllerAs: 'top',
+      controllerAs: 'ctrl',
       resolve: {
         datasets: ["releaseService", function (releaseService) {
           return releaseService.topList();
@@ -51,7 +40,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     .state('main.home.recent', {
       url: '/recent',
       controller: 'RecentDatasetsController',
-      controllerAs: 'recent',
+      controllerAs: 'ctrl',
       resolve: {
         datasets: ["releaseService", function (releaseService) {
           return releaseService.getRecent();
@@ -77,19 +66,19 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'ctrl',
       resolve: {
         dataset: ["releaseService", "$stateParams", function (releaseService, $stateParams) {
-          console.log($stateParams);
           return releaseService.getByID($stateParams.id);
         }],
         datasets: ["searchService", function (searchService) {
           return searchService.searchByDOI();
         }]
-      }
+      },
+      showSearchbar: true
     })
     .state('main.register', {
       url: '/register',
       templateUrl: 'app/components/register/register.html',
       controller: 'RegisterController',
-      controllerAs: 'vm'
+      controllerAs: 'ctrl'
     });
   $urlRouterProvider.otherwise('/');
 }

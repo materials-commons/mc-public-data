@@ -10,25 +10,25 @@ export class SearchController {
     this.$uibModal = $uibModal;
   }
 
-  open(size, dataset){
-    var modalInstance = this.$uibModal.open({
-      animation: true,
-      templateUrl: 'app/search/pop-up.html',
-      controller: 'PopUpController',
-      controllerAs: 'ctrl',
-      bindToController: true,
-      size: size,
-      keyboard: true,
-      resolve: {
-        files: function () {
-          return dataset.files;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      this.selected = selectedItem;
-    });
-  }
+  //open(size, dataset){
+  //  var modalInstance = this.$uibModal.open({
+  //    animation: true,
+  //    templateUrl: 'app/search/pop-up.html',
+  //    controller: 'PopUpController',
+  //    controllerAs: 'ctrl',
+  //    bindToController: true,
+  //    size: size,
+  //    keyboard: true,
+  //    resolve: {
+  //      files: function () {
+  //        return dataset.files;
+  //      }
+  //    }
+  //  });
+  //
+  //  modalInstance.result.then(function (selectedItem) {
+  //    this.selected = selectedItem;
+  //  });
+  //}
 }
 
