@@ -21,7 +21,6 @@ router.get('/datasets', release.getAll);
 router.get('/datasets/:id/user/:user_id', release.getOne);
 router.post('/users', user.create);
 router.get('/user/:email', user.get);
-//router.get('/actions/user/:user_id/:dataset_id', action.getActionsByUser);
 router.get('/actions/:dataset_id', action.getAll);
 router.post('/appreciate', action.appreciate);
 router.del('/appreciate/user/:user_id/dataset/:dataset_id', action.removeAppreciation);
