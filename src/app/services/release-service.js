@@ -4,7 +4,6 @@ export class releaseService {
     this.releases = [];
     this.Restangular = Restangular;
     this.user = userService.u();
-    console.log(this.user);
   }
 
   getAll() {
@@ -14,13 +13,13 @@ export class releaseService {
   }
 
   getRecent() {
-    return this.Restangular.one('datasets').getList().then(function (releases) {
+    return this.Restangular.one('datasets').one('recent').getList().then(function (releases) {
       return releases.plain();
     });
   }
 
-  topList() {
-    return this.Restangular.one('datasets').getList().then(function (releases) {
+  topViews() {
+    return this.Restangular.one('datasets').one('views').getList().then(function (releases) {
       return releases.plain();
     });
   }
@@ -35,6 +34,5 @@ export class releaseService {
         return dataset.plain();
       });
     }
-
   }
 }

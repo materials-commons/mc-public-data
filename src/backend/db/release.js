@@ -5,10 +5,30 @@ module.exports.getAll = function* (next) {
   this.body = yield r.table('datasets').merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
-      'appreciations': r.table('appreciations').getAll(rel('id'), {index: 'dataset_id'}).coerceTo('array'),
-      'views': r.table('views').getAll(rel('id'), {index: 'dataset_id'}).coerceTo('array')
+      'appreciations': r.table('appreciations').getAll(rel('id'), {index: 'dataset_id'}).count(),
+      'views': r.table('views').getAll(rel('id'), {index: 'dataset_id'}).count()
     }
   });
+  yield next;
+};
+
+module.exports.getRecent = function* (next) {
+  this.body = yield r.table('datasets').orderBy(r.desc('birthtime')).merge(function (rel) {
+    return {
+      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
+    }
+  });
+  yield next;
+};
+
+module.exports.getTopViews = function* (next) {
+  this.body = yield r.table('datasets').merge(function (rel) {
+    return {
+      'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
+      'appreciations': r.table('appreciations').getAll(rel('id'), {index: 'dataset_id'}).count(),
+      'views': r.table('views').getAll(rel('id'), {index: 'dataset_id'}).count()
+    }
+  }).orderBy(r.desc('views'));
   yield next;
 };
 

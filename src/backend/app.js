@@ -18,14 +18,16 @@ var app =  koa();
 app.use(cors());
 router.prefix('/api/v1');
 router.get('/datasets', release.getAll);
+router.get('/datasets/recent', release.getRecent);
+router.get('/datasets/views', release.getTopViews);
 router.get('/datasets/:id/user/:user_id', release.getOne);
 router.post('/users', user.create);
 router.get('/user/:email', user.get);
 router.get('/actions/:dataset_id', action.getAll);
-router.post('/appreciate', action.appreciate);
+router.post('/appreciate', action.addAppreciate);
 router.del('/appreciate/user/:user_id/dataset/:dataset_id', action.removeAppreciation);
-router.post('/views', action.view);
-router.post('/comments', action.comment);
+router.post('/views', action.addView);
+router.post('/comments', action.addComment);
 
 
 app.use(router.routes());

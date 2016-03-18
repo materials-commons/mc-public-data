@@ -32,7 +32,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'ctrl',
       resolve: {
         datasets: ["releaseService", function (releaseService) {
-          return releaseService.topList();
+          return releaseService.topViews();
         }]
       },
       templateUrl: 'app/home/datasets/top-datasets.html'
