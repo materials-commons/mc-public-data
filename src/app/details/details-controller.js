@@ -1,24 +1,25 @@
 export class DetailsController {
-  constructor(dataset,actionsService, toastr, userService) {
+  constructor(dataset, actionsService, toastr, userService, $uibModal) {
     'ngInject';
     this.dataset = dataset;
-    console.dir(this.dataset);
     this.toastr = toastr;
     this.userService = userService;
-    this.actionsService =actionsService;
+    this.actionsService = actionsService;
     this.user = this.userService.u();
     this.getActions();
     this.viewDataset();
     this.view = "thumbnail";
+    this.$uibModal = $uibModal;
+
   }
 
   appreciate() {
     if (this.user) {
-      this.dataset.appreciate =  !this.dataset.appreciate;
+      this.dataset.appreciate = !this.dataset.appreciate;
       this.actionsService.appreciate(this.dataset.id, this.user.id).then((res) => {
         this.getActions();
       });
-    }else{
+    } else {
       toastr.warning("Please sign in to appreciate the work");
     }
   }
@@ -29,36 +30,55 @@ export class DetailsController {
         this.dataset.appreciate = false;
         this.getActions();
       });
-    }else{
+    } else {
       toastr.warning("Please sign in to appreciate the work");
     }
   }
 
-  getActions(){
-    this.actionsService.getAllActions(this.dataset.id).then((result) =>{
+  getActions() {
+    this.actionsService.getAllActions(this.dataset.id).then((result) => {
       this.all_actions = result;
     });
   }
 
-  viewDataset(){
+  viewDataset() {
     if (this.user) {
-      this.actionsService.viewDataset( this.dataset.id, this.user.id);
-    }else{
-      this.actionsService.viewDataset( this.dataset.id,"anonymous");
+      this.actionsService.viewDataset(this.dataset.id, this.user.id);
+    } else {
+      this.actionsService.viewDataset(this.dataset.id, "anonymous");
     }
   }
 
-  downloadSrc(){
+  downloadSrc() {
     //var apikey = this.user.apikey;
     //var url = "datafiles/static/" + fileID + "?apikey=" + apikey + "&original=true";
     //return url;
   }
 
-  setView(view){
-    this.view =  view;
+  setView(view) {
+    this.view = view;
   }
-  isActive(what){
+
+  isActive(what) {
     return this.view === what;
+  }
+
+  openImage(file) {
+    var modalInstance = this.$uibModal.open({
+      animation: true,
+      templateUrl: 'app/details/pop-up.html',
+      controller: 'PopUpController',
+      controllerAs: 'ctrl',
+      bindToController: true,
+      size: 'lg',
+      keyboard: true,
+      resolve: {
+        file: function () {
+          return file;
+        }
+      }
+    });
+
   }
 }
 

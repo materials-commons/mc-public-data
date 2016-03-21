@@ -10,7 +10,7 @@ import { RegisterDirective } from '../app/components/sign/register/register-dire
 import { SearchController } from './search/search-controller';
 import { RecentDatasetsController } from './home/datasets/recent-datasets-controller';
 import { TopDatasetsController } from './home/datasets/top-datasets-controller';
-import { PopUpController } from './search/pop-up-controller';
+import { PopUpController } from './details/pop-up-controller';
 import { DetailsController } from './details/details-controller';
 import { CommentDirective } from './details/comment-directive';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';

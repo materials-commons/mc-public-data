@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"><br>
   <div class="row">
     <div class="col-sm-7">
       <div class="details">
@@ -15,7 +15,7 @@
           <a ng-click="ctrl.setView('list')" ng-class="{theme: ctrl.isActive('list')}" style="padding-left:5px; padding-right: 15px;"><i class="fa fa-fw fa-list"></i></a>
         </div>
         <div ng-if="ctrl.isActive('thumbnail')" class="row image-area">
-          <div dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12" class="col-sm-3">
+          <div ng-click="ctrl.openImage(file)"  dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12" class="col-sm-3">
             <display-image file="file"></display-image>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <th>size</th>
             </thead>
            <tbody>
-           <tr dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
+           <tr ng-click="ctrl.openImage(file)" dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
                 <td><display-image file="file" mini-thumbnail="true"></display-image></td>
                 <td>{{file.name}}</td>
                 <td>{{file.mediatype.mime}}</td>

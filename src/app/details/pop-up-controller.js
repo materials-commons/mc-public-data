@@ -1,7 +1,7 @@
 export class PopUpController {
-  constructor(files, $uibModalInstance) {
+  constructor(file, $uibModalInstance) {
     'ngInject';
-    this.files = files;
+    this.file = file;
     this.$uibModalInstance = $uibModalInstance;
   }
 

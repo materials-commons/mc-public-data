@@ -17,7 +17,7 @@ module.exports.getRecent = function* (next) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
     }
-  });
+  }).limit(10);
   yield next;
 };
 
@@ -28,7 +28,7 @@ module.exports.getTopViews = function* (next) {
       'appreciations': r.table('appreciations').getAll(rel('id'), {index: 'dataset_id'}).count(),
       'views': r.table('views').getAll(rel('id'), {index: 'dataset_id'}).count()
     }
-  }).orderBy(r.desc('views'));
+  }).orderBy(r.desc('views')).limit(10);
   yield next;
 };
 

@@ -7,6 +7,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       controllerAs: 'ctrl'
     })
+    .state('main.login', {
+      url: '/login',
+      templateUrl: 'app/components/login/login.html',
+      controller: 'LoginController',
+      controllerAs: 'ctrl'
+    })
     .state('main.home', {
       url: '/home',
       templateUrl: 'app/home/home.html',
@@ -19,12 +25,6 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
           return releaseService.getAll();
         }]
       }
-    })
-    .state('main.login', {
-      url: '/login',
-      templateUrl: 'app/components/login/login.html',
-      controller: 'LoginController',
-      controllerAs: 'ctrl'
     })
     .state('main.home.top', {
       url: '/top',
