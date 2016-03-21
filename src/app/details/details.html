@@ -5,42 +5,50 @@
         <h4 class="title">{{ctrl.dataset.title}}</h4>
         <p class="small action-count"><span>{{ctrl.all_actions.views}} views </span>
           <span>{{ctrl.all_actions.appreciations}} Appreciations</span>
-          <span class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</span></p>
+          <a class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
         <div style="padding-left: 10px;"><b>Files ({{ctrl.dataset.datafiles.length}})</b></div>
         <hr/>
         <div class="row view-mode">
           <a class="theme" href="/app/test.jpg" download="files.zip"><i class="fa fa-fw fa-download"></i>Download
             All</a>
-          <a ng-click="ctrl.setView('thumbnail')" ng-class="{theme: ctrl.isActive('thumbnail')}" style="padding-left:40px;"><i class="fa fa-fw fa-th"></i></a>
-          <a ng-click="ctrl.setView('list')" ng-class="{theme: ctrl.isActive('list')}" style="padding-left:5px; padding-right: 15px;"><i class="fa fa-fw fa-list"></i></a>
+          <a ng-click="ctrl.setView('thumbnail')" ng-class="{theme: ctrl.isActive('thumbnail')}"
+             style="padding-left:40px;"><i class="fa fa-fw fa-th"></i></a>
+          <a ng-click="ctrl.setView('list')" ng-class="{theme: ctrl.isActive('list')}"
+             style="padding-left:5px; padding-right: 15px;"><i class="fa fa-fw fa-list"></i></a>
         </div>
         <div ng-if="ctrl.isActive('thumbnail')" class="row image-area">
-          <div ng-click="ctrl.openImage(file)"  dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12" class="col-sm-3">
+          <div ng-click="ctrl.openImage(file)" dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12"
+               class="col-sm-3">
             <display-image file="file"></display-image>
           </div>
         </div>
         <div ng-if="ctrl.isActive('list')" class="row list-area" class="col-sm-10">
-          <br><table class="table table-hover">
+          <br>
+          <table class="table table-hover">
             <thead class="field-value">
             <th>Thumbnail</th>
             <th>File Name</th>
             <th>File Type</th>
             <th>size</th>
             </thead>
-           <tbody>
-           <tr ng-click="ctrl.openImage(file)" dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
-                <td><display-image file="file" mini-thumbnail="true"></display-image></td>
-                <td>{{file.name}}</td>
-                <td>{{file.mediatype.mime}}</td>
-                <td>{{file.size}}</td>
-           </tr>
-           </tbody>
+            <tbody>
+            <tr ng-class="{}" ng-click="ctrl.openImage(file)"
+                dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
+              <td>
+                <display-image file="file" mini-thumbnail="true"></display-image>
+              </td>
+              <td>{{file.name}}</td>
+              <td>{{file.mediatype.mime}}</td>
+              <td>{{file.size}}</td>
+            </tr>
+            </tbody>
           </table>
         </div>
         <div class="row">
           <dir-pagination-controls></dir-pagination-controls>
         </div>
-        <comment-directive comments="ctrl.all_actions.comments" dataset-id="ctrl.dataset.id"></comment-directive>
+        <comment-directive comments="ctrl.all_actions.comments" user="ctrl.user"
+                           dataset-id="ctrl.dataset.id"></comment-directive>
       </div>
     </div>
     <div class="col-sm-4 col-sm-offset-1">
@@ -52,6 +60,14 @@
             <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
             <property-value property="Published" value="ctrl.dataset.birthtime"></property-value>
             <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
+            <div ng-if="ctrl.user">
+              <tags-input ng-model="ctrl.dataset.tags" display-property="tag"
+                          on-tag-adding="ctrl.addTag($tag)" ></tags-input>
+            </div>
+            <div ng-if="!ctrl.user">
+              <tags-input ng-model="ctrl.dataset.tags" display-property="tag"
+                          disabled="true" placeholder="Login to add tags"></tags-input>
+            </div>
           </div>
         </div>
         <br>
@@ -73,12 +89,12 @@
       <div class="more-datasets">
         <h4>More data sets by these authors</h4>
         <div ng-show="ctrl.dataset.other_datasets.length === 1">
-            No datasets
+          No datasets
         </div>
         <div class="form-horizontal" ng-repeat="ds in ctrl.dataset.other_datasets">
           <div ng-if="ds.id !== ctrl.dataset.id">
             <b><a class="title" ui-sref="main.details({id: ds.id})">{{ds.title}}</a></b>
-            <p class="field-value">{{ds.description  | limitTo: 100}} ... </p>
+            <p class="field-value">{{ds.description | limitTo: 100}} ... </p>
             <property-value property="Authors" value="ds.authors"></property-value>
             <property-value property="Files" value="ds.files.length"></property-value>
             <property-value property="DOI" value="ds.DOI" ui-sref="main.details({id: ds.id})"

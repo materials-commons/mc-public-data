@@ -39,8 +39,10 @@ module.exports.getOne = function* (next) {
       'other_datasets': r.table('datasets').getAll(r.args(rel('authors')), {index: "authors"}).merge(function (od) {
         return {
           'files': r.table('datafiles').getAll(r.args(od('datafiles'))).coerceTo('array')
-        } }).coerceTo('array')
-  }
+        }
+      }).coerceTo('array'),
+      'tags': r.table('tags2datasets').getAll(rel('id'), {index: "dataset_id"}).coerceTo('array')
+    }
   });
   if (this.params.user_id) {
     var is_appreciated = yield r.table('appreciations').getAll([this.params.user_id, this.params.id], {index: 'user_dataset'}).coerceTo('array');

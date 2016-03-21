@@ -37,4 +37,11 @@ export class actionsService {
       this.toastr.success("Your comment has been registered");
     });
   }
+
+  addTag(dataset_id, user_id, tag) {
+    return this.Restangular.one('tags').customPOST({user_id: user_id, dataset_id: dataset_id, tag: tag}).then((result)=> {
+      this.toastr.success("Tagged Successfully! ");
+    });
+  }
+
 }
