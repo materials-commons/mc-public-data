@@ -31,6 +31,7 @@ router.post('/comments', action.addComment);
 router.post('/tags', action.addTag);
 router.put('/tags', action.removeTag);
 router.get('/tags', action.getAllTags);
+router.get('/processes/types', action.getProcessTypes);
 
 
 app.use(router.routes());

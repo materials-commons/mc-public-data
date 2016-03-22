@@ -15,9 +15,31 @@
       <div home-tab-directive></div>
     </div>
     <div class="col-sm-3">
-      <h4 class="text-uppercase title">Popular Tags</h4>
-      <tags-input ng-model="home.tags" display-property="id"
-                  disabled="true" placeholder="Login to Edit/Add tags"></tags-input>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4 class="text-uppercase title">Popular Tags</h4>
+          <tags-input ng-model="home.tags" display-property="id"
+                      disabled="true" placeholder="Login to Edit/Add tags"></tags-input>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4 class="text-uppercase title">Browse</h4>
+          <div ng-click="datasets = !datasets">
+            <i ng-show="!datasets" class="fa fa-plus fa-fw "></i> <i ng-show="datasets" class="fa fa-minus fa-fw "></i>Datasets
+          </div>
+          <ul ng-show="datasets">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+          </ul>
+          <div ng-click="process = !process"><i class="fa fa-plus fa-fw "></i>Process Types</div>
+          <ul ng-show="process">
+            <li ng-repeat="type in home.process_types">{{type}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

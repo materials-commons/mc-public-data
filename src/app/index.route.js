@@ -23,6 +23,9 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       resolve: {
         tags: ["actionsService", function (actionsService) {
           return actionsService.getAllTags();
+        }],
+        process_types: ["actionsService", function (actionsService) {
+          return actionsService.getProcessTypes();
         }]
       }
     })

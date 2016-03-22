@@ -57,4 +57,10 @@ export class actionsService {
     });
   }
 
+  getProcessTypes(){
+    return this.Restangular.one('processes').one('types').getList().then(function (process_types) {
+      return process_types.plain();
+    });
+  }
+
 }

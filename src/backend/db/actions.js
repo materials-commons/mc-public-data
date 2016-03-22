@@ -81,3 +81,11 @@ module.exports.getAllTags = function* (next) {
   yield next;
 };
 
+
+module.exports.getProcessTypes = function* (next) {
+  this.body = yield r.table('processes').map(function (process) {
+   return process('type')
+  }).distinct();
+  yield next;
+};
+
