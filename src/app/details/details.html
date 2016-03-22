@@ -62,7 +62,8 @@
             <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
             <div ng-if="ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags" display-property="tag"
-                          on-tag-adding="ctrl.addTag($tag)" ></tags-input>
+                          on-tag-adding="ctrl.addTag($tag)"
+                          on-tag-removing="ctrl.removeTag($tag)"></tags-input>
             </div>
             <div ng-if="!ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags" display-property="tag"

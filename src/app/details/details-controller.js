@@ -10,7 +10,6 @@ export class DetailsController {
     this.viewDataset();
     this.view = "thumbnail";
     this.$uibModal = $uibModal;
-    console.dir(this.dataset);
   }
 
   appreciate() {
@@ -84,6 +83,13 @@ export class DetailsController {
 
   addTag(params) {
     this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
+      //this.getActions();
+    });
+  }
+
+  removeTag(params) {
+    console.log(params);
+    this.actionsService.removeTag(params.id, params.user_id).then((res) => {
       //this.getActions();
     });
   }

@@ -44,4 +44,17 @@ export class actionsService {
     });
   }
 
+  removeTag(id, user_id) {
+    return this.Restangular.one('tags').customPUT({id: id, user_id: user_id}).then((result)=> {
+      this.toastr.success("Removed Tag! ");
+    });
+  }
+
+
+  getAllTags(){
+    return this.Restangular.one('tags').getList().then(function (tags) {
+      return tags.plain();
+    });
+  }
+
 }

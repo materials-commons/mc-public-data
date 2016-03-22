@@ -1,6 +1,8 @@
 export class HomeController {
-  constructor() {
+  constructor(tags) {
     'ngInject';
+
+    this.tags = tags;
   }
 
 }

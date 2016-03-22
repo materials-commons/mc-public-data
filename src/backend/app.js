@@ -29,6 +29,8 @@ router.del('/appreciate/user/:user_id/dataset/:dataset_id', action.removeAppreci
 router.post('/views', action.addView);
 router.post('/comments', action.addComment);
 router.post('/tags', action.addTag);
+router.put('/tags', action.removeTag);
+router.get('/tags', action.getAllTags);
 
 
 app.use(router.routes());

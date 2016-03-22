@@ -60,3 +60,24 @@ module.exports.addTag = function* (next) {
   this.body = inserted;
   yield next;
 };
+
+module.exports.removeTag = function* (next) {
+  var params = yield parse(this);
+  var tag = yield r.table('tags2datasets').get(params.id);
+  if (params.user_id === tag.user_id) {
+    var deleted = yield r.table('tags2datasets').get(params.id).delete();
+    this.status = 200;
+    this.body = deleted;
+  }
+  yield next;
+};
+
+module.exports.getAllTags = function* (next) {
+  this.body = yield r.table('tags').merge(function (tag) {
+    return {
+      count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()
+    }
+  });
+  yield next;
+};
+

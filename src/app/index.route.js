@@ -17,12 +17,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/home',
       templateUrl: 'app/home/home.html',
       controller: 'HomeController',
-      controllerAs: 'ctrl',
+      controllerAs: 'home',
       sticky: true,
       dsr: true,
       resolve: {
-        datasets: ["releaseService", function (releaseService) {
-          return releaseService.getAll();
+        tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTags();
         }]
       }
     })
