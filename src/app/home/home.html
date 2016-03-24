@@ -26,17 +26,23 @@
       <div class="row">
         <div class="col-sm-12">
           <h4 class="text-uppercase title">Browse</h4>
-          <div ng-click="datasets = !datasets">
-            <i ng-show="!datasets" class="fa fa-plus fa-fw "></i> <i ng-show="datasets" class="fa fa-minus fa-fw "></i>Datasets
+          <!--<div ng-click="datasets = !datasets">-->
+            <!--<i ng-show="!datasets" class="fa fa-plus fa-fw "></i> <i ng-show="datasets" class="fa fa-minus fa-fw "></i>Datasets-->
+          <!--</div>-->
+          <!--<ul ng-show="datasets">-->
+            <!--<li ng-repeat="ds in home.datasets | limit: 5">{{ds.name}}</li>-->
+          <!--</ul>-->
+          <div ng-click="process = !process"><i ng-show="!process" class="fa fa-plus fa-fw ">
+          </i><i ng-show="process" class="fa fa-minus fa-fw "></i>Process Types
           </div>
-          <ul ng-show="datasets">
-            <li>a</li>
-            <li>b</li>
-            <li>c</li>
-          </ul>
-          <div ng-click="process = !process"><i class="fa fa-plus fa-fw "></i>Process Types</div>
           <ul ng-show="process">
-            <li ng-repeat="type in home.process_types">{{type}}</li>
+            <li ng-repeat="type in home.process_types"><a ui-sref="main.browse({group: type.group})">{{type.group}}</a></li>
+          </ul>
+          <div ng-click="sample = !sample"><i ng-show="!sample" class="fa fa-plus fa-fw ">
+          </i><i ng-show="sample" class="fa fa-minus fa-fw "></i>Samples
+          </div>
+          <ul ng-show="sample">
+            <li ng-repeat="sample in home.samples">{{sample.name}}</li>
           </ul>
         </div>
       </div>

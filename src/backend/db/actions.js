@@ -83,9 +83,28 @@ module.exports.getAllTags = function* (next) {
 
 
 module.exports.getProcessTypes = function* (next) {
-  this.body = yield r.table('processes').map(function (process) {
-   return process('type')
-  }).distinct();
+  this.body = yield r.table('processes').group('type').merge(function(row){
+    return {
+      datasets: r.table('datasets2processes').getAll(row('id'), {index: 'process_id'}).coerceTo('array').map(function(val){
+        return r.table('datasets').get(val('dataset_id'))
+      })
+    }
+  });
+  console.dir(this.body);
+  yield next;
+};
+
+module.exports.getSamples = function* (next) {
+  this.body = yield r.table('samples').merge(function(row){
+    return {
+      datasets: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function(val){
+        return r.table('datasets').get(val('dataset_id'))
+      }),
+      dataset_count: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function(val){
+        return r.table('datasets').get(val('dataset_id'))
+      }).count()
+    }
+  });
   yield next;
 };
 

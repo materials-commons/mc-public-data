@@ -32,6 +32,8 @@ router.post('/tags', action.addTag);
 router.put('/tags', action.removeTag);
 router.get('/tags', action.getAllTags);
 router.get('/processes/types', action.getProcessTypes);
+router.get('/processes/types', action.getProcessTypes);
+router.get('/samples', action.getSamples);
 
 
 app.use(router.routes());

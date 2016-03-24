@@ -63,4 +63,10 @@ export class actionsService {
     });
   }
 
+  getSamples(){
+    return this.Restangular.one('samples').getList().then(function (samples) {
+      return samples.plain();
+    });
+  }
+
 }

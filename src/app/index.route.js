@@ -26,6 +26,9 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }],
         process_types: ["actionsService", function (actionsService) {
           return actionsService.getProcessTypes();
+        }],
+        samples: ["actionsService", function (actionsService) {
+          return actionsService.getSamples();
         }]
       }
     })
@@ -82,6 +85,18 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/components/register/register.html',
       controller: 'RegisterController',
       controllerAs: 'ctrl'
+    })
+    .state('main.browse', {
+      url: '/browse/:group',
+      templateUrl: 'app/browse/browse.html',
+      controller: 'BrowseController',
+      controllerAs: 'ctrl',
+      resolve: {
+        results: ["browseService", "$stateParams", function (browseService, $stateParams) {
+          return browseService.getResults($stateParams.group);
+        }]
+      },
+      showSearchbar: true
     });
   $urlRouterProvider.otherwise('/');
 }
