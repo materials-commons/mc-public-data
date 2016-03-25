@@ -1,7 +1,7 @@
 var r = require('./../dash');
 //var parse = require('co-body');
 
-module.exports.getAll = function* (next) {
+module.exports.getAll = function*(next) {
   this.body = yield r.table('datasets').merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
@@ -12,7 +12,7 @@ module.exports.getAll = function* (next) {
   yield next;
 };
 
-module.exports.getRecent = function* (next) {
+module.exports.getRecent = function*(next) {
   this.body = yield r.table('datasets').orderBy(r.desc('birthtime')).merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array')
@@ -21,7 +21,7 @@ module.exports.getRecent = function* (next) {
   yield next;
 };
 
-module.exports.getTopViews = function* (next) {
+module.exports.getTopViews = function*(next) {
   this.body = yield r.table('datasets').merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
@@ -32,7 +32,7 @@ module.exports.getTopViews = function* (next) {
   yield next;
 };
 
-module.exports.getOne = function* (next) {
+module.exports.getOne = function*(next) {
   this.body = yield r.table('datasets').get(this.params.id).merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
@@ -41,7 +41,13 @@ module.exports.getOne = function* (next) {
           'files': r.table('datafiles').getAll(r.args(od('datafiles'))).coerceTo('array')
         }
       }).coerceTo('array'),
-      'tags': r.table('tags2datasets').getAll(rel('id'), {index: "dataset_id"}).coerceTo('array')
+      'tags': r.table('tags2datasets').getAll(rel('id'), {index: "dataset_id"}).coerceTo('array'),
+      'processes': r.table('datasets2processes').getAll(rel('id'), {index: 'dataset_id'}).map(function (row) {
+        return r.table('processes').get(row('process_id'))
+      }).coerceTo('array'),
+      'samples': r.table('datasets2samples').getAll(rel('id'), {index: 'dataset_id'}).map(function (row) {
+        return r.table('samples').get(row('sample_id'))
+      }).coerceTo('array')
     }
   });
   if (this.params.user_id) {
@@ -53,7 +59,7 @@ module.exports.getOne = function* (next) {
   yield next;
 };
 
-module.exports.getMockReleases = function* () {
+module.exports.getMockReleases = function*() {
   this.body = [{DOI: "ABC123"}, {DOI: "DEF123"}]
 };
 

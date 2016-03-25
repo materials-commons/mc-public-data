@@ -90,7 +90,6 @@ module.exports.getProcessTypes = function* (next) {
       })
     }
   });
-  console.dir(this.body);
   yield next;
 };
 

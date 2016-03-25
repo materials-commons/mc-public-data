@@ -3,12 +3,11 @@ export class HomeController {
     'ngInject';
 
     this.browseService = browseService;
-    console.dir(samples);
-    this.browseService.setResults(process_types);
+    this.browseService.setProcessResults(process_types);
+    this.browseService.setSampleResults(samples);
     this.tags = tags;
     this.process_types =  process_types;
     this.samples =  samples;
-    // this.datasets =  datasets;
     this.samples = this.orderByDatasetCount(this.samples);
   }
 
@@ -19,6 +18,5 @@ export class HomeController {
   orderByDatasetCount(samples){
     return  _.sortBy(samples, 'dataset_count').reverse();
   }
-
 }
 

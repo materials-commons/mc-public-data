@@ -14,13 +14,13 @@
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-home"></i>Home</a></li>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-upload"></i>Upload a Dataset</a></li>
         <li ng-show="!email_address" ui-sref-active="active">
-          <a ng-click="ctrl.sign()"><span style="border: 1px solid red; padding: 6px;" ><i class="fa fa-fw fa-home"></i>Sign Up / Login</span></a></li>
+          <a ng-click="ctrl.sign()"><span style="border: 1px solid red; padding: 6px;"><i class="fa fa-fw fa-home"></i>Sign Up / Login</span></a>
+        </li>
 
-        <li  ng-show="email_address" uib-dropdown on-toggle="toggled(open)">
+        <li ng-show="email_address" uib-dropdown on-toggle="toggled(open)">
           <a uib-dropdown-toggle><i class="fa fa-fw fa-user fa-1x"></i>
             {{email_address}}<span class="caret"></span></a>
           <ul uib-dropdown-menu aria-labelledby="simple-dropdown">

@@ -78,7 +78,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
           return searchService.searchByDOI();
         }]
       },
-      showSearchbar: true
+      showSearchBar: true
     })
     .state('main.register', {
       url: '/register',
@@ -87,16 +87,16 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'ctrl'
     })
     .state('main.browse', {
-      url: '/browse/:group',
+      url: '/browse/:group/:type',
       templateUrl: 'app/browse/browse.html',
       controller: 'BrowseController',
       controllerAs: 'ctrl',
       resolve: {
         results: ["browseService", "$stateParams", function (browseService, $stateParams) {
-          return browseService.getResults($stateParams.group);
+          return browseService.getResults($stateParams.group, $stateParams.type);
         }]
       },
-      showSearchbar: true
+      showSearchBar: true
     });
   $urlRouterProvider.otherwise('/');
 }

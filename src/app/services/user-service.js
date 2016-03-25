@@ -9,7 +9,6 @@ export class userService {
     this.$rootScope = $rootScope;
     this.$uibModal = $uibModal;
 
-
     if (this.$window.sessionStorage.mcuser) {
       try {
         console.log('does  mcuser exists');
