@@ -1,29 +1,27 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-sm-offset-1"><br><br>
-      <search-bar-directive></search-bar-directive>
-    </div>
-  </div>
   <br>
   <div class="row results-header">
-    <div class="col-sm-2" style="padding-top: 30px">
-      Search Results
+    <div class="col-sm-4" style="padding-top: 30px">
+      Datasets by Tag: {{ctrl.tag}}
     </div>
     <div class="pull-right">
       <label for="search">items per page:</label>
-      <input type="number" min="1" max="100" class="form-control" ng-model="search.pageSize">
+      <input type="number" min="1" max="100" class="form-control" ng-model="ctrl.pageSize">
     </div>
   </div>
   <div class="row">
     <hr/>
   </div>
-  <div class="form-horizontal" dir-paginate="dataset in search.results | itemsPerPage: search.pageSize">
+  <div ng-if="ctrl.results.length === 0"><h4>No Datasets</h4></div>
+  <div class="form-horizontal" dir-paginate="dataset in ctrl.results | itemsPerPage: ctrl.pageSize">
     <h4><a class="title" ui-sref="main.details({id: dataset.id})">{{dataset.title}}</a></h4>
-    <p class="small action-count">{{dataset.views.length}} views {{dataset.appreciations.length}} Appreciations</p>
+    <!--<p class="small action-count">{{dataset.views.length}} views {{dataset.appreciations.length}} Appreciations</p>-->
     <p class="field-value">{{dataset.description | limitTo: 190}} ... </p>
     <property-value property="Authors" value="dataset.authors"></property-value>
     <property-value property="Files" value="dataset.files.length"></property-value>
     <property-value property="DOI" value="dataset.DOI"></property-value>
+    <tags-input ng-model="dataset.tags" display-property="tag"
+                disabled="true"></tags-input>
     <hr/>
   </div>
   <dir-pagination-controls></dir-pagination-controls>

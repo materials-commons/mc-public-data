@@ -2,7 +2,7 @@ var r = require('./../dash');
 var parse = require('co-body');
 
 
-module.exports.addAppreciate = function* (next) {
+module.exports.addAppreciate = function*(next) {
   var params = yield parse(this);
   var inserted = yield r.table('appreciations').insert(params);
   this.status = 200;
@@ -10,7 +10,7 @@ module.exports.addAppreciate = function* (next) {
   yield next;
 };
 
-module.exports.removeAppreciation = function* (next) {
+module.exports.removeAppreciation = function*(next) {
   var params = yield parse(this);
   var deleted = yield r.table('appreciations').delete(params);
   this.status = 200;
@@ -18,7 +18,7 @@ module.exports.removeAppreciation = function* (next) {
   yield next;
 };
 
-module.exports.addView = function* (next) {
+module.exports.addView = function*(next) {
   var params = yield parse(this);
   var inserted = yield r.table('views').insert(params);
   this.status = 200;
@@ -26,7 +26,7 @@ module.exports.addView = function* (next) {
   yield next;
 };
 
-module.exports.getAll = function* (next) {
+module.exports.getAll = function*(next) {
   this.body = yield {
     appreciations: r.table('appreciations').getAll(this.params.dataset_id, {index: 'dataset_id'}).count(),
     views: r.table('views').getAll(this.params.dataset_id, {index: 'dataset_id'}).count(),
@@ -36,7 +36,7 @@ module.exports.getAll = function* (next) {
   yield next;
 };
 
-module.exports.addComment = function* (next) {
+module.exports.addComment = function*(next) {
   var params = yield parse(this);
   params.birthtime = r.now();
   var inserted = yield r.table('comments').insert(params);
@@ -45,14 +45,13 @@ module.exports.addComment = function* (next) {
   yield next;
 };
 
-module.exports.addTag = function* (next) {
+module.exports.addTag = function*(next) {
   var params = yield parse(this);
   var is_tag = yield r.table('tags').get(params.tag);
   if (!is_tag) {
     var inserted = yield r.table('tags').insert({
       id: params.tag,
-      user_id: params.user_id,
-      dataset_id: params.dataset_id
+      user_id: params.user_id
     });
   }
   yield r.table('tags2datasets').insert(params);
@@ -61,7 +60,7 @@ module.exports.addTag = function* (next) {
   yield next;
 };
 
-module.exports.removeTag = function* (next) {
+module.exports.removeTag = function*(next) {
   var params = yield parse(this);
   var tag = yield r.table('tags2datasets').get(params.id);
   if (params.user_id === tag.user_id) {
@@ -72,7 +71,7 @@ module.exports.removeTag = function* (next) {
   yield next;
 };
 
-module.exports.getAllTags = function* (next) {
+module.exports.getAllTags = function*(next) {
   this.body = yield r.table('tags').merge(function (tag) {
     return {
       count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()
@@ -81,11 +80,22 @@ module.exports.getAllTags = function* (next) {
   yield next;
 };
 
+module.exports.getDatasetsByTag = function*(next) {
+  this.body = yield r.table('tags2datasets').getAll(this.params.id, {index: 'tag'}).merge(function (row) {
+    return r.table('datasets').get(row('dataset_id')).merge(function (ds) {
+      return {
+        'tags': r.table('tags2datasets').getAll(ds('id'), {index: "dataset_id"}).coerceTo('array')
+      }
+    });
+  });
+  yield next;
+};
 
-module.exports.getProcessTypes = function* (next) {
-  this.body = yield r.table('processes').group('type').merge(function(row){
+
+module.exports.getProcessTypes = function*(next) {
+  this.body = yield r.table('processes').group('type').merge(function (row) {
     return {
-      datasets: r.table('datasets2processes').getAll(row('id'), {index: 'process_id'}).coerceTo('array').map(function(val){
+      datasets: r.table('datasets2processes').getAll(row('id'), {index: 'process_id'}).coerceTo('array').map(function (val) {
         return r.table('datasets').get(val('dataset_id'))
       })
     }
@@ -93,13 +103,13 @@ module.exports.getProcessTypes = function* (next) {
   yield next;
 };
 
-module.exports.getSamples = function* (next) {
-  this.body = yield r.table('samples').merge(function(row){
+module.exports.getSamples = function*(next) {
+  this.body = yield r.table('samples').merge(function (row) {
     return {
-      datasets: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function(val){
+      datasets: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function (val) {
         return r.table('datasets').get(val('dataset_id'))
       }),
-      dataset_count: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function(val){
+      dataset_count: r.table('datasets2samples').getAll(row('id'), {index: 'sample_id'}).coerceTo('array').map(function (val) {
         return r.table('datasets').get(val('dataset_id'))
       }).count()
     }

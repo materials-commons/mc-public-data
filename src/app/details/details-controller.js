@@ -10,7 +10,6 @@ export class DetailsController {
     this.viewDataset();
     this.view = "thumbnail";
     this.$uibModal = $uibModal;
-    console.dir(this.dataset);
   }
 
   appreciate() {
@@ -92,6 +91,10 @@ export class DetailsController {
     this.actionsService.removeTag(params.id, params.user_id).then((res) => {
       //this.getActions();
     });
+  }
+
+  loadTags(query){
+    return this.actionsService.getAllTags();
   }
 }
 

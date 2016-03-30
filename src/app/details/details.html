@@ -63,7 +63,14 @@
             <div ng-if="ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags" display-property="tag"
                           on-tag-adding="ctrl.addTag($tag)"
-                          on-tag-removing="ctrl.removeTag($tag)"></tags-input>
+                          on-tag-removing="ctrl.removeTag($tag)"
+                          replace-spaces-with-dashes="false"
+                          key-property="id"
+                          add-on-enter="true">
+                <auto-complete display-property="id" min-length="1"
+                               source="ctrl.loadTags($query)"
+                               debounce-delay="0"></auto-complete>
+              </tags-input>
             </div>
             <div ng-if="!ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags" display-property="tag"

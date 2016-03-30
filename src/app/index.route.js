@@ -97,6 +97,18 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }]
       },
       showSearchBar: true
+    })
+    .state('main.tags', {
+      url: '/tag/:id',
+      templateUrl: 'app/tags/tag-results.html',
+      controller: 'TagController',
+      controllerAs: 'ctrl',
+      resolve: {
+        results: ["actionsService", "$stateParams", function (actionsService, $stateParams) {
+          return actionsService.getDatasetsByTag($stateParams.id);
+        }]
+      },
+      showSearchBar: true
     });
   $urlRouterProvider.otherwise('/');
 }

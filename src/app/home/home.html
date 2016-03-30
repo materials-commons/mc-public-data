@@ -18,20 +18,23 @@
       <div class="row">
         <div class="col-sm-12">
           <h4 class="text-uppercase title">Popular Tags</h4>
-          <tags-input ng-model="home.tags" display-property="id"
-                      disabled="true" placeholder="Login to Edit/Add tags"></tags-input>
+          <tags-input ng-model="home.tags" display-property="id"  template="my-custom-template"
+                      on-tag-clicked="home.viewTagResults($tag)" disabled="true" placeholder="Login to Edit/Add tags"></tags-input>
+          <script type="text/ng-template" id="my-custom-template">
+            <div class="tag-template">
+             <div>{{data.id}} ({{data.count}})</div>
+            </div>
+          </script>
         </div>
+      </div>
+      <div ng-if="home.isUserLoggedIn()">
+        <a>Edit tags</a>
       </div>
       <br><br>
       <div class="row">
         <div class="col-sm-12">
           <h4 class="text-uppercase title">Browse</h4>
-          <!--<div ng-click="datasets = !datasets">-->
-            <!--<i ng-show="!datasets" class="fa fa-plus fa-fw "></i> <i ng-show="datasets" class="fa fa-minus fa-fw "></i>Datasets-->
-          <!--</div>-->
-          <!--<ul ng-show="datasets">-->
-            <!--<li ng-repeat="ds in home.datasets | limit: 5">{{ds.name}}</li>-->
-          <!--</ul>-->
+
           <div ng-click="process = !process"><i ng-show="!process" class="fa fa-plus fa-fw ">
           </i><i ng-show="process" class="fa fa-minus fa-fw "></i>Process Types
           </div>

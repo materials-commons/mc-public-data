@@ -45,7 +45,7 @@ export class userService {
   }
 
   isAuthenticated() {
-    return this.mcuser;
+    return this.mcuser? true: false;
   }
 
   email() {

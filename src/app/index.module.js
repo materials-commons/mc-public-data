@@ -12,6 +12,7 @@ import {TopDatasetsController} from './home/datasets/top-datasets-controller';
 import {PopUpController} from './details/pop-up-controller';
 import {DetailsController} from './details/details-controller';
 import {BrowseController} from './browse/browse-controller';
+import {TagController} from './tags/tags-controller';
 import {CommentDirective} from './details/comment-directive';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
@@ -40,6 +41,7 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .controller('PopUpController', PopUpController)
   .controller('DetailsController', DetailsController)
   .controller('BrowseController', BrowseController)
+  .controller('TagController', TagController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('homeTabDirective', HomeTabDirective)
   .directive('searchBarDirective', SearchBarDirective)

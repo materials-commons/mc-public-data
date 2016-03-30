@@ -69,4 +69,10 @@ export class actionsService {
     });
   }
 
+  getDatasetsByTag(tag){
+    return this.Restangular.one('tags', tag).one('datasets').getList().then(function (tags) {
+      return tags.plain();
+    });
+  }
+
 }
