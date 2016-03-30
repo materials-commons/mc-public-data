@@ -39,7 +39,11 @@ export class actionsService {
   }
 
   addTag(dataset_id, user_id, tag) {
-    return this.Restangular.one('tags').customPOST({user_id: user_id, dataset_id: dataset_id, tag: tag}).then((result)=> {
+    return this.Restangular.one('tags').customPOST({
+      user_id: user_id,
+      dataset_id: dataset_id,
+      tag: tag
+    }).then((result)=> {
       this.toastr.success("Tagged Successfully! ");
     });
   }
@@ -51,28 +55,27 @@ export class actionsService {
   }
 
 
-  getAllTags(){
+  getAllTags() {
     return this.Restangular.one('tags').getList().then(function (tags) {
       return tags.plain();
     });
   }
 
-  getProcessTypes(){
+  getProcessTypes() {
     return this.Restangular.one('processes').one('types').getList().then(function (process_types) {
       return process_types.plain();
     });
   }
 
-  getSamples(){
+  getSamples() {
     return this.Restangular.one('samples').getList().then(function (samples) {
       return samples.plain();
     });
   }
 
-  getDatasetsByTag(tag){
+  getDatasetsByTag(tag) {
     return this.Restangular.one('tags', tag).one('datasets').getList().then(function (tags) {
       return tags.plain();
     });
   }
-
 }

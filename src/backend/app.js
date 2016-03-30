@@ -12,6 +12,12 @@ var cors = require('koa-cors');
 var release = require('./db/release');
 var user = require('./db/user');
 var action = require('./db/actions');
+var appreciate = require('./db/appreciate');
+var browse = require('./db/browse');
+var view = require('./db/view');
+var tag = require('./db/tag');
+var comment = require('./db/comment');
+var download = require('./db/download');
 
 
 var app =  koa();
@@ -24,16 +30,16 @@ router.get('/datasets/:id/user/:user_id', release.getOne);
 router.post('/users', user.create);
 router.get('/user/:email', user.get);
 router.get('/actions/:dataset_id', action.getAll);
-router.post('/appreciate', action.addAppreciate);
-router.del('/appreciate/user/:user_id/dataset/:dataset_id', action.removeAppreciation);
-router.post('/views', action.addView);
-router.post('/comments', action.addComment);
-router.post('/tags', action.addTag);
-router.put('/tags', action.removeTag);
-router.get('/tags', action.getAllTags);
-router.get('/processes/types', action.getProcessTypes);
-router.get('/samples', action.getSamples);
-router.get('/tags/:id/datasets', action.getDatasetsByTag);
+router.post('/appreciate', appreciate.addAppreciate);
+router.del('/appreciate/user/:user_id/dataset/:dataset_id', appreciate.removeAppreciation);
+router.post('/views', view.addView);
+router.post('/comments', comment.addComment);
+router.post('/tags', tag.addTag);
+router.put('/tags', tag.removeTag);
+router.get('/tags', tag.getAllTags);
+router.get('/processes/types', browse.getProcessTypes);
+router.get('/samples', browse.getSamples);
+router.get('/tags/:id/datasets', tag.getDatasetsByTag);
 
 
 app.use(router.routes());
