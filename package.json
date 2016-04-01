@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "bluebird": "^3.3.4",
+    "http-status": "^0.2.1",
+    "js-data-schema": "^1.2.5",
     "koa": "^1.1.2"
   },
   "scripts": {

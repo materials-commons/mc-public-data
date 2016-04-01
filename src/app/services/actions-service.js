@@ -8,7 +8,7 @@ export class actionsService {
 
   appreciate(dataset_id, user_id) {
     return this.Restangular.one('appreciate').customPOST({user_id: user_id, dataset_id: dataset_id}).then((result)=> {
-      this.toastr.success("Appreciated! ");
+      this.toastr.success("Appreciated!");
     });
   }
 

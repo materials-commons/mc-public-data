@@ -93,7 +93,7 @@ export class DetailsController {
     });
   }
 
-  loadTags(query){
+  loadTags(query) {
     return this.actionsService.getAllTags();
   }
 }
