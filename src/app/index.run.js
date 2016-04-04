@@ -3,7 +3,9 @@ export function runBlock($log, userService, $state, $rootScope, Restangular) {
   $log.debug('runBlock end');
 
   if (userService.isAuthenticated()) {
-    Restangular.setDefaultRequestParams({apikey: userService.apikey()});
+    Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: userService.apikey()});
+  }else{
+    Restangular.setDefaultRequestParams(['get'], {apikey: userService.apikey()});
   }
 
   $rootScope.$on('$stateChangeStart', function (event, toState) {

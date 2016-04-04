@@ -19,8 +19,8 @@ var tag = require('./db/tag');
 var comment = require('./db/comment');
 var download = require('./db/download');
 
-var users = require('./users');
-var apikey = require('./apikey')(users);
+// var users = require('./users');
+var apikey = require('./apikey')();
 
 
 var app =  koa();

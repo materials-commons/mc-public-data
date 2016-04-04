@@ -26,7 +26,7 @@ export class SignController {
     this.userService.getUser(this.user.email).then((result)=> {
       this.user = result;
       this.userService.setAuthentication(this.user);
-      this.Restangular.setDefaultRequestParams({apikey: this.userService.apikey()});
+      this.Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: this.userService.apikey()});
       this.$uibModalInstance.close();
       this.$state.go("main.home");
       this.toastr.options = {"closeButton": true};

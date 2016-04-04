@@ -73,7 +73,7 @@ export class userService {
 
 
   apikey() {
-    return this.mcuser ? this.mcuser.apikey : undefined;
+    return this.mcuser ? this.mcuser.apikey : 'anonymous';
   }
 
 }

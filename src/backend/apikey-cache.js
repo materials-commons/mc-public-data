@@ -2,6 +2,7 @@
 // apikey cache caches the user apikeys for quick lookup.
 // It preloads all the users the first time it is called
 const _ = require('lodash');
+var r = require('./dash');
 
 class APIKeyCache {
   constructor(model) {

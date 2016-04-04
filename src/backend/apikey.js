@@ -1,8 +1,8 @@
 // apikey module validates the apikey argument used in the call. It
 // caches the list of users to make lookups faster.
-module.exports = function(users) {
+module.exports = function() {
   'use strict';
-  let apikeyCache = require('./apikey-cache')(users);
+  let apikeyCache = require('./apikey-cache')();
   let httpStatus = require('http-status');
 
   // whiteList contains paths that don't require
