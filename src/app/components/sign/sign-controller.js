@@ -1,5 +1,5 @@
 export class SignController {
-  constructor(userService, $state, $uibModalInstance, toastr) {
+  constructor(userService, $state, $uibModalInstance, toastr, Restangular) {
     'ngInject';
 
     this.user = {
@@ -11,6 +11,7 @@ export class SignController {
     this.$state = $state;
     this.$uibModalInstance = $uibModalInstance;
     this.toastr = toastr;
+    this.Restangular = Restangular;
   }
 
   setTab(tab) {
@@ -25,13 +26,14 @@ export class SignController {
     this.userService.getUser(this.user.email).then((result)=> {
       this.user = result;
       this.userService.setAuthentication(this.user);
+      this.Restangular.setDefaultRequestParams({apikey: this.userService.apikey()});
       this.$uibModalInstance.close();
       this.$state.go("main.home");
-      toastr.options = {"closeButton": true};
-      toastr.success('Logged in Successfully', this.user.email)
+      this.toastr.options = {"closeButton": true};
+      this.toastr.success('Logged in Successfully', this.user.email)
     }, (err) => {
-      toastr.options = {"closeButton": true};
-      toastr.error(err.data, this.user.email);
+      this.toastr.options = {"closeButton": true};
+      this.toastr.error(err.data, this.user.email);
     });
   }
 
@@ -39,11 +41,11 @@ export class SignController {
     this.user.apikey = "abc123";
     this.userService.create(this.user).then((res) => {
       this.setTab('login');
-      toastr.options = {"closeButton": true};
-      toastr.success('Please login', 'Registered successfully');
+      this.toastr.options = {"closeButton": true};
+      this.this.toastr.success('Please login', 'Registered successfully');
     }, (err) => {
-      toastr.options = {"closeButton": true};
-      toastr.error(err.data, this.user.email);
+      this.toastr.options = {"closeButton": true};
+      this.toastr.error(err.data, this.user.email);
     });
   }
 }

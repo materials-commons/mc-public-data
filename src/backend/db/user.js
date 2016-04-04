@@ -1,3 +1,4 @@
+
 var r = require('./../dash');
 var parse = require('co-body');
 
@@ -27,5 +28,3 @@ module.exports.get = function* (next) {
   }
   yield next;
 };
-
-

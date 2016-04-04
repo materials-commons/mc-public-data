@@ -19,9 +19,13 @@ var tag = require('./db/tag');
 var comment = require('./db/comment');
 var download = require('./db/download');
 
+var users = require('./users');
+var apikey = require('./apikey')(users);
+
 
 var app =  koa();
 app.use(cors());
+app.use(apikey);
 router.prefix('/api/v1');
 router.get('/datasets', release.getAll);
 router.get('/datasets/recent', release.getRecent);

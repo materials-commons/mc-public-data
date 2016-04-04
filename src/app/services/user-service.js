@@ -45,14 +45,14 @@ export class userService {
   }
 
   isAuthenticated() {
-    return this.mcuser? true: false;
+    return this.mcuser ? true : false;
   }
 
   email() {
     return this.mcuser ? this.mcuser.email : undefined;
   }
 
-  u(){
+  u() {
     return this.mcuser;
   }
 
@@ -70,5 +70,10 @@ export class userService {
       this.$log.info('Modal dismissed at : ' + new Date());
     });
   };
+
+
+  apikey() {
+    return this.mcuser ? this.mcuser.apikey : undefined;
+  }
 
 }
