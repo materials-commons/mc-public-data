@@ -1,5 +1,6 @@
 var r = require('./../dash');
 var parse = require('co-body');
+var httpStatus = require('http-status');
 
 module.exports.addTag = function*(next) {
   var params = yield parse(this);
@@ -10,9 +11,14 @@ module.exports.addTag = function*(next) {
       user_id: params.user_id
     });
   }
-  yield r.table('tags2datasets').insert(params);
-  this.status = 200;
-  this.body = inserted;
+  var does_join_exists = yield r.table('tags2datasets').getAll([params.tag, params.dataset_id], {index: 'tag_dataset'});
+  if (!does_join_exists){
+    yield r.table('tags2datasets').insert(params);
+    this.status = 200;
+    this.body = inserted;
+  }else{
+    this['throw'](httpStatus.CONFLICT, 'Duplicate request');
+  }
   yield next;
 };
 
@@ -27,8 +33,17 @@ module.exports.removeTag = function*(next) {
   yield next;
 };
 
-module.exports.getAllTags = function*(next) {
+module.exports.getTagsByCount = function*(next) {
   this.body = yield r.table('tags').merge(function (tag) {
+    return {
+      count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()
+    }
+  }).orderBy(r.desc('count'));
+  yield next;
+};
+
+module.exports.getAllTags = function*(next) {
+  this.body = yield r.table('tags').orderBy('id').merge(function (tag) {
     return {
       count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()
     }

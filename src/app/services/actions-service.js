@@ -61,6 +61,12 @@ export class actionsService {
     });
   }
 
+  getTagsByCount() {
+    return this.Restangular.one('tags').one('bycount').getList().then(function (tags) {
+      return tags.plain();
+    });
+  }
+
   getProcessTypes() {
     return this.Restangular.one('processes').one('types').getList().then(function (process_types) {
       return process_types.plain();

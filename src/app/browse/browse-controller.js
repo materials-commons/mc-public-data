@@ -1,8 +1,11 @@
 export class BrowseController {
-  constructor(results) {
+  constructor(browseService) {
     'ngInject';
-    this.results = results;
-    console.log(results);
+    this.browseService = browseService;
+  }
+
+  isRouteActive(route){
+    return this.browseService.isRouteActive(route);
   }
 }
 

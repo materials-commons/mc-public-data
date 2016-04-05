@@ -19,8 +19,8 @@ export class DetailsController {
         this.getActions();
       });
     } else {
-      toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
-      toastr.warning("Please sign in to appreciate the work");
+      this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
+      this.toastr.warning("Please sign in to appreciate the work");
     }
   }
 
@@ -31,8 +31,8 @@ export class DetailsController {
         this.getActions();
       });
     } else {
-      toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
-      toastr.warning("Please sign in to appreciate the work");
+      this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
+      this.toastr.warning("Please sign in to appreciate the work");
     }
   }
 
@@ -83,7 +83,11 @@ export class DetailsController {
 
   addTag(params) {
     this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
-      console.log('added tags');
+      console.log('added');
+    }, (error) => {
+      console.log(error);
+      this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
+      this.toastr.warning("Duplicate request");
     });
   }
 

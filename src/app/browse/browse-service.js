@@ -1,8 +1,9 @@
 export class browseService {
   /*@ngInject*/
-  constructor() {
+  constructor($state) {
     this.process_results = [];
     this.sample_results = [];
+    this.$state = $state;
   }
 
   setProcessResults(browse_data) {
@@ -32,6 +33,12 @@ export class browseService {
         return this.process_results[i];
       }
       break;
+    }
+  }
+
+  isRouteActive(route){
+    if (route === this.$state.current.name){
+      return true;
     }
   }
 }

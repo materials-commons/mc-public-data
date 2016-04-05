@@ -10,10 +10,10 @@ export class HomeController {
     this.process_types =  process_types;
     this.samples =  samples;
     this.samples = this.orderByDatasetCount(this.samples);
-  }
-
-  browse(type){
-
+    this.placeholder = "";
+    if (!this.isUserLoggedIn()){
+      this.placeholder = "Login to Edit Tags";
+    }
   }
 
   orderByDatasetCount(samples){

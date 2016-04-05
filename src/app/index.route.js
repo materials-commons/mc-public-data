@@ -22,7 +22,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       dsr: true,
       resolve: {
         tags: ["actionsService", function (actionsService) {
-          return actionsService.getAllTags();
+          return actionsService.getTagsByCount();
         }],
         process_types: ["actionsService", function (actionsService) {
           return actionsService.getProcessTypes();
@@ -91,9 +91,28 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/browse/browse.html',
       controller: 'BrowseController',
       controllerAs: 'ctrl',
+      showSearchBar: true
+    })
+    .state('main.browse.datasets', {
+      url: '/datasets',
+      templateUrl: 'app/browse/datasets/browse-datasets.html',
+      controller: 'BrowseDatasetsController',
+      controllerAs: 'ctrl',
       resolve: {
-        results: ["browseService", "$stateParams", function (browseService, $stateParams) {
-          return browseService.getResults($stateParams.group, $stateParams.type);
+        datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAll();
+        }]
+      },
+      showSearchBar: true
+    })
+    .state('main.browse.tags', {
+      url: '/tags',
+      templateUrl: 'app/browse/tags/browse-tags.html',
+      controller: 'BrowseTagsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTags();
         }]
       },
       showSearchBar: true

@@ -13,10 +13,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li ui-sref-active="active"><a ui-sref="main.browse"><i class="fa fa-fw fa-home"></i>Browse</a></li>
+        <li ui-sref-active="active"><a ui-sref="main.browse.datasets"><i class="fa fa-fw fa-home"></i>Browse</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!--<li ui-sref-active="active"><a ui-sref="main.home"><i class="fa fa-fw fa-upload"></i>Upload a Dataset</a></li>-->
         <li ng-show="!email_address" ui-sref-active="active">
           <a ng-click="ctrl.sign()"><span style="border: 1px solid red; padding: 6px;"><i class="fa fa-fw fa-home"></i>Sign Up / Login</span></a>
         </li>

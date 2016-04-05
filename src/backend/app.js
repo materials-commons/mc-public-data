@@ -41,6 +41,7 @@ router.post('/comments', comment.addComment);
 router.post('/tags', tag.addTag);
 router.put('/tags', tag.removeTag);
 router.get('/tags', tag.getAllTags);
+router.get('/tags/bycount', tag.getTagsByCount);
 router.get('/processes/types', browse.getProcessTypes);
 router.get('/samples', browse.getSamples);
 router.get('/tags/:id/datasets', tag.getDatasetsByTag);
