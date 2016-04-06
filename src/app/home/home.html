@@ -20,7 +20,7 @@
           <h4 class="text-uppercase title">Popular Tags</h4>
           <tags-input ng-model="home.tags" display-property="id" template="my-custom-template"
                       on-tag-clicked="home.viewTagResults($tag)" disabled="true"
-                      placeholder="{{home.placeholder}}"></tags-input>
+                      placeholder="{{home.placeholder_tag}}"></tags-input>
           <script type="text/ng-template" id="my-custom-template">
             <div class="tag-template">
               <div>{{data.id}} ({{data.count}})</div>
@@ -28,7 +28,7 @@
           </script>
         </div>
       </div>
-      <div ng-if="home.isUserLoggedIn()">
+      <div ng-if="home.isUserLoggedIn() && home.tags.length > 0">
         <a>Edit tags</a>
       </div>
       <br><br>

@@ -4,6 +4,7 @@ var httpStatus = require('http-status');
 
 module.exports.addTag = function*(next) {
   var params = yield parse(this);
+  console.log(params);
   var is_tag = yield r.table('tags').get(params.tag);
   if (!is_tag) {
     var inserted = yield r.table('tags').insert({
@@ -12,12 +13,13 @@ module.exports.addTag = function*(next) {
     });
   }
   var does_join_exists = yield r.table('tags2datasets').getAll([params.tag, params.dataset_id], {index: 'tag_dataset'});
-  if (!does_join_exists){
+  console.log(does_join_exists);
+  if (does_join_exists.length !== 0){
+    this['throw'](httpStatus.CONFLICT, 'Duplicate request');
+  }else{
     yield r.table('tags2datasets').insert(params);
     this.status = 200;
     this.body = inserted;
-  }else{
-    this['throw'](httpStatus.CONFLICT, 'Duplicate request');
   }
   yield next;
 };

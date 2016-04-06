@@ -82,7 +82,8 @@ export class DetailsController {
   }
 
   addTag(params) {
-    this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
+    console.log('add tag');
+    return this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
       console.log('added');
     }, (error) => {
       console.log(error);

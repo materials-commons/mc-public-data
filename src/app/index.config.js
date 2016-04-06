@@ -11,6 +11,10 @@ export function config ($logProvider, toastrConfig, RestangularProvider, $window
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
 
+  //
+  tagsInputConfigProvider.setDefaults('tagsInput', {
+    placeholder: 'Tags List'
+  });
   //set the base url for api calls on RESTful services
 
   var newBaseUrl = $window.location.protocol + "//" +
