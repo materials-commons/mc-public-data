@@ -41,7 +41,9 @@ module.exports.getOne = function*(next) {
           'files': r.table('datafiles').getAll(r.args(od('datafiles'))).coerceTo('array')
         }
       }).coerceTo('array'),
-      'tags': r.table('tags2datasets').getAll(rel('id'), {index: "dataset_id"}).coerceTo('array'),
+      'tags': r.table('tags2datasets').getAll(rel('id'), {index: "dataset_id"}).map(function(row){
+        return r.table('tags').get(row('tag'));
+      }).coerceTo('array'),
       'processes': r.table('datasets2processes').getAll(rel('id'), {index: 'dataset_id'}).map(function (row) {
         return r.table('processes').get(row('process_id'))
       }).coerceTo('array'),

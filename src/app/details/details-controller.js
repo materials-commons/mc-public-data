@@ -10,6 +10,7 @@ export class DetailsController {
     this.viewDataset();
     this.view = "thumbnail";
     this.$uibModal = $uibModal;
+    // this.all_tags = tags;
   }
 
   appreciate() {
@@ -82,19 +83,24 @@ export class DetailsController {
   }
 
   addTag(params) {
-    this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
-      console.log('added tags');
+    this.actionsService.addTag(this.dataset.id, this.user.id, params.id).then((res) => {
+
     });
   }
 
   removeTag(params) {
-    this.actionsService.removeTag(params.id, params.user_id).then((res) => {
+    console.log(params);
+    this.actionsService.removeTag(this.dataset.id, params.user_id, params.id).then((res) => {
       //this.getActions();
     });
   }
 
-  loadTags(query) {
-    return this.actionsService.getAllTags();
+  loadTags() {
+    return this.actionsService.getAllTags()
   }
+
+  // filterTags(query){
+  //   return this.all_tags;
+  // }
 }
 
