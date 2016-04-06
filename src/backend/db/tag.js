@@ -26,9 +26,10 @@ module.exports.addTag = function*(next) {
 
 module.exports.removeTag = function*(next) {
   var params = yield parse(this);
-  var tag = yield r.table('tags2datasets').get(params.id);
-  if (params.user_id === tag.user_id) {
-    var deleted = yield r.table('tags2datasets').get(params.id).delete();
+  var tag2dataset = yield r.table('tags2datasets').getAll([params.dataset_id, params.tag], {index: 'tag_dataset'}).limit(1);
+  console.log(tag2dataset);
+  if (params.user_id === tag2dataset.user_id) {
+    var deleted = yield r.table('tags2datasets').get(tag2dataset.id).delete();
     this.status = 200;
     this.body = deleted;
   }

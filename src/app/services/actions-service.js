@@ -48,8 +48,8 @@ export class actionsService {
     });
   }
 
-  removeTag(id, user_id) {
-    return this.Restangular.one('tags').customPUT({id: id, user_id: user_id}).then((result)=> {
+  removeTag(dataset_id, user_id, tag) {
+    return this.Restangular.one('tags').customPUT({dataset_id: dataset_id, user_id: user_id, tag: tag}).then((result)=> {
       this.toastr.success("Removed Tag! ");
     });
   }
