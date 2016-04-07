@@ -83,9 +83,8 @@ export class DetailsController {
   }
 
   addTag(params) {
-    console.log('add tag');
-    return this.actionsService.addTag(this.dataset.id, this.user.id, params.tag).then((res) => {
-      console.log('added');
+    console.log(params);
+    return this.actionsService.addTag(this.dataset.id, this.user.id, params.id).then((res) => {
     }, (error) => {
       console.log(error);
       this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
