@@ -1,11 +1,13 @@
 <div class="container">
   <br>
+  <a ng-click="ctrl.previousState()">Back to All Tags</a>
+
   <div class="row results-header">
     <div class="col-sm-4" style="padding-top: 30px">
       Datasets by Tag: {{ctrl.tag}}
     </div>
     <div class="pull-right">
-      <label for="search">items per page:</label>
+      <label>items per page:</label>
       <input type="number" min="1" max="100" class="form-control" ng-model="ctrl.pageSize">
     </div>
   </div>

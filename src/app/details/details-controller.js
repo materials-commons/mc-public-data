@@ -1,5 +1,5 @@
 export class DetailsController {
-  constructor(dataset, actionsService, toastr, userService, $uibModal) {
+  constructor(dataset, actionsService, toastr, userService, $uibModal, $previousState) {
     'ngInject';
     this.dataset = dataset;
     this.toastr = toastr;
@@ -10,6 +10,7 @@ export class DetailsController {
     this.viewDataset();
     this.view = "thumbnail";
     this.$uibModal = $uibModal;
+    this.$previousState = $previousState;
     // this.all_tags = tags;
   }
 
@@ -89,7 +90,7 @@ export class DetailsController {
       console.log(error);
       this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
       this.toastr.warning("Duplicate request");
-  });
+    });
   }
 
   removeTag(params) {
@@ -101,6 +102,10 @@ export class DetailsController {
 
   loadTags() {
     return this.actionsService.getAllTags()
+  }
+
+  previousState() {
+    this.$previousState.go();
   }
 }
 
