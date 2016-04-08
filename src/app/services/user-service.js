@@ -21,9 +21,7 @@ export class userService {
   }
 
   create(user) {
-    return this.Restangular.one('users').customPOST(user).then(function (result) {
-      return result;
-    });
+    return this.Restangular.one('users').customPOST(user);
   }
 
   getUser(email) {

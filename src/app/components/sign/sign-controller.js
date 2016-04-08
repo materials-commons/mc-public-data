@@ -41,11 +41,9 @@ export class SignController {
     this.user.apikey = "abc123";
     this.userService.create(this.user).then((res) => {
       this.setTab('login');
-      this.toastr.options = {"closeButton": true};
-      this.this.toastr.success('Please login', 'Registered successfully');
+      this.toastr.success('Please login', 'Registered successfully', {"closeButton": true});
     }, (err) => {
-      this.toastr.options = {"closeButton": true};
-      this.toastr.error(err.data, this.user.email);
+      this.toastr.error(err.data, this.user.email, {"closeButton": true});
     });
   }
 }
