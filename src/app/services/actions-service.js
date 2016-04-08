@@ -44,8 +44,11 @@ export class actionsService {
       dataset_id: dataset_id,
       tag: tag
     }).then((result)=> {
-      this.toastr.success("Tagged Successfully! ");
-    });
+      this.toastr.success("Tagged Successfully! ", {closeButton: true});
+    },
+      (error) => {
+        this.toastr.warning("Duplicate request");
+      });
   }
 
   removeTag(dataset_id, user_id, tag) {

@@ -22,6 +22,7 @@ module.exports.addTag = function*(next) {
   }
   var exists = yield tag.getTag2Dataset(copyParams);
   if (exists.length !== 0) {
+    console.log('duplicate');
     this['throw'](httpStatus.CONFLICT, 'Duplicate request');
   } else {
     rv = yield tag.addTag2Dataset(copyParams);
@@ -47,7 +48,6 @@ module.exports.removeTag = function*(next) {
 };
 
 module.exports.getTagsByCount = function*(next) {
-  console.log('tagsbycount');
   this.body = yield r.table('tags').merge(function (tag) {
     return {
       count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()

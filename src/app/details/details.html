@@ -67,11 +67,8 @@
                           key-property="id"
                           on-tag-adding="ctrl.addTag($tag)"
                           on-tag-removing="ctrl.removeTag($tag)"
-                          add-from-autocomplete-only="false"
                           replace-spaces-with-dashes="false"
-                          add-on-enter="true"
-                          add-on-comma="true"
-                          add-on-blur="false">
+                          add-on-paste="true">
                 <auto-complete display-property="id" source="ctrl.loadTags($query)" min-length="1"></auto-complete>
               </tags-input>
             </div>

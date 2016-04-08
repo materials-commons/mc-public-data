@@ -83,16 +83,12 @@ export class DetailsController {
   }
 
   addTag(params) {
-    return this.actionsService.addTag(this.dataset.id, this.user.id, params.id).then((res) => {
-    }, (error) => {
-      this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
-      this.toastr.warning("Duplicate request");
-    });
+    return this.actionsService.addTag(this.dataset.id, this.user.id, params.id);
   }
 
+
   removeTag(params) {
-    this.actionsService.removeTag(this.dataset.id, params.user_id, params.id).then((res) => {
-    });
+    this.actionsService.removeTag(this.dataset.id, params.user_id, params.id);
   }
 
   loadTags() {
