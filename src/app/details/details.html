@@ -62,16 +62,6 @@
             <property-value property="Published" value="ctrl.dataset.birthtime"></property-value>
             <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
             <div ng-if="ctrl.user">
-              <!--<tags-input ng-model="ctrl.dataset.tags" display-property="tag"-->
-                          <!--on-tag-adding="ctrl.addTag($tag)"-->
-                          <!--on-tag-removing="ctrl.removeTag($tag)"-->
-                          <!--replace-spaces-with-dashes="false"-->
-                          <!--key-property="id"-->
-                          <!--add-on-paste="true">-->
-                <!--<auto-complete display-property="id" min-length="1"-->
-                               <!--source="ctrl.loadTags($query)"-->
-                               <!--debounce-delay="0"></auto-complete>-->
-              <!--</tags-input>-->
               <tags-input ng-model="ctrl.dataset.tags"
                           display-property="id"
                           key-property="id"

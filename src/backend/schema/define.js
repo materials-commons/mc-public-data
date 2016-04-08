@@ -9,7 +9,8 @@ module.exports = function(){
   defineRule();
 
   return {
-    comments: defineCommentSchema()
+    comments: defineCommentSchema(),
+    tags: defineTagSchema()
   };
 
   function defineCommentSchema(){
@@ -23,6 +24,18 @@ module.exports = function(){
     });
     comment.validateAsync = promise.promisify(comment.validate);
     return comment;
+  }
+
+  function defineTagSchema(){
+    var tagSchema = schema.defineSchema('Tag', {
+      tag: {type: 'string', nullable: false},
+      user_id: {mustExist: 'users', type: 'string', nullable: false}
+    });
+    tagSchema.setDefaults({
+      tag: ''
+    });
+    tagSchema.validateAsync = promise.promisify(tagSchema.validate);
+    return tagSchema;
   }
 
   function defineRule(){

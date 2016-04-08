@@ -18,9 +18,15 @@
       <div class="row">
         <div class="col-sm-12">
           <h4 class="text-uppercase title">Popular Tags</h4>
-          <tags-input ng-model="home.tags" display-property="id" template="my-custom-template"
-                      on-tag-clicked="home.viewTagResults($tag)" disabled="true"
-                      placeholder="{{home.placeholder_tag}}"></tags-input>
+          <tags-input ng-model="home.tags"
+                      display-property="id"
+                      key-property="id"
+                      template="my-custom-template"
+                      replace-spaces-with-dashes="false"
+                      placeholder="{{home.placeholder_tag}}"
+                      disabled="true"
+                      on-tag-clicked="home.viewTagResults($tag)">
+          </tags-input>
           <script type="text/ng-template" id="my-custom-template">
             <div class="tag-template">
               <div>{{data.id}} ({{data.count}})</div>

@@ -1,45 +1,53 @@
 var r = require('./../dash');
 var parse = require('co-body');
 var httpStatus = require('http-status');
+var defineSchema = require('./../schema/define')();
+var tag = require('./model/tag')();
+var clone = require('clone');
 
 module.exports.addTag = function*(next) {
+  'use strict';
   var params = yield parse(this);
-  console.log(params);
-  var is_tag = yield r.table('tags').get(params.tag);
-  console.log(is_tag);
-  if (!is_tag) {
-    var inserted = yield r.table('tags').insert({
-      id: params.tag,
-      user_id: params.user_id
-    });
+  var copyParams = clone(params);
+  var tagSchema = defineSchema.tags;
+  var rv;
+  var err = yield tagSchema.validateAsync(params);
+  if (err) {
+    this['throw'](httpStatus.BAD_GATEWAY, 'Validation error');
   }
-  var does_join_exists = yield r.table('tags2datasets').getAll([params.tag, params.dataset_id], {index: 'tag_dataset'});
-  if (does_join_exists.length !== 0){
+  var is_tag = yield tag.getTag(params.tag);
+  if (!is_tag) {
+    prepareTag(params);
+    rv = yield tag.insert(params);
+  }
+  var exists = yield tag.getTag2Dataset(copyParams);
+  if (exists.length !== 0) {
     this['throw'](httpStatus.CONFLICT, 'Duplicate request');
-  }else{
-    console.log('adding join record');
-    yield r.table('tags2datasets').insert(params);
+  } else {
+    rv = yield tag.addTag2Dataset(copyParams);
     this.status = 200;
-    this.body = inserted;
+    this.body = rv;
   }
   yield next;
 };
 
 module.exports.removeTag = function*(next) {
   var params = yield parse(this);
-  var tag2dataset = yield r.table('tags2datasets').getAll([params.tag, params.dataset_id], {index: 'tag_dataset'});
-  if(tag2dataset.length > 0){
-    if (params.user_id === tag2dataset[0].user_id) {
-      var deleted = yield r.table('tags2datasets').get(tag2dataset[0].id).delete();
+  var join = yield tag.getTag2Dataset(params);
+  if (join.length > 0) {
+    if (params.user_id === join[0].user_id) {
+      this.body = yield r.table('tags2datasets').get(join[0].id).delete();
       this.status = 200;
-      this.body = deleted;
     }
+  } else{
+    this['throw'](httpStatus.BAD_REQUEST, 'Unable to delete');
   }
 
   yield next;
 };
 
 module.exports.getTagsByCount = function*(next) {
+  console.log('tagsbycount');
   this.body = yield r.table('tags').merge(function (tag) {
     return {
       count: r.table('tags2datasets').getAll(tag('id'), {index: 'tag'}).count()
@@ -67,3 +75,7 @@ module.exports.getDatasetsByTag = function*(next) {
   });
   yield next;
 };
+
+function prepareTag(input) {
+  return defineSchema.tags.stripNonSchemaAttrs(input);
+}

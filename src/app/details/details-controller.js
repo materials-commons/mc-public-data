@@ -11,7 +11,6 @@ export class DetailsController {
     this.view = "thumbnail";
     this.$uibModal = $uibModal;
     this.$previousState = $previousState;
-    // this.all_tags = tags;
   }
 
   appreciate() {
@@ -84,24 +83,20 @@ export class DetailsController {
   }
 
   addTag(params) {
-    console.log(params);
     return this.actionsService.addTag(this.dataset.id, this.user.id, params.id).then((res) => {
     }, (error) => {
-      console.log(error);
       this.toastr.options = {"positionClass": "toast-top-full-width", "closeButton": true};
       this.toastr.warning("Duplicate request");
     });
   }
 
   removeTag(params) {
-    console.log(params);
     this.actionsService.removeTag(this.dataset.id, params.user_id, params.id).then((res) => {
-      //this.getActions();
     });
   }
 
   loadTags() {
-    return this.actionsService.getAllTags()
+    return this.actionsService.getAllTags();
   }
 
   previousState() {

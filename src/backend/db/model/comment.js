@@ -4,10 +4,10 @@ module.exports = function () {
   var r = require('./../../dash');
 
   return {
-    insert: insert
+    insert: addComment
   };
 
-  function insert(params){
+  function addComment(params){
     return r.table('comments').insert(params , {returnChanges: true});
   }
 };
