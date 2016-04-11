@@ -38,6 +38,11 @@
       <span ng-show="form.institution.$dirty && form.institution.$error.required"
             class="help-block">Institution is required</span>
     </div>
+    <div flow-init>
+        <input type="file" flow-btn />
+      <span flow-btn>Upload file</span>
+      <img flow-img="$flow.files[0]">
+    </div>
     <div class="form-actions">
       <button type="submit" ng-disabled="form.$invalid || ctrl.dataLoading" class="btn btn-primary">Register</button>
     </div>
