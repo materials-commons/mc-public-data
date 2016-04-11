@@ -26,7 +26,6 @@ var apikey = require('./apikey')();
 var app =  koa();
 app.use(cors());
 app.use(apikey);
-router.prefix('/api/v1');
 router.get('/datasets', release.getAll);
 router.get('/datasets/recent', release.getRecent);
 router.get('/datasets/views', release.getTopViews);
@@ -45,6 +44,7 @@ router.get('/tags/bycount', tag.getTagsByCount);
 router.get('/processes/types', browse.getProcessTypes);
 router.get('/samples', browse.getSamples);
 router.get('/tags/:id/datasets', tag.getDatasetsByTag);
+router.post('/upload', user.upload);
 
 
 app.use(router.routes());

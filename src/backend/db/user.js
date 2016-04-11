@@ -4,15 +4,16 @@ var parse = require('co-body');
 
 module.exports.create = function* (next) {
   var user = yield parse(this);
+  console.log(user.image);
   var does_email_exists = yield r.table('users').get(user.email);
   if (does_email_exists) {
     this.status = 500;
     this.body = "Email has already been registered. Please sign in!"
   } else {
     user.id = user.email;
-    var inserted = yield r.table('users').insert(user);
+    // var inserted = yield r.table('users').insert(user);
     this.status = 200;
-    this.body = inserted;
+    // this.body = inserted;
   }
   yield next;
 };
@@ -28,3 +29,10 @@ module.exports.get = function* (next) {
   }
   yield next;
 };
+
+module.exports.upload = function* (next) {
+  console.log(this.params);
+  yield next;
+};
+
+

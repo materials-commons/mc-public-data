@@ -18,7 +18,7 @@ export function config ($logProvider, toastrConfig, RestangularProvider, $window
   //set the base url for api calls on RESTful services
 
   var newBaseUrl = $window.location.protocol + "//" +
-    $window.location.hostname + ':5000' + '/api/v1';
+    $window.location.hostname + '/api/v1';
 
   RestangularProvider.setBaseUrl(newBaseUrl);
 }

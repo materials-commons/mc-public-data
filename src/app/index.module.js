@@ -30,7 +30,7 @@ import {browseService} from '../app/browse/browse-service';
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
     'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras', 'angularUtils.directives.dirPagination',
-    'ngTagsInput', 'flow'])
+    'ngTagsInput', 'ngFileUpload'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)
