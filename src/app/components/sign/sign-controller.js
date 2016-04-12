@@ -39,29 +39,19 @@ export class SignController {
   }
 
   register() {
-    console.dir(this.user);
     this.user.apikey = "abc123";
     this.Upload.upload({
       url: 'http://publicdata.localhost/api/v1/upload?apikey=anonymous',
       data: this.user,
       method: 'POST'
-    }).then(function(res){
-       console.log('errorrr');
-    }, function(err){
-
-    });
-    // this.userService.create(this.user).then((res) => {
-    //   this.setTab('login');
-    //   this.toastr.success('Please login', 'Registered successfully', {"closeButton": true});
-    // }, (err) => {
-    //   this.toastr.error(err.data, this.user.email, {"closeButton": true});
-    // });
+    }).then((user) => {
+      this.setTab('login');
+      this.toastr.success('Please login', 'Registered successfully', {"closeButton": true});
+    }, (err) => {
+        this.toastr.error(err.data, this.user.email, {"closeButton": true});
+      });
   }
 
-  myUpload(param){
-    console.log(param);
-    // this.Restangular.post('upload')
-  }
 }
 
 

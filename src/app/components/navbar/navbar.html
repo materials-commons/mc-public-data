@@ -16,13 +16,14 @@
         <li ui-sref-active="active"><a ui-sref="main.browse.datasets"><i class="fa fa-fw fa-home"></i>Browse</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ng-show="!email_address" ui-sref-active="active">
+        <li ng-show="!email" ui-sref-active="active">
           <a ng-click="ctrl.sign()"><span style="border: 1px solid red; padding: 6px;"><i class="fa fa-fw fa-home"></i>Sign Up / Login</span></a>
         </li>
 
-        <li ng-show="email_address" uib-dropdown on-toggle="toggled(open)">
-          <a uib-dropdown-toggle><i class="fa fa-fw fa-user fa-1x"></i>
-            {{email_address}}<span class="caret"></span></a>
+        <li ng-show="email" uib-dropdown on-toggle="toggled(open)">
+          <a uib-dropdown-toggle>
+            <span><img class="image-round" ng-src="/assets/user-images/{{image}}"></span>
+            {{email}}<span class="caret"></span></a>
           <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
             <li><a><i class="fa fa-cog"></i>
               Settings</a></li>

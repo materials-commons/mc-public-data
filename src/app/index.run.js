@@ -9,7 +9,8 @@ export function runBlock($log, userService, $state, $rootScope, Restangular) {
   }
 
   $rootScope.$on('$stateChangeStart', function (event, toState) {
-    $rootScope.email_address = userService.email();
+    $rootScope.email = userService.email();
+    $rootScope.image = userService.image();
     // search bar under the top navigation will show up only for certain routes
     checkNavigationSearchBar(toState)
   });

@@ -18,19 +18,23 @@ var view = require('./db/view');
 var tag = require('./db/tag');
 var comment = require('./db/comment');
 var download = require('./db/download');
-
+var path = require('path');
+var koaBody = require('koa-body')({
+  multipart: true,
+  formidable: {uploadDir: './../assets/user-images'},
+  keepExtensions: true
+});
 // var users = require('./users');
 var apikey = require('./apikey')();
 
 
-var app =  koa();
+var app = koa();
 app.use(cors());
 app.use(apikey);
 router.get('/datasets', release.getAll);
 router.get('/datasets/recent', release.getRecent);
 router.get('/datasets/views', release.getTopViews);
 router.get('/datasets/:id/user/:user_id', release.getOne);
-router.post('/users', user.create);
 router.get('/user/:email', user.get);
 router.get('/actions/:dataset_id', action.getAll);
 router.post('/appreciate', appreciate.addAppreciate);
@@ -44,7 +48,7 @@ router.get('/tags/bycount', tag.getTagsByCount);
 router.get('/processes/types', browse.getProcessTypes);
 router.get('/samples', browse.getSamples);
 router.get('/tags/:id/datasets', tag.getDatasetsByTag);
-router.post('/upload', user.upload);
+router.post('/upload', koaBody, user.upload);
 
 
 app.use(router.routes());

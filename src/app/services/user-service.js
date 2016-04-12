@@ -49,6 +49,9 @@ export class userService {
   email() {
     return this.mcuser ? this.mcuser.email : undefined;
   }
+  image() {
+    return this.mcuser ? this.mcuser.image : undefined;
+  }
 
   u() {
     return this.mcuser;

@@ -5,9 +5,13 @@
     "babel-polyfill": "^6.3.14",
     "bluebird": "^3.3.4",
     "clone": "^1.0.2",
+    "fs": "0.0.2",
     "http-status": "^0.2.1",
     "js-data-schema": "^1.2.5",
-    "koa": "^1.1.2"
+    "koa": "^1.1.2",
+    "koa-body": "^1.4.0",
+    "path": "^0.12.7",
+    "thunkify": "^2.1.2"
   },
   "scripts": {
     "test": "gulp test"
