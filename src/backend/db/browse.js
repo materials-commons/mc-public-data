@@ -25,3 +25,13 @@ module.exports.getSamples = function*(next) {
   });
   yield next;
 };
+
+module.exports.getAuthors = function*(next) {
+  this.body = yield r.table('users').pluck('email', 'firstName', 'lastName', 'instituition', 'department', 'image').merge(function (user) {
+    return {
+      datasets: r.table('datasets').getAll(user('email'), {index: 'author'}).coerceTo('array'),
+      tags: r.table('tags').getAll(user('email'), {index: 'user_id'}).pluck('id').orderBy('id').coerceTo('array')
+    }
+  });
+  yield next;
+};

@@ -87,4 +87,11 @@ export class actionsService {
       return tags.plain();
     });
   }
+
+  getAllAuthors() {
+    console.log('action service');
+    return this.Restangular.one('authors').one('datasets').getList().then(function (authors) {
+      return authors.plain();
+    });
+  }
 }

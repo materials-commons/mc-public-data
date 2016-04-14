@@ -48,6 +48,7 @@ router.get('/tags/bycount', tag.getTagsByCount);
 router.get('/processes/types', browse.getProcessTypes);
 router.get('/samples', browse.getSamples);
 router.get('/tags/:id/datasets', tag.getDatasetsByTag);
+router.get('/authors/datasets', browse.getAuthors);
 router.post('/upload', koaBody, user.upload);
 
 

@@ -117,6 +117,18 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
+    .state('main.browse.authors', {
+      url: '/authors',
+      templateUrl: 'app/browse/authors/authors.html',
+      controller: 'BrowseAuthorsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthors();
+        }]
+      },
+      showSearchBar: true
+    })
     .state('main.tags', {
       url: '/tag/:id',
       templateUrl: 'app/tags/tag-results.html',
