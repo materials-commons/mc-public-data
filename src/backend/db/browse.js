@@ -35,3 +35,8 @@ module.exports.getAuthors = function*(next) {
   });
   yield next;
 };
+
+module.exports.getAllAuthorsCount = function*(next) {
+  this.body = yield r.table('users').count();
+  yield next;
+};

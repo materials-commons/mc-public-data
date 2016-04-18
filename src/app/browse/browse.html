@@ -4,16 +4,16 @@
       <ul class="list-group">
         <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.datasets')}"
                                                   ui-sref="main.browse.datasets">Datasets </a><span
-          class="badge pull-right theme">23</span></li>
+          class="badge pull-right theme">{{ctrl.count_datasets}}</span></li>
         <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.authors')}"
                                                   ui-sref="main.browse.authors">Authors </a><span
-          class="badge">18</span></li>
-        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.processtypes')}"
+          class="badge">{{ctrl.count_authors}}</span></li>
+        <li ng-if="false" class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.processtypes')}"
                                                   ui-sref="main.browse.processtypes">Process Types</a>
           <span class="badge">40</span></li>
         <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.tags')}"
                                                   ui-sref="main.browse.tags">Tags </a>
-        <span class="badge">38</span> </li>
+        <span class="badge">{{ctrl.count_tags}}</span> </li>
       </ul>
     </div>
     <div class="col-sm-9 main">

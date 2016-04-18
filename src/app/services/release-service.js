@@ -13,6 +13,12 @@ export class releaseService {
     });
   }
 
+  getAllCount(){
+    return this.Restangular.one('datasets').one('count').get().then(function (releases) {
+      return releases
+    });
+  }
+
   getRecent() {
     return this.Restangular.one('datasets').one('recent').getList().then(function (releases) {
       return releases.plain();

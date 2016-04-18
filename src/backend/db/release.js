@@ -12,6 +12,11 @@ module.exports.getAll = function*(next) {
   yield next;
 };
 
+module.exports.getAllCount = function*(next) {
+  this.body = yield r.table('datasets').count();
+  yield next;
+};
+
 module.exports.getRecent = function*(next) {
   this.body = yield r.table('datasets').orderBy(r.desc('birthtime')).merge(function (rel) {
     return {
@@ -36,7 +41,7 @@ module.exports.getOne = function*(next) {
   this.body = yield r.table('datasets').get(this.params.id).merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
-      'other_datasets': r.table('datasets').getAll(r.args(rel('authors')), {index: "authors"}).merge(function (od) {
+      'other_datasets': r.table('datasets').getAll(r.args(rel('authors')), {index: "author"}).merge(function (od) {
         return {
           'files': r.table('datafiles').getAll(r.args(od('datafiles'))).coerceTo('array')
         }

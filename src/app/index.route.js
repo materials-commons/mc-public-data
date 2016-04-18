@@ -22,13 +22,13 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       dsr: true,
       resolve: {
         tags: ["actionsService", function (actionsService) {
-          return actionsService.getTagsByCount();
+          return actionsService.getAllTags();
         }],
-        process_types: ["actionsService", function (actionsService) {
-          return actionsService.getProcessTypes();
+        count_datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAllCount();
         }],
-        samples: ["actionsService", function (actionsService) {
-          return actionsService.getSamples();
+        count_authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthorsCount();
         }]
       }
     })
@@ -91,6 +91,17 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/browse/browse.html',
       controller: 'BrowseController',
       controllerAs: 'ctrl',
+      resolve: {
+        count_tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTagsCount();
+        }],
+        count_datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAllCount();
+        }],
+        count_authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthorsCount();
+        }]
+      },
       showSearchBar: true
     })
     .state('main.browse.datasets', {

@@ -1,17 +1,17 @@
 export class HomeController {
-  constructor(tags, process_types, samples, browseService, $state, userService) {
+  constructor(tags, count_authors, count_datasets, browseService, $state, userService) {
     'ngInject';
+
     this.browseService = browseService;
     this.userService = userService;
     this.$state = $state;
-    this.browseService.setProcessResults(process_types);
-    this.browseService.setSampleResults(samples);
+
     this.tags = tags;
-    this.process_types = process_types;
-    this.samples = samples;
-    this.samples = this.orderByDatasetCount(this.samples);
+    this.count_tags = tags.length;
+    this.count_authors = count_authors;
+    this.count_datasets = count_datasets;
     this.placeholder_tag = "";
-    if (this.tags.length === 0) {
+    if (this.count_tags === 0) {
       this.placeholder_tag = 'No Tags';
     } else {
       this.placeholder_tag = '';

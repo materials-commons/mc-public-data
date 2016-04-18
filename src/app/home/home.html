@@ -44,16 +44,16 @@
           <ul class="list-group browse">
             <li class="list-group-item borderless"><a
               ui-sref="main.browse.datasets">Datasets </a><span
-              class="badge pull-right theme">23</span></li>
+              class="badge pull-right theme">{{home.count_datasets}}</span></li>
             <li class="list-group-item borderless"><a
               ui-sref="main.browse.authors">Authors </a><span
-              class="badge">18</span></li>
-            <li class="list-group-item borderless"><a
+              class="badge">{{home.count_authors}}</span></li>
+            <li ng-if="false" class="list-group-item borderless"><a
               ui-sref="main.browse.processtypes">Process Types</a>
-              <span class="badge">40</span></li>
+              <span class="badge">{{}}</span></li>
             <li class="list-group-item borderless"><a
               ui-sref="main.browse.tags">Tags </a>
-              <span class="badge">38</span></li>
+              <span class="badge">{{home.count_tags}}</span></li>
           </ul>
         </div>
       </div>

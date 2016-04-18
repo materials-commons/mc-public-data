@@ -65,6 +65,11 @@ module.exports.getAllTags = function*(next) {
   yield next;
 };
 
+module.exports.getAllCount = function*(next) {
+  this.body = yield r.table('tags').count();
+  yield next;
+};
+
 module.exports.getDatasetsByTag = function*(next) {
   this.body = yield r.table('tags2datasets').getAll(this.params.id, {index: 'tag'}).merge(function (row) {
     return r.table('datasets').get(row('dataset_id')).merge(function (ds) {

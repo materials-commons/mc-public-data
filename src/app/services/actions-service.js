@@ -70,6 +70,13 @@ export class actionsService {
     });
   }
 
+  getAllTagsCount() {
+    return this.Restangular.one('tags').one('count').get().then(function (tags) {
+      return tags;
+    });
+  }
+
+
   getProcessTypes() {
     return this.Restangular.one('processes').one('types').getList().then(function (process_types) {
       return process_types.plain();
@@ -89,9 +96,14 @@ export class actionsService {
   }
 
   getAllAuthors() {
-    console.log('action service');
     return this.Restangular.one('authors').one('datasets').getList().then(function (authors) {
       return authors.plain();
+    });
+  }
+
+  getAllAuthorsCount() {
+    return this.Restangular.one('authors').one('count').get().then(function (authors) {
+      return authors;
     });
   }
 }
