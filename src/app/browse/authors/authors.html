@@ -10,11 +10,11 @@
     <hr/>
   </div>
   <div class="form-horizontal" dir-paginate="author in ctrl.authors | itemsPerPage: ctrl.pageSize">
-    <div class="row">
-      <div ng-if="author.image" class="col-sm-2 thumbnail" style="height: 150px;"><img
-        ng-src="/assets/user-images/{{author.image}}"></div>
-      <div ng-if="!author.image" class="col-sm-2 thumbnail" style="height: 150px;"><img
-        ng-src="/assets/user-images/no-image.png"></div>
+    <div ng-if="author.email !== 'anonymous'" class="row">
+        <div ng-if="author.image" class="col-sm-2 thumbnail" style="height: 150px;"><img
+          ng-src="/assets/user-images/{{author.image}}"></div>
+        <div ng-if="!author.image" class="col-sm-2 thumbnail" style="height: 150px;"><img
+          ng-src="/assets/user-images/no-image.png"></div>
       <div class="col-sm-8">
         <b>{{author.firstName}} {{author.lastName}}</b>
         <p class="field-value"><em>{{author.department }} , {{author.instituition}}</em></p>
@@ -26,20 +26,14 @@
             <div>{{data.id}}</div>
           </div>
         </script>
-        <br><br>
+        <br>
         <div>
-          <b class="muted">Datasets authored</b>
+          <p class="muted">Datasets authored</p>
           <div class="field-value" ng-repeat="ds in author.datasets">{{ds.title | limitTo: 80}}...</div>
         </div>
       </div>
     </div>
-    <!--<h4><a class="title" ui-sref="main.details({id: dataset.id})">{{dataset.title}}</a></h4>-->
-    <!--<p class="field-value">{{dataset.description | limitTo: 190}} ... </p>-->
-    <!--<property-value property="Authors" value="dataset.authors"></property-value>-->
-    <!--<property-value property="Files" value="dataset.files.length"></property-value>-->
-    <!--<property-value property="DOI" value="dataset.DOI"></property-value>-->
-    <!--<property-value property="Publication" value="dataset.publication_title"></property-value>-->
-    <hr/>
+    <hr style="border-style: dashed" ng-if="author.email !== 'anonymous'"/>
   </div>
   <dir-pagination-controls></dir-pagination-controls>
 </div>

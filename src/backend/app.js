@@ -24,7 +24,6 @@ var koaBody = require('koa-body')({
   formidable: {uploadDir: './../assets/user-images'},
   keepExtensions: true
 });
-// var users = require('./users');
 var apikey = require('./apikey')();
 
 
