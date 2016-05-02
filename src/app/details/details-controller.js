@@ -8,7 +8,7 @@ export class DetailsController {
     this.user = this.userService.u();
     this.getActions();
     this.viewDataset();
-    this.view = "thumbnail";
+    this.view = "list";
     this.$uibModal = $uibModal;
     this.$previousState = $previousState;
   }

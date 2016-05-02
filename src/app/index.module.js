@@ -27,6 +27,7 @@ import {searchService} from './search/search-service';
 import {userService} from './services/user-service';
 import {actionsService} from './services/actions-service';
 import {browseService} from '../app/browse/browse-service';
+import {bytesFilter} from '../app/filters/bytes-filter';
 
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
@@ -60,5 +61,6 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .service('searchService', searchService)
   .service('userService', userService)
   .service('actionsService', actionsService)
-  .service('browseService', browseService);
+  .service('browseService', browseService)
+  .filter('bytesFilter', bytesFilter);
 
