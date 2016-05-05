@@ -17,8 +17,11 @@ export function PropertyValueDirective() {
 
 class PropertyValueController {
 
-  constructor () {
+  constructor (userService) {
     'ngInject';
+
+    this.userService= userService;
+    this.user = this.userService.isAuthenticated();
   }
 
 }

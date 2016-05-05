@@ -28,6 +28,7 @@ import {userService} from './services/user-service';
 import {actionsService} from './services/actions-service';
 import {browseService} from '../app/browse/browse-service';
 import {bytesFilter} from '../app/filters/bytes-filter';
+import {toDateStringFilter} from '../app/filters/to-date-string-filter';
 
 
 angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
@@ -62,5 +63,6 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .service('userService', userService)
   .service('actionsService', actionsService)
   .service('browseService', browseService)
-  .filter('bytesFilter', bytesFilter);
+  .filter('bytesFilter', bytesFilter)
+  .filter('toDateStringFilter', toDateStringFilter);
 

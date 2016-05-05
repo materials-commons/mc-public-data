@@ -4,7 +4,8 @@
     <div class="form-group">
       <label class="col-sm-2 field-label">{{ctrl.property}}</label>
       <div class="col-sm-10 field-value">
-        <span ng-repeat="a in ctrl.value"><a ng-click="ctrl.authorDetails()" class="theme">{{a}}</a><span ng-show=" ! $last ">, </span></span>
+        <span ng-repeat="a in ctrl.value"><a ng-click="ctrl.authorDetails()" class="theme">{{a}}</a><span
+          ng-show=" ! $last ">, </span></span>
       </div>
     </div>
   </div>
@@ -13,8 +14,9 @@
     <div class="form-group">
       <label class="col-sm-2 field-label">{{ctrl.property}}</label>
       <div class="col-sm-10 field-value">
-        <a href="/app/test.jpg" download="files.zip" class="theme">{{ctrl.value}} files <i
-          class="fa fa-fw fa-download"></i></a>
+        <span ng-if="!ctrl.user">{{ctrl.value}} files</span>
+        <a ng-if="ctrl.user" href="/app/test.jpg" download="files.zip" class="theme">{{ctrl.value}} files
+          <i class="fa fa-fw fa-download"></i></a>
       </div>
     </div>
   </div>
@@ -22,7 +24,7 @@
     <div class="form-group">
       <label class="col-sm-2 field-label">{{ctrl.property}}</label>
       <div class="col-sm-10 field-value">
-        <a href="/app/test.jpg" download="files.zip" class="theme">{{ctrl.value}}</a>
+        <span class="theme">{{ctrl.value}}</span>
       </div>
     </div>
   </div>

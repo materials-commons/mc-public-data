@@ -5,8 +5,8 @@
       <div class="details">
         <h4 class="title">{{ctrl.dataset.title}}</h4>
         <p class="small action-count"><span>{{ctrl.all_actions.views}} views </span>
-          <span>{{ctrl.all_actions.appreciations}} Appreciations</span>
-          <a class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
+          <span style="padding-left: 10px;">{{ctrl.all_actions.appreciations}} Appreciations</span>
+          <a ng-if="false" class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
         <div style="padding-left: 10px;"><b>Files ({{ctrl.dataset.datafiles.length}})</b></div>
         <hr/>
         <div class="row view-mode">
@@ -61,7 +61,7 @@
         <div class="form-horizontal">
           <div class="dataset">
             <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
-            <property-value property="Published" value="ctrl.dataset.birthtime"></property-value>
+            <property-value property="Date" value="ctrl.dataset.birthtime.substring(0, ctrl.dataset.birthtime.indexOf('T'))"></property-value>
             <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
             <div ng-if="ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags"
