@@ -18,8 +18,8 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/home/home.html',
       controller: 'HomeController',
       controllerAs: 'home',
-      sticky: true,
-      dsr: true,
+      // sticky: true,
+      // dsr: true,
       resolve: {
         tags: ["actionsService", function (actionsService) {
           return actionsService.getAllTags();

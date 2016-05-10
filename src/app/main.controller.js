@@ -2,6 +2,6 @@ export class MainController {
   constructor ($state) {
     'ngInject';
 
-    $state.go('main.home.recent');
+    $state.go('main.home.top');
   }
 }

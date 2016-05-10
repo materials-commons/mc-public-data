@@ -61,7 +61,7 @@
         <div class="form-horizontal">
           <div class="dataset">
             <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
-            <property-value property="Date" value="ctrl.dataset.birthtime.substring(0, ctrl.dataset.birthtime.indexOf('T'))"></property-value>
+            <property-value property="Date" value="ctrl.dataset.birthtime | toDateStringFilter"></property-value>
             <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
             <div ng-if="ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags"

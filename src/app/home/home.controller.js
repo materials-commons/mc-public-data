@@ -5,7 +5,6 @@ export class HomeController {
     this.browseService = browseService;
     this.userService = userService;
     this.$state = $state;
-
     this.tags = tags;
     this.count_tags = tags.length;
     this.count_authors = count_authors;

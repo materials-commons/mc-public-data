@@ -13,7 +13,9 @@ export class actionsService {
   }
 
   removeAppreciation(dataset_id, user_id) {
-    return this.Restangular.one('appreciate').one('user', user_id).one('dataset', dataset_id).remove().then((result)=> {
+    return this.Restangular.one('appreciate').one('remove')
+      .customPUT({user_id: user_id, dataset_id: dataset_id}).then((result)=> {
+
       this.toastr.success("Removed Appreciation! ");
     });
   }

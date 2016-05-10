@@ -11,7 +11,7 @@ module.exports.addAppreciate = function*(next) {
 
 module.exports.removeAppreciation = function*(next) {
   var params = yield parse(this);
-  var deleted = yield r.table('appreciations').delete(params);
+  var deleted = yield r.table('appreciations').getAll([params.user_id, params.dataset_id], {index: 'user_dataset'}).delete();
   this.status = 200;
   this.body = deleted;
   yield next;

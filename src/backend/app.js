@@ -38,7 +38,7 @@ router.get('/datasets/:id/user/:user_id', release.getOne);
 router.get('/user/:email', user.get);
 router.get('/actions/:dataset_id', action.getAll);
 router.post('/appreciate', appreciate.addAppreciate);
-router.del('/appreciate/user/:user_id/dataset/:dataset_id', appreciate.removeAppreciation);
+router.put('/appreciate/remove', appreciate.removeAppreciation);
 router.post('/views', view.addView);
 router.post('/comments', comment.addComment);
 router.post('/tags', tag.addTag);
