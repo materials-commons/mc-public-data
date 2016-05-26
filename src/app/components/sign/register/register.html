@@ -43,7 +43,8 @@
       <input type="file" ngf-select ng-model="ctrl.user.image" name="file"
              accept="image/*" ngf-max-size="2MB" required
              ngf-model-invalid="errorFile">
-      <img ng-show="myForm.file.$valid" ngf-thumbnail="ctrl.user.image" style="width: 100px; height: 100px;" class="thumbnail">
+      <img ng-show="myForm.file.$valid" ngf-thumbnail="ctrl.user.image" style="width: 100px; height: 100px;"
+           class="thumbnail">
       <button ng-click="ctrl.user.image = null" ng-show="ctrl.user.image">Remove</button>
     </div>
 
