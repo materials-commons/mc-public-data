@@ -49,6 +49,7 @@ export class userService {
   email() {
     return this.mcuser ? this.mcuser.email : undefined;
   }
+
   image() {
     return this.mcuser ? this.mcuser.image : undefined;
   }
@@ -60,7 +61,7 @@ export class userService {
   openModal() {
     var modalInstance = this.$uibModal.open({
       animation: true,
-      templateUrl: '/app/components/sign/sign.html',
+      templateUrl: 'app/components/sign/sign.html',
       controller: 'SignController',
       controllerAs: 'ctrl',
       size: 'lg'
