@@ -41,7 +41,7 @@ module.exports.getOne = function*(next) {
   this.body = yield r.table('datasets').get(this.params.id).merge(function (rel) {
     return {
       'files': r.table('datafiles').getAll(r.args(rel('datafiles'))).coerceTo('array'),
-      'other_datasets': r.table('datasets').getAll(r.args(rel('authors')), {index: "author"}).merge(function (od) {
+      'other_datasets': r.table('datasets').getAll(rel('author'), {index: "author"}).merge(function (od) {
         return {
           'files': r.table('datafiles').getAll(r.args(od('datafiles'))).coerceTo('array')
         }

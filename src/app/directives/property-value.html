@@ -1,11 +1,12 @@
 <div ng-switch on="ctrl.property">
   <!--Authors-->
-  <div ng-switch-when="Authors">
+  <div ng-switch-when="Author">
     <div class="form-group">
       <label class="col-sm-2 field-label">{{ctrl.property}}</label>
       <div class="col-sm-10 field-value">
-        <span ng-repeat="a in ctrl.value"><a ng-click="ctrl.authorDetails()" class="theme">{{a}}</a><span
-          ng-show=" ! $last ">, </span></span>
+        <a ng-click="ctrl.authorDetails()" class="theme">{{ctrl.value}}</a>
+        <!--<span ng-repeat="a in ctrl.value"><a ng-click="ctrl.authorDetails()" class="theme">{{a}}</a><span-->
+        <!--ng-show=" ! $last ">, </span></span>-->
       </div>
     </div>
   </div>

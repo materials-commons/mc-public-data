@@ -62,7 +62,8 @@
           <div class="dataset">
             <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
             <property-value property="Date" value="ctrl.dataset.birthtime | toDateStringFilter"></property-value>
-            <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
+            <property-value property="Author" value="ctrl.dataset.author"></property-value>
+            <property-value property="Other Authors" value="ctrl.dataset.other_authors"></property-value>
             <div ng-if="ctrl.user">
               <tags-input ng-model="ctrl.dataset.tags"
                           display-property="id"
@@ -97,7 +98,7 @@
         </div>
       </div>
       <div class="more-datasets">
-        <h4>More data sets by these authors</h4>
+        <h4>More data sets by the author {{ctrl.dataset.author}}</h4>
         <div ng-show="ctrl.dataset.other_datasets.length === 1">
           No datasets
         </div>
@@ -105,7 +106,7 @@
           <div ng-if="ds.id !== ctrl.dataset.id">
             <b><a class="title" ui-sref="main.details({id: ds.id})">{{ds.title}}</a></b>
             <p class="field-value">{{ds.description | limitTo: 100}} ... </p>
-            <property-value property="Authors" value="ds.authors"></property-value>
+            <property-value property="Author" value="ds.author"></property-value>
             <property-value property="Files" value="ds.files.length"></property-value>
             <property-value property="DOI" value="ds.DOI" ui-sref="main.details({id: ds.id})"
                             apply="theme"></property-value>
