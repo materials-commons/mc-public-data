@@ -1,6 +1,8 @@
 #!/bin/sh
 
 
+PARAM="$1"
+
 export DB_PORT=30815
 export DB_CONNECTION="localhost:$DB_PORT"
 export DB_FILE=/db_dumps/rethinkdb_dump_2016-04-20T13:30:11.tar.gz
@@ -10,6 +12,11 @@ export DB_CLUSTER_PORT=31815
 export API_PORT=5000
 export NODE_PATH=/src/backend
 
+
+if [$PARAM = "start"]; then
+    echo Starting Servers
+    startServers
+fi
 
 function startServers
 {
@@ -25,5 +32,4 @@ function startServers
    gulp serve:dist
 }
 
-startServers
 
