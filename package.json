@@ -10,7 +10,10 @@
     "js-data-schema": "^1.2.5",
     "koa": "^1.1.2",
     "koa-body": "^1.4.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^5.4.0",
     "path": "^0.12.7",
+    "rethinkdbdash": "^2.3.6",
     "thunkify": "^2.1.2"
   },
   "scripts": {
