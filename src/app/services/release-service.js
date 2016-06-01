@@ -32,7 +32,7 @@ export class releaseService {
   }
 
   getByID(id) {
-    if(this.userService.u()){
+    if(this.user){
       return this.Restangular.one('datasets', id).one('user', this.user.email).get().then(function (dataset) {
         return dataset.plain();
       });

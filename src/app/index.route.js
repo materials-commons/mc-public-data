@@ -73,9 +73,6 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       resolve: {
         dataset: ["releaseService", "$stateParams", function (releaseService, $stateParams) {
           return releaseService.getByID($stateParams.id);
-        }],
-        datasets: ["searchService", function (searchService) {
-          return searchService.searchByDOI();
         }]
       },
       showSearchBar: true
