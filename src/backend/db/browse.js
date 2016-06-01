@@ -29,7 +29,9 @@ module.exports.getSamples = function*(next) {
 module.exports.getAuthors = function*(next) {
   this.body = yield r.table('users').pluck('email', 'firstName', 'lastName', 'instituition', 'department', 'image').merge(function (user) {
     return {
-      datasets: r.table('datasets').getAll(user('email'), {index: 'author'}).coerceTo('array'),
+      datasets:   r.table('datasets2users').getAll(user('email'), {index: 'user_id'}).map(function (val) {
+          return r.table('datasets').get(val('dataset_id'))
+      }).coerceTo('array'),
       tags: r.table('tags').getAll(user('email'), {index: 'user_id'}).pluck('id').orderBy('id').coerceTo('array')
     }
   });
