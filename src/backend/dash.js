@@ -3,7 +3,7 @@
 let rethinkdbdash = require('rethinkdbdash');
 
 let ropts = {
-    db: process.env.MCDB || 'materialscommons',
+    db: 'publicdata',
     port: process.env.MCDB_PORT || 30815
 };
 
