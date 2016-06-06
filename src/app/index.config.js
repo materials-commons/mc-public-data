@@ -15,10 +15,9 @@ export function config ($logProvider, toastrConfig, RestangularProvider, $window
   tagsInputConfigProvider.setDefaults('tagsInput', {
     placeholder: 'Tags List'
   });
+
   //set the base url for api calls on RESTful services
+  var apiBaseUrl = $window.location.protocol + "//" + $window.location.hostname + '/api/pub/v1';
 
-  var newBaseUrl = $window.location.protocol + "//" +
-    $window.location.hostname + '/api/v1';
-
-  RestangularProvider.setBaseUrl(newBaseUrl);
+  RestangularProvider.setBaseUrl(apiBaseUrl);
 }
