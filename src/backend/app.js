@@ -57,6 +57,6 @@ router.post('/upload', koaBody, user.upload);
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(5000);
-console.log('server is listening on 5000');
+app.listen(5006);
+console.log('server is listening on 5006');
 
