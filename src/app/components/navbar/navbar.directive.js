@@ -23,9 +23,10 @@ class NavbarController {
     this.$rootScope= $rootScope;
   }
 
+
   logout(){
     this.userService.removeAuthentication();
-    this.$state.go("main.home");
+    this.$state.go("main.home.top");
   }
 
   sign() {

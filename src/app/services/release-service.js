@@ -3,8 +3,8 @@ export class releaseService {
   constructor(Restangular, userService) {
     this.releases = [];
     this.Restangular = Restangular;
+    this.userService = userService;
     this.user = userService.u();
-    console.log(this.user);
   }
 
   getAll() {
@@ -13,14 +13,20 @@ export class releaseService {
     });
   }
 
+  getAllCount(){
+    return this.Restangular.one('datasets').one('count').get().then(function (releases) {
+      return releases
+    });
+  }
+
   getRecent() {
-    return this.Restangular.one('datasets').getList().then(function (releases) {
+    return this.Restangular.one('datasets').one('recent').getList().then(function (releases) {
       return releases.plain();
     });
   }
 
-  topList() {
-    return this.Restangular.one('datasets').getList().then(function (releases) {
+  topViews() {
+    return this.Restangular.one('datasets').one('views').getList().then(function (releases) {
       return releases.plain();
     });
   }
@@ -35,6 +41,7 @@ export class releaseService {
         return dataset.plain();
       });
     }
-
   }
+
+
 }

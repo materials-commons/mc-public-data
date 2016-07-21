@@ -41,6 +41,16 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   color: $values;
 }
 
+
+tags-input .tags{
+  border: none;
+  box-shadow: none;
+  background-color: white;
+}
+tags-input[disabled] .tags{
+  background-color: #ffffff;
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

@@ -1,6 +1,7 @@
 <div class="container">
+
   <div class="row">
-    <div class="col-xs-8 col-sm-offset-1">
+    <div class="col-xs-8 col-sm-offset-1"><br><br>
       <search-bar-directive></search-bar-directive>
     </div>
   </div>
@@ -9,7 +10,7 @@
     <div class="col-sm-2" style="padding-top: 30px">
       Search Results
     </div>
-    <div class="col-sm-2 col-sm-offset-7">
+    <div class="pull-right">
       <label for="search">items per page:</label>
       <input type="number" min="1" max="100" class="form-control" ng-model="search.pageSize">
     </div>
@@ -26,6 +27,5 @@
     <property-value property="DOI" value="dataset.DOI"></property-value>
     <hr/>
   </div>
-
   <dir-pagination-controls></dir-pagination-controls>
 </div>

@@ -21,31 +21,38 @@
       <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
     </div>
     <div ng-switch-when="binary">
-      <span><i class="fa fa-fw fa-file-o"></i>Binary file cannot be displayed</span>
+      <span><i style="font-size: 7em; padding-left: 10px;" class=" img-responsive center-block fa fa-file-code-o  object-fit_fill"></i> </span>
+      <p style="padding-top: 20px;"><i class="fa fa-fw fa-file-code-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
+    </div>
+    <div ng-switch-when="txt">
+      <span><i style="font-size: 7em; padding-left: 10px;" class=" img-responsive center-block fa fa-file-text-o object-fit_fill"></i> </span>
+      <p style="padding-top: 20px;"><i class="fa fa-fw fa-file-text-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
     </div>
     <div ng-switch-default>
-      <div class="thumbnail center-block" ng-if="ctrl.file.size <= 10000"
-           ng-click="ctrl.showImage(ctrl.file)"
-           hljs include="ctrl.file.src">
-      </div>
-      <p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo:
-        12}}...
-      </p>
+        <span><i style="font-size: 7em; padding-left: 10px;" class=" img-responsive center-block fa fa-file-code-o  object-fit_fill"></i> </span>
+        <p style="padding-top: 20px;"><i class="fa fa-fw fa-file-code-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
+      <!--<div class="thumbnail center-block" ng-if="ctrl.file.size <= 10000"-->
+           <!--ng-click="ctrl.showImage(ctrl.file)"-->
+           <!--hljs include="ctrl.file.src">-->
+      <!--</div>-->
+      <!--<p ng-if="ctrl.file.size <= 10000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo:-->
+        <!--12}}...-->
+      <!--</p>-->
 
-      <code ng-if="ctrl.file.size > 10000 && ctrl.file.size <= 2000000"
-            style="white-space: pre-line" ng-include="ctrl.file.src">
-      </code>
-      <p ng-if="ctrl.file.size >= 10000 && ctrl.file.size <= 2000000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name
-        | limitTo: 12}}...</p>
+      <!--<code ng-if="ctrl.file.size > 10000 && ctrl.file.size <= 2000000"-->
+            <!--style="white-space: pre-line" ng-include="ctrl.file.src">-->
+      <!--</code>-->
+      <!--<p ng-if="ctrl.file.size >= 10000 && ctrl.file.size <= 2000000"><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name-->
+        <!--| limitTo: 12}}...</p>-->
 
-      <div ng-if="ctrl.file.size > 2000000">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-file fa-stack-1x"></i>
-                <i class="fa fa-ban fa-stack-2x text-danger"></i>
-            </span>
-        File too big to display
-        <p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>
-      </div>
+      <!--<div ng-if="ctrl.file.size > 2000000">-->
+            <!--<span class="fa-stack fa-lg">-->
+                <!--<i class="fa fa-file fa-stack-1x"></i>-->
+                <!--<i class="fa fa-ban fa-stack-2x text-danger"></i>-->
+            <!--</span>-->
+        <!--File too big to display-->
+        <!--<p><i class="fa fa-fw fa-file-image-o theme"></i>{{ctrl.file.name | limitTo: 12}}...</p>-->
+      <!--</div>-->
     </div>
   </div>
 </div>

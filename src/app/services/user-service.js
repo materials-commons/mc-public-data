@@ -9,7 +9,6 @@ export class userService {
     this.$rootScope = $rootScope;
     this.$uibModal = $uibModal;
 
-
     if (this.$window.sessionStorage.mcuser) {
       try {
         console.log('does  mcuser exists');
@@ -22,9 +21,7 @@ export class userService {
   }
 
   create(user) {
-    return this.Restangular.one('users').customPOST(user).then(function (result) {
-      return result;
-    });
+    return this.Restangular.one('users').customPOST(user);
   }
 
   getUser(email) {
@@ -46,21 +43,25 @@ export class userService {
   }
 
   isAuthenticated() {
-    return this.mcuser;
+    return this.mcuser ? true : false;
   }
 
   email() {
     return this.mcuser ? this.mcuser.email : undefined;
   }
 
-  u(){
+  image() {
+    return this.mcuser ? this.mcuser.image : undefined;
+  }
+
+  u() {
     return this.mcuser;
   }
 
   openModal() {
     var modalInstance = this.$uibModal.open({
       animation: true,
-      templateUrl: '/app/components/sign/sign.html',
+      templateUrl: 'app/components/sign/sign.html',
       controller: 'SignController',
       controllerAs: 'ctrl',
       size: 'lg'
@@ -71,5 +72,10 @@ export class userService {
       this.$log.info('Modal dismissed at : ' + new Date());
     });
   };
+
+
+  apikey() {
+    return this.mcuser ? this.mcuser.apikey : 'anonymous';
+  }
 
 }

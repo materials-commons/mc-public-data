@@ -2,7 +2,8 @@
   <div class="col-sm-10 col-sm-offset-1">
     <div class="form-horizontal" ng-repeat="dataset in ctrl.datasets">
       <div class="dataset">
-        <h4><a  class="title" ui-sref="main.details({id: dataset.id})">{{dataset.title}}</a></h4>
+        <h4><a class="title" ui-sref="main.details({id: dataset.id})">{{dataset.title}}</a></h4>
+        <p class="small action-count">{{dataset.birthtime | toDateStringFilter}}</p>
         <p class="field-value">{{dataset.description | limitTo: 190}} ... </p>
         <property-value property="Authors" value="dataset.authors"></property-value>
         <property-value property="Files" value="dataset.files.length"></property-value>

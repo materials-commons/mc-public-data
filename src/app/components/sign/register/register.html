@@ -1,28 +1,53 @@
 <div class="form-login">
   <form name="form" ng-submit="ctrl.register()" role="form">
     <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
-      <label for="firstname">First name</label>
-      <input type="text" name="firstName" id="firstName" class="form-control" ng-model="ctrl.user.firstName" required/>
+      <label for="firstname" class="required">First Name</label>
+      <div><input placeholder="First Name" type="text" name="firstName" id="firstName" class="form-control"
+                  ng-model="ctrl.user.firstName" required="required"/></div>
       <span ng-show="form.firstName.$dirty && form.firstName.$error.required"
             class="help-block">First name is required</span>
     </div>
     <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
-      <label for="lastname">Last name</label>
-      <input type="text" name="lastName" id="lastname" class="form-control" ng-model="ctrl.user.lastName" required/>
+      <label for="lastname" class="required">Last Name</label>
+      <input placeholder="Last Name" type="text" name="lastName" id="lastname" class="form-control"
+             ng-model="ctrl.user.lastName" required/>
       <span ng-show="form.lastName.$dirty && form.lastName.$error.required"
             class="help-block">Last name is required</span>
     </div>
     <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" class="form-control" ng-model="ctrl.user.email" required/>
+      <label for="email" class="required">Email</label>
+      <input placeholder="Email" type="email" name="email" id="email" class="form-control" ng-model="ctrl.user.email"
+             required/>
       <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Username is required</span>
     </div>
     <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" class="form-control" ng-model="ctrl.user.password" required/>
+      <label for="password" class="required">Password</label>
+      <input placeholder="Password" type="password" name="password" id="password" class="form-control"
+             ng-model="ctrl.user.password" required/>
       <span ng-show="form.password.$dirty && form.password.$error.required"
             class="help-block">Password is required</span>
     </div>
+    <div class="form-group">
+      <label>Department</label>
+      <input placeholder="Department" type="text" class="form-control" ng-model="ctrl.user.department"/>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form.institution.$dirty && form.institution.$error.required }">
+      <label for="institution" class="required">Institution/Company</label>
+      <input placeholder="Institution" type="text" name="institution" id="institution" class="form-control"
+             ng-model="ctrl.user.institution" required/>
+      <span ng-show="form.institution.$dirty && form.institution.$error.required"
+            class="help-block">Institution is required</span>
+    </div>
+    <div class="form-group">
+      <label for="file">Add User Image</label>
+      <input type="file" ngf-select ng-model="ctrl.user.image" name="file"
+             accept="image/*" ngf-max-size="2MB" required
+             ngf-model-invalid="errorFile">
+      <img ng-show="myForm.file.$valid" ngf-thumbnail="ctrl.user.image" style="width: 100px; height: 100px;"
+           class="thumbnail">
+      <button ng-click="ctrl.user.image = null" ng-show="ctrl.user.image">Remove</button>
+    </div>
+
     <div class="form-actions">
       <button type="submit" ng-disabled="form.$invalid || ctrl.dataLoading" class="btn btn-primary">Register</button>
     </div>

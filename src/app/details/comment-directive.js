@@ -6,7 +6,8 @@ export function CommentDirective() {
     templateUrl: 'app/details/comments.html',
     scope: {
       comments: "=",
-      datasetId: "="
+      datasetId: "=",
+      user: "="
     },
     controller: CommentController,
     controllerAs: 'ctrl',

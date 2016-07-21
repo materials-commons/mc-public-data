@@ -7,24 +7,30 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       controllerAs: 'ctrl'
     })
-    .state('main.home', {
-      url: '/home',
-      templateUrl: 'app/home/home.html',
-      controller: 'HomeController',
-      controllerAs: 'ctrl',
-      sticky: true,
-      dsr: true,
-      resolve: {
-        datasets: ["releaseService", function (releaseService) {
-          return releaseService.getAll();
-        }]
-      }
-    })
     .state('main.login', {
       url: '/login',
       templateUrl: 'app/components/login/login.html',
       controller: 'LoginController',
       controllerAs: 'ctrl'
+    })
+    .state('main.home', {
+      url: '/home',
+      templateUrl: 'app/home/home.html',
+      controller: 'HomeController',
+      controllerAs: 'home',
+      // sticky: true,
+      // dsr: true,
+      resolve: {
+        tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTags();
+        }],
+        count_datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAllCount();
+        }],
+        count_authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthorsCount();
+        }]
+      }
     })
     .state('main.home.top', {
       url: '/top',
@@ -32,7 +38,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'ctrl',
       resolve: {
         datasets: ["releaseService", function (releaseService) {
-          return releaseService.topList();
+          return releaseService.topViews();
         }]
       },
       templateUrl: 'app/home/datasets/top-datasets.html'
@@ -67,18 +73,81 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       resolve: {
         dataset: ["releaseService", "$stateParams", function (releaseService, $stateParams) {
           return releaseService.getByID($stateParams.id);
-        }],
-        datasets: ["searchService", function (searchService) {
-          return searchService.searchByDOI();
         }]
       },
-      showSearchbar: true
+      showSearchBar: true
     })
     .state('main.register', {
       url: '/register',
       templateUrl: 'app/components/register/register.html',
       controller: 'RegisterController',
       controllerAs: 'ctrl'
+    })
+    .state('main.browse', {
+      url: '/browse/:group/:type',
+      templateUrl: 'app/browse/browse.html',
+      controller: 'BrowseController',
+      controllerAs: 'ctrl',
+      resolve: {
+        count_tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTagsCount();
+        }],
+        count_datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAllCount();
+        }],
+        count_authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthorsCount();
+        }]
+      },
+      showSearchBar: true
+    })
+    .state('main.browse.datasets', {
+      url: '/datasets',
+      templateUrl: 'app/browse/datasets/browse-datasets.html',
+      controller: 'BrowseDatasetsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        datasets: ["releaseService", function (releaseService) {
+          return releaseService.getAll();
+        }]
+      },
+      showSearchBar: true
+    })
+    .state('main.browse.tags', {
+      url: '/tags',
+      templateUrl: 'app/browse/tags/browse-tags.html',
+      controller: 'BrowseTagsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        tags: ["actionsService", function (actionsService) {
+          return actionsService.getAllTags();
+        }]
+      },
+      showSearchBar: true
+    })
+    .state('main.browse.authors', {
+      url: '/authors',
+      templateUrl: 'app/browse/authors/authors.html',
+      controller: 'BrowseAuthorsController',
+      controllerAs: 'ctrl',
+      resolve: {
+        authors: ["actionsService", function (actionsService) {
+          return actionsService.getAllAuthors();
+        }]
+      },
+      showSearchBar: true
+    })
+    .state('main.tags', {
+      url: '/tag/:id',
+      templateUrl: 'app/tags/tag-results.html',
+      controller: 'TagController',
+      controllerAs: 'ctrl',
+      resolve: {
+        results: ["actionsService", "$stateParams", function (actionsService, $stateParams) {
+          return actionsService.getDatasetsByTag($stateParams.id);
+        }]
+      },
+      showSearchBar: true
     });
   $urlRouterProvider.otherwise('/');
 }
