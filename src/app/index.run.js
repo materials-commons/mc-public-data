@@ -1,7 +1,5 @@
 export function runBlock($log, userService, $state, $rootScope, Restangular) {
     'ngInject';
-    $log.debug('runBlock end');
-
     if (userService.isAuthenticated()) {
         Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: userService.apikey()});
     } else {
