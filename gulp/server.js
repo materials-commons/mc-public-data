@@ -38,10 +38,11 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
+    port: 3006,
     browser: browser,
     open: false,
     socket: {
-      domain: "localhost:3000"
+      domain: "localhost:3006"
     },
     online: false
   });
