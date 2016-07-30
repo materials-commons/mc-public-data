@@ -50,7 +50,7 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
   .controller('BrowseDatasetsController', BrowseDatasetsController)
   .controller('BrowseTagsController', BrowseTagsController)
   .controller('BrowseAuthorsController', BrowseAuthorsController)
-  .directive('acmeNavbar', NavbarDirective)
+  .directive('mcpubNavbar', NavbarDirective)
   .directive('homeTabDirective', HomeTabDirective)
   .directive('searchBarDirective', SearchBarDirective)
   .directive('propertyValue', PropertyValueDirective)
