@@ -30,9 +30,10 @@ import {browseService} from '../app/browse/browse-service';
 import {bytesFilter} from '../app/filters/bytes-filter';
 import {toDateStringFilter} from '../app/filters/to-date-string-filter';
 import {pubAPIService} from './services/pub-api.service';
+import {mcapiService} from './services/mc-api.service';
+import {AccountsService} from './services/accounts-service.service';
 
-
-angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
+angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
         'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras', 'angularUtils.directives.dirPagination',
         'ngTagsInput', 'ngFileUpload'])
     .config(config)
@@ -60,6 +61,8 @@ angular.module('mcPublicData', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize
     .directive('registerDirective', RegisterDirective)
     .directive('commentDirective', CommentDirective)
     .service('pubAPI', pubAPIService)
+    .service('mcapi', mcapiService)
+    .service('accountsService', AccountsService)
     .service('releaseService', releaseService)
     .service('searchService', searchService)
     .service('userService', userService)

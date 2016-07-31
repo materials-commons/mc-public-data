@@ -3,7 +3,7 @@
 describe('controllers', function () {
   let ctrl;
 
-  beforeEach(angular.mock.module('mcPublicData'));
+  beforeEach(angular.mock.module('mcpub'));
 
   beforeEach(angular.mock.module('mock.top-datasets'));
 

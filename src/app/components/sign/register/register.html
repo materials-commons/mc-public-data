@@ -20,37 +20,19 @@
              required/>
       <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Username is required</span>
     </div>
-    <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-      <label for="password" class="required">Password</label>
-      <input placeholder="Password" type="password" name="password" id="password" class="form-control"
-             ng-model="ctrl.user.password" required/>
-      <span ng-show="form.password.$dirty && form.password.$error.required"
-            class="help-block">Password is required</span>
-    </div>
-    <div class="form-group">
-      <label>Department</label>
-      <input placeholder="Department" type="text" class="form-control" ng-model="ctrl.user.department"/>
-    </div>
-    <div class="form-group" ng-class="{ 'has-error': form.institution.$dirty && form.institution.$error.required }">
-      <label for="institution" class="required">Institution/Company</label>
-      <input placeholder="Institution" type="text" name="institution" id="institution" class="form-control"
-             ng-model="ctrl.user.institution" required/>
-      <span ng-show="form.institution.$dirty && form.institution.$error.required"
-            class="help-block">Institution is required</span>
-    </div>
-    <div class="form-group">
-      <label for="file">Add User Image</label>
-      <input type="file" ngf-select ng-model="ctrl.user.image" name="file"
-             accept="image/*" ngf-max-size="2MB" required
-             ngf-model-invalid="errorFile">
-      <img ng-show="myForm.file.$valid" ngf-thumbnail="ctrl.user.image" style="width: 100px; height: 100px;"
-           class="thumbnail">
-      <button ng-click="ctrl.user.image = null" ng-show="ctrl.user.image">Remove</button>
-    </div>
 
     <div class="form-actions">
       <button type="submit" ng-disabled="form.$invalid || ctrl.dataLoading" class="btn btn-primary">Register</button>
     </div>
   </form>
+  <div ng-show="ctrl.showSuccessMsg">
+    <h4 class="text-center">Next Step in Joining Materials Commons Data...</h4>
+    <br>
+    <p class="md-subhead">
+      You have successfully registered for an account. An email has been sent to {{$ctrl.email}}
+      with a link to click on that will verify your account.
+    </p>
+    <br>
+  </div>
 </div>
 

@@ -13,19 +13,17 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-    constructor(userService, $uibModal, $log, $state, $rootScope) {
+    constructor(userService, $uibModal, $log, $state) {
         'ngInject';
-
         this.userService = userService;
         this.$uibModal = $uibModal;
         this.$log = $log;
         this.$state = $state;
-        this.$rootScope = $rootScope;
     }
 
 
     logout() {
-        this.userService.removeAuthentication();
+        this.userService.setAuthenticated(false);
         this.$state.go("home.top");
     }
 

@@ -36,12 +36,13 @@ export class releaseService {
     }
 
     getByID(id) {
+        console.log('calling getByID', this.user);
         if (this.user) {
-            return this.pubAPI('datasets', id).one('user', this.user.email).get().then(function(dataset) {
+            return this.pubAPI('datasets', id).get().then(function(dataset) {
                 return dataset.plain();
             });
         } else {
-            return this.pubAPI('datasets', id).one('user', "anonymous").get().then(function(dataset) {
+            return this.pubAPI('datasets', id).get().then(function(dataset) {
                 return dataset.plain();
             });
         }

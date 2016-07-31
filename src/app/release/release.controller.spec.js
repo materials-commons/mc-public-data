@@ -5,7 +5,7 @@
 //
 //  let vm;
 //
-//  beforeEach(angular.mock.module('mcPublicData'));
+//  beforeEach(angular.mock.module('mcpub'));
 //
 //  beforeEach(angular.mock.module('mock.releases'));
 //

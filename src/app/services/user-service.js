@@ -1,17 +1,14 @@
 export class userService {
-    constructor($log, Restangular, $window, $state, $rootScope, $uibModal) {
-        'ngInject';
-
+    /*@ngInject*/
+    constructor($log, Restangular, $window, $uibModal) {
         this.$log = $log;
         this.Restangular = Restangular;
         this.$window = $window;
-        this.$state = $state;
-        this.$rootScope = $rootScope;
         this.$uibModal = $uibModal;
+        this.mcuser = null;
 
         if (this.$window.sessionStorage.mcuser) {
             try {
-                console.log('does  mcuser exists');
                 this.mcuser = JSON.parse($window.sessionStorage.mcuser);
             } catch (err) {
                 console.log("Error parse mcuser in sessionStorage");
@@ -20,41 +17,35 @@ export class userService {
         }
     }
 
-    create(user) {
-        return this.Restangular.one('users').customPOST(user);
-    }
-
-    getUser(email) {
-        return this.Restangular.one('user', email).get()
-    }
-
-
-    setAuthentication(user) {
-        this.$window.sessionStorage.mcuser = JSON.stringify(user);
-        this.mcuser = user;
-    }
-
-    removeAuthentication() {
-        this.$window.sessionStorage.removeItem('mcuser');
-        this.$window.sessionStorage.mcuser = null;
-        this.mcuser = undefined;
-        this.$rootScope.email_address = "";
-    }
-
     isAuthenticated() {
-        return this.mcuser ? true : false;
+        return this.mcuser;
+    }
+
+    setAuthenticated(authenticated, u) {
+        if (!authenticated) {
+            this.$window.sessionStorage.removeItem('mcuser');
+            this.$window.sessionStorage.mcuser = null;
+            this.mcuser = undefined;
+        } else {
+            this.$window.sessionStorage.mcuser = angular.toJson(u);
+            this.mcuser = u;
+        }
+    }
+
+    apikey() {
+        return this.mcuser ? this.mcuser.apikey : undefined;
     }
 
     email() {
-        return this.mcuser ? this.mcuser.email : undefined;
-    }
-
-    image() {
-        return this.mcuser ? this.mcuser.image : undefined;
+        return this.mcuser ? this.mcuser.email : 'Login';
     }
 
     u() {
         return this.mcuser;
+    }
+
+    login(email, password) {
+        return this.Restangular.one('user').one(email).one('apikey').customPUT({password: password});
     }
 
     openModal() {
@@ -66,15 +57,9 @@ export class userService {
             size: 'lg'
         });
 
-        modalInstance.result.then((selectedItem)=> {
-        }, function() {
-            this.$log.info('Modal dismissed at : ' + new Date());
-        });
-    };
-
-
-    apikey() {
-        return this.mcuser ? this.mcuser.apikey : 'anonymous';
+        modalInstance.result.then(
+            ()=> null,
+            () =>this.$log.info('Modal dismissed at : ' + new Date())
+        );
     }
-
 }
