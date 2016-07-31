@@ -24,7 +24,7 @@ class NavbarController {
 
     logout() {
         this.userService.setAuthenticated(false);
-        this.$state.go("home.top");
+        this.$state.go("home.top", null, {reload: true});
     }
 
     sign() {
