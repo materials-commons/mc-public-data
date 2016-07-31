@@ -38,7 +38,6 @@ export class userService {
     this.$window.sessionStorage.removeItem('mcuser');
     this.$window.sessionStorage.mcuser = null;
     this.mcuser = undefined;
-    this.$state.go("main.login");
     this.$rootScope.email_address = "";
   }
 

@@ -16,7 +16,7 @@
   </div>
   <div ng-if="ctrl.results.length === 0"><h4>No Datasets</h4></div>
   <div class="form-horizontal" dir-paginate="dataset in ctrl.results | itemsPerPage: ctrl.pageSize">
-    <h4><a class="title" ui-sref="main.details({id: dataset.id})">{{dataset.title}}</a></h4>
+    <h4><a class="title" ui-sref="details({id: dataset.id})">{{dataset.title}}</a></h4>
     <!--<p class="small action-count">{{dataset.views.length}} views {{dataset.appreciations.length}} Appreciations</p>-->
     <p class="field-value">{{dataset.description | limitTo: 190}} ... </p>
     <property-value property="Authors" value="dataset.authors"></property-value>

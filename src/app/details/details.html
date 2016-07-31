@@ -15,7 +15,7 @@
             All</a>
           <a ng-if="ctrl.user" ng-click="ctrl.setView('thumbnail')" ng-class="{theme: ctrl.isActive('thumbnail')}"
              style="padding-left:40px;"><i class="fa fa-fw fa-th"></i></a>
-          <a ng-click="ctrl.setView('list')" ng-class="{theme: ctrl.isActive('list')}"
+          <a ng-if="ctrl.user" ng-click="ctrl.setView('list')" ng-class="{theme: ctrl.isActive('list')}"
              style="padding-left:5px; padding-right: 15px;"><i class="fa fa-fw fa-list"></i></a>
         </div>
         <div ng-if="ctrl.isActive('thumbnail')" class="row image-area">
@@ -35,7 +35,16 @@
             <th>size</th>
             </thead>
             <tbody>
-            <tr ng-class="{}" ng-click="ctrl.openImage(file)"
+            <tr ng-if="!ctrl.user"
+                dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
+              <td ng-if="ctrl.user">
+                <display-image file="file" mini-thumbnail="true"></display-image>
+              </td>
+              <td>{{file.name}}</td>
+              <td>{{file.mediatype.mime}}</td>
+              <td>{{file.size | bytesFilter}}</td>
+            </tr>
+            <tr ng-if="ctrl.user" ng-click="ctrl.openImage(file)"
                 dir-paginate="file in ctrl.dataset.files | itemsPerPage: 12">
               <td ng-if="ctrl.user">
                 <display-image file="file" mini-thumbnail="true"></display-image>
@@ -104,11 +113,11 @@
         </div>
         <div class="form-horizontal" ng-repeat="ds in ctrl.dataset.other_datasets">
           <div ng-if="ds.id !== ctrl.dataset.id">
-            <b><a class="title" ui-sref="main.details({id: ds.id})">{{ds.title}}</a></b>
+            <b><a class="title" ui-sref="details({id: ds.id})">{{ds.title}}</a></b>
             <p class="field-value">{{ds.description | limitTo: 100}} ... </p>
             <property-value property="Author" value="ds.author"></property-value>
             <property-value property="Files" value="ds.files.length"></property-value>
-            <property-value property="DOI" value="ds.DOI" ui-sref="main.details({id: ds.id})"
+            <property-value property="DOI" value="ds.DOI" ui-sref="details({id: ds.id})"
                             apply="theme"></property-value>
             <hr/>
           </div>

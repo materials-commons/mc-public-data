@@ -22,7 +22,7 @@ export class HomeController {
   }
 
   viewTagResults(tag) {
-    this.$state.go("main.tags", {id: tag.id});
+    this.$state.go("tags", {id: tag.id});
   }
 
   isUserLoggedIn() {

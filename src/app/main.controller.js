@@ -1,7 +1,7 @@
 export class MainController {
-  constructor ($state) {
-    'ngInject';
+    constructor($state) {
+        'ngInject';
 
-    $state.go('main.home.top');
-  }
+        $state.go('home.top');
+    }
 }

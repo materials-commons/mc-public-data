@@ -29,7 +29,7 @@ export class SignController {
       this.userService.setAuthentication(this.user);
       this.Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: this.userService.apikey()});
       this.$uibModalInstance.close();
-      this.$state.go("main.home");
+      this.$state.go("home");
       this.toastr.options = {"closeButton": true};
       this.toastr.success('Logged in Successfully', this.user.email)
     }, (err) => {

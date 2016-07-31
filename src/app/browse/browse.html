@@ -2,17 +2,17 @@
   <div class="row browse">
     <div class="col-sm-2 divider ">
       <ul class="list-group">
-        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.datasets')}"
-                                                  ui-sref="main.browse.datasets">Datasets </a><span
+        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('browse.datasets')}"
+                                                  ui-sref="browse.datasets">Datasets </a><span
           class="badge pull-right theme">{{ctrl.count_datasets}}</span></li>
-        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.authors')}"
-                                                  ui-sref="main.browse.authors">Authors </a><span
+        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('browse.authors')}"
+                                                  ui-sref="browse.authors">Authors </a><span
           class="badge">{{ctrl.count_authors}}</span></li>
-        <li ng-if="false" class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.processtypes')}"
-                                                  ui-sref="main.browse.processtypes">Process Types</a>
+        <li ng-if="false" class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('browse.processtypes')}"
+                                                                ui-sref="browse.processtypes">Process Types</a>
           <span class="badge">40</span></li>
-        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('main.browse.tags')}"
-                                                  ui-sref="main.browse.tags">Tags </a>
+        <li class="list-group-item borderless"><a ng-class="{'browse-highlight': ctrl.isRouteActive('browse.tags')}"
+                                                  ui-sref="browse.tags">Tags </a>
         <span class="badge">{{ctrl.count_tags}}</span> </li>
       </ul>
     </div>

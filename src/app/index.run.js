@@ -13,10 +13,6 @@ export function runBlock($log, userService, $state, $rootScope, Restangular) {
         checkNavigationSearchBar(toState)
     });
 
-    //$rootScope.$on('$stateChangeError', function() {
-    //    $state.go("main.login");
-    //});
-
     function checkNavigationSearchBar(toState) {
         if (toState.name.match(/(home)/g) || toState.name.match(/(search)/g)) {
             $rootScope.showSearchBar = false;

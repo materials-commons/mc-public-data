@@ -29,7 +29,7 @@ class SearchBarController {
   }
 
   searchResults(){
-    this.$state.go("main.search", {selection: this.selection, searchTerm: this.searchTerm});
+    this.$state.go("search", {selection: this.selection, searchTerm: this.searchTerm});
   }
 
 }

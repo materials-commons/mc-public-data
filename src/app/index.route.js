@@ -1,19 +1,13 @@
 export function routerConfig($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
-    .state('main', {
-      url: '/',
-      templateUrl: 'app/main.html',
-      controller: 'MainController',
-      controllerAs: 'ctrl'
-    })
-    .state('main.login', {
-      url: '/login',
-      templateUrl: 'app/components/login/login.html',
-      controller: 'LoginController',
-      controllerAs: 'ctrl'
-    })
-    .state('main.home', {
+  //.state('main', {
+  //  url: '/',
+  //  templateUrl: 'app/main.html',
+  //  controller: 'MainController',
+  //  controllerAs: 'ctrl'
+  //})
+      .state('home', {
       url: '/home',
       templateUrl: 'app/home/home.html',
       controller: 'HomeController',
@@ -32,7 +26,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }]
       }
     })
-    .state('main.home.top', {
+      .state('home.top', {
       url: '/top',
       controller: 'TopDatasetsController',
       controllerAs: 'ctrl',
@@ -43,7 +37,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       templateUrl: 'app/home/datasets/top-datasets.html'
     })
-    .state('main.home.recent', {
+      .state('home.recent', {
       url: '/recent',
       controller: 'RecentDatasetsController',
       controllerAs: 'ctrl',
@@ -54,7 +48,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       templateUrl: 'app/home/datasets/recent-datasets.html'
     })
-    .state('main.search', {
+      .state('search', {
       url: '/search/:selection/:searchTerm',
       templateUrl: 'app/search/search_results.html',
       controller: 'SearchController',
@@ -65,7 +59,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }]
       }
     })
-    .state('main.details', {
+      .state('details', {
       url: '/details/:id',
       templateUrl: 'app/details/details.html',
       controller: 'DetailsController',
@@ -77,14 +71,14 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
-    .state('main.register', {
+      .state('register', {
       url: '/register',
       templateUrl: 'app/components/register/register.html',
       controller: 'RegisterController',
       controllerAs: 'ctrl'
     })
-    .state('main.browse', {
-      url: '/browse/:group/:type',
+      .state('browse', {
+        url: '/browse',
       templateUrl: 'app/browse/browse.html',
       controller: 'BrowseController',
       controllerAs: 'ctrl',
@@ -101,7 +95,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
-    .state('main.browse.datasets', {
+      .state('browse.datasets', {
       url: '/datasets',
       templateUrl: 'app/browse/datasets/browse-datasets.html',
       controller: 'BrowseDatasetsController',
@@ -113,7 +107,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
-    .state('main.browse.tags', {
+      .state('browse.tags', {
       url: '/tags',
       templateUrl: 'app/browse/tags/browse-tags.html',
       controller: 'BrowseTagsController',
@@ -125,7 +119,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
-    .state('main.browse.authors', {
+      .state('browse.authors', {
       url: '/authors',
       templateUrl: 'app/browse/authors/authors.html',
       controller: 'BrowseAuthorsController',
@@ -137,7 +131,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     })
-    .state('main.tags', {
+      .state('tags', {
       url: '/tag/:id',
       templateUrl: 'app/tags/tag-results.html',
       controller: 'TagController',
@@ -149,5 +143,5 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       },
       showSearchBar: true
     });
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home/top');
 }
