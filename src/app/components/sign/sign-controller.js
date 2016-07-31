@@ -29,23 +29,25 @@ export class SignController {
     }
 
     login() {
-        this.userService.login(this.user.email, this.user.password).then((user)=> {
-            console.log('login service', user.plain());
-            this.user = user.plain();
-            this.userService.setAuthenticated(true, this.user);
-            console.log('apikey', this.userService.apikey());
-            this.Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: this.userService.apikey()});
-            this.$uibModalInstance.close();
-            this.toastr.options = {"closeButton": true};
-            this.toastr.success('Logged in Successfully', this.user.email)
-        }, (err) => {
-            this.toastr.options = {"closeButton": true};
-            this.toastr.error(err.data, this.user.email);
-        });
+        this.userService.login(this.user.email, this.user.password)
+            .then(
+                (user)=> {
+                    this.user = user.plain();
+                    this.userService.setAuthenticated(true, this.user);
+                    this.Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: this.userService.apikey()});
+                    this.$uibModalInstance.close();
+                    this.toastr.options = {"closeButton": true};
+                    this.toastr.success('Logged in Successfully', this.user.email)
+                },
+                (err) => {
+                    this.toastr.options = {"closeButton": true};
+                    this.toastr.error(err.data, this.user.email);
+                }
+            );
     }
 
     register() {
-        this.accountsService.createAccount(`${this.firstName} ${this.lastName}`, this.user.email)
+        this.accountsService.createAccount(`${this.user.firstName} ${this.user.lastName}`, this.user.email)
             .then(
                 () => {
                     this.showSuccessMsg = true;

@@ -32,6 +32,7 @@ import {toDateStringFilter} from '../app/filters/to-date-string-filter';
 import {pubAPIService} from './services/pub-api.service';
 import {mcapiService} from './services/mc-api.service';
 import {AccountsService} from './services/accounts-service.service';
+import {ValidateController} from './components/sign/validate/validate.controller';
 
 angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
         'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras', 'angularUtils.directives.dirPagination',
@@ -52,6 +53,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .controller('BrowseDatasetsController', BrowseDatasetsController)
     .controller('BrowseTagsController', BrowseTagsController)
     .controller('BrowseAuthorsController', BrowseAuthorsController)
+    .controller('ValidateController', ValidateController)
     .directive('mcpubNavbar', NavbarDirective)
     .directive('homeTabDirective', HomeTabDirective)
     .directive('searchBarDirective', SearchBarDirective)
