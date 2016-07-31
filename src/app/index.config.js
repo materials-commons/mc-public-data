@@ -1,23 +1,23 @@
-export function config ($logProvider, toastrConfig, RestangularProvider, $windowProvider, tagsInputConfigProvider) {
-  'ngInject';
-  // Enable log
-  $logProvider.debugEnabled(true);
-  var $window = $windowProvider.$get();
+export function config($logProvider, toastrConfig, RestangularProvider, $windowProvider, tagsInputConfigProvider) {
+    'ngInject';
+    // Enable log
+    $logProvider.debugEnabled(true);
+    var $window = $windowProvider.$get();
 
-  // Set options third-party lib
-  toastrConfig.allowHtml = true;
-  toastrConfig.timeOut = 750;
-  toastrConfig.positionClass = 'toast-top-right';
-  toastrConfig.preventDuplicates = true;
-  toastrConfig.progressBar = true;
+    // Set options third-party lib
+    toastrConfig.allowHtml = true;
+    toastrConfig.timeOut = 750;
+    toastrConfig.positionClass = 'toast-top-right';
+    toastrConfig.preventDuplicates = true;
+    toastrConfig.progressBar = true;
 
-  //
-  tagsInputConfigProvider.setDefaults('tagsInput', {
-    placeholder: 'Tags List'
-  });
+    //
+    tagsInputConfigProvider.setDefaults('tagsInput', {
+        placeholder: 'Tags List'
+    });
 
-  //set the base url for api calls on RESTful services
-  var apiBaseUrl = $window.location.protocol + "//" + $window.location.hostname + ':' + $window.location.port + '/api';
+    //set the base url for api calls on RESTful services
+    var apiBaseUrl = $window.location.protocol + "//" + $window.location.hostname + ':' + $window.location.port + '/api';
 
-  RestangularProvider.setBaseUrl(apiBaseUrl);
+    RestangularProvider.setBaseUrl(apiBaseUrl);
 }

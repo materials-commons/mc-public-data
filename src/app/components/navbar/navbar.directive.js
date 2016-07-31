@@ -1,35 +1,35 @@
 export function NavbarDirective() {
-  'ngInject';
+    'ngInject';
 
-  let directive = {
-    restrict: 'E',
-    templateUrl: 'app/components/navbar/navbar.html',
-    controller: NavbarController,
-    controllerAs: 'ctrl',
-    bindToController: true
-  };
+    let directive = {
+        restrict: 'E',
+        templateUrl: 'app/components/navbar/navbar.html',
+        controller: NavbarController,
+        controllerAs: 'ctrl',
+        bindToController: true
+    };
 
-  return directive;
+    return directive;
 }
 
 class NavbarController {
-  constructor (userService, $uibModal, $log, $state, $rootScope) {
-    'ngInject';
+    constructor(userService, $uibModal, $log, $state, $rootScope) {
+        'ngInject';
 
-    this.userService= userService;
-    this.$uibModal= $uibModal;
-    this.$log= $log;
-    this.$state= $state;
-    this.$rootScope= $rootScope;
-  }
+        this.userService = userService;
+        this.$uibModal = $uibModal;
+        this.$log = $log;
+        this.$state = $state;
+        this.$rootScope = $rootScope;
+    }
 
 
-  logout(){
-    this.userService.removeAuthentication();
-    this.$state.go("home.top");
-  }
+    logout() {
+        this.userService.removeAuthentication();
+        this.$state.go("home.top");
+    }
 
-  sign() {
-    this.userService.openModal();
-  }
+    sign() {
+        this.userService.openModal();
+    }
 }
