@@ -11,6 +11,7 @@ export class DetailsController {
     this.view = "list";
     this.$uibModal = $uibModal;
     this.$previousState = $previousState;
+    this.zipFilePath = "api/pub/datasets/download/" + dataset.id + "?apikey=" + this.userService.apikey();
   }
 
   appreciate() {
@@ -98,5 +99,6 @@ export class DetailsController {
   previousState() {
     this.$previousState.go();
   }
+
 }
 
