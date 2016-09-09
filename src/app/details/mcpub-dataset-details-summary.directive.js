@@ -21,4 +21,7 @@ class DatasetDetailsSummaryController {
     this.user = userService.u();
   }
 
+  authorDetails(author) {
+    console.log("authorDetails: " + author);
+  }
 }
