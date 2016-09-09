@@ -1,10 +1,10 @@
 .btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  padding: 10px 10px;
+  font-size: 12px;
   line-height: 1.33;
-  border-radius: 35px;
+  border-radius: 20px;
   background-color: $orange;
 }
 
@@ -14,8 +14,8 @@
 
 .details {
   .view-mode {
-    float: right;
     margin-top: -10px;
+    margin-left: 15px;
   }
 
   .image-area {
