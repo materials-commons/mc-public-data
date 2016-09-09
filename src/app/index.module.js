@@ -63,7 +63,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('loginDirective', LoginDirective)
     .directive('registerDirective', RegisterDirective)
     .directive('commentDirective', CommentDirective)
-    .directive('mcpubDatasetDetailsSummaryDerective', DatasetDetailsSummaryDirective)
+    .directive('mcpubDatasetDetailsSummary', DatasetDetailsSummaryDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
