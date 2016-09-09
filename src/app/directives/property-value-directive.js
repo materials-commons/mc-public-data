@@ -23,9 +23,17 @@ class PropertyValueController {
     this.user = this.userService.isAuthenticated();
   }
 
+  formatAuthor(a) {
+    console.log(a);
+    return a.lastname + ", " + a.firstname + " (" + a.affiliation + ")";
+  }
 
-  formatAuthors(authors) {
-    return authors.map(a => `${a.lastname}, ${a.firstname} (${a.affiliation})`).join('; ');
+  formatAuthorList(authors) {
+    return authors.map(this.formatAuthor).join('; ');
+  }
+
+  formatDate(date) {
+    return
   }
 
   authorDetails(author) {

@@ -6,11 +6,10 @@
       <p class="field-value">{{ctrl.dataset.description }}</p>
       <div class="form-horizontal">
         <div class="dataset">
+          <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
           <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
           <property-value property="Date" value="ctrl.dataset.birthtime | toDateStringFilter"></property-value>
-          <property-value property="Author" value="ctrl.dataset.author"></property-value>
-          <property-value property="Other Authors" value="ctrl.dataset.other_authors"></property-value>
-          <div ng-if="ctrl.user">
+          <div ng-if="false && ctrl.user">
             <tags-input ng-model="ctrl.dataset.tags"
                         display-property="id"
                         key-property="id"
@@ -21,7 +20,7 @@
               <auto-complete display-property="id" source="ctrl.loadTags($query)" min-length="1"></auto-complete>
             </tags-input>
           </div>
-          <div ng-if="!ctrl.user">
+          <div ng-if="false && !ctrl.user">
             <tags-input ng-model="ctrl.dataset.tags" display-property="id"
                         disabled="true" placeholder="Login to add tags"></tags-input>
           </div>
@@ -37,8 +36,8 @@
         <a ng-if="false" class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
     </div>
     <div ng-if="ctrl.user" class="row text-center">
-      <div ng-if="ctrl.dataset.appreciate">
-        <button ng-click="ctrl.removeAppreciate()" type="button" class="btn btn-circle btn-xl">
+      <div ng-if="ctrl.dataset.appreciate class="form-horizontal" ">
+        <button ng-click="ctrl.removeAppreciate()" type="button" class="btn btn-circle">
           <i class="fa fa-thumbs-up fa-1x" style="color:lightgrey"></i>
         </button>
         <p class="small theme">Appreciated</p>
@@ -51,7 +50,7 @@
       </div>
     </div>
     <div class="more-datasets">
-      <h4>More data sets by {{ctrl.dataset.author.lastname}}</h4>
+      <b>More data sets by {{ctrl.dataset.author.firstname}} {{ctrl.dataset.author.lastname}}</b>
       <div ng-show="ctrl.dataset.other_datasets.length === 1">
         No datasets
       </div>
