@@ -27,4 +27,9 @@ class PropertyValueController {
     formatAuthors(authors) {
         return authors.map(a => `${a.lastname}, ${a.firstname} (${a.affiliation})`).join('; ');
     }
+
+    urlForDownload(datasetId) {
+        console.log("api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey())
+        return "api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey();
+    }
 }
