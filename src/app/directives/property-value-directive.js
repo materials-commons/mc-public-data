@@ -29,7 +29,6 @@ class PropertyValueController {
     }
 
     urlForDownload(datasetId) {
-        console.log("api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey())
         return "api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey();
     }
 }
