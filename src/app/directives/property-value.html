@@ -16,7 +16,7 @@
       <label class="col-sm-1 field-label">{{ctrl.property}}</label>
       <div class="col-sm-11 field-value">
         <span ng-if="!ctrl.user">{{ctrl.value}} files</span>
-        <a ng-if="ctrl.user" href="" download="fullDataset.zip" class="theme">{{ctrl.value}} files
+        <a ng-if="ctrl.user" href="{{ctrl.urlForDownload(ctrl.value.id)}}" download="fullDataset.zip" class="theme">{{ctrl.value.files.length}} files
           <i class="fa fa-fw fa-download"></i></a>
       </div>
     </div>
