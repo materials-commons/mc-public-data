@@ -15,8 +15,8 @@
         <div class="form-group">
             <label class="col-sm-2 field-label">{{ctrl.property}}</label>
             <div class="col-sm-10 field-value">
-                <span ng-if="!ctrl.user">{{ctrl.value}} files</span>
-                <a ng-if="ctrl.user" href="" download="fullDataset.zip" class="theme">{{ctrl.value}} files
+                <span ng-if="!ctrl.user">{{ctrl.value.files.length}} files</span>
+                <a ng-if="ctrl.user" href="{{ctrl.urlForDownload(ctrl.value.id)}}" download="fullDataset.zip" class="theme">{{ctrl.value.files.length}} files
                     <i class="fa fa-fw fa-download"></i></a>
             </div>
         </div>
@@ -32,7 +32,7 @@
     <div ng-switch-when="Authors">
         <div class="form-group">
             <label class="col-sm-2 field-label">{{ctrl.property}}</label>
-            <div class="col-sm-offset-2 col-sm-10 field-value" ng-repeat="author in ctrl.value">5
+            <div class="col-sm-offset-2 col-sm-10 field-value" ng-repeat="author in ctrl.value">
                 {{author.lastname}}, {{author.firstname}} ({{author.affiliation}})
             </div>
         </div>
