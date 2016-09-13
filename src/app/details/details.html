@@ -8,6 +8,14 @@
   <div class="row">
       <div class="details">
         <hr class="top-seperator"/>
+        <h4 class="title">{{ctrl.dataset.title}}</h4>
+        <p class="small action-count"><span>{{ctrl.all_actions.views}} views </span>
+          <span style="padding-left: 10px;">{{ctrl.all_actions.appreciations}} Appreciations</span>
+          <a ng-if="false" class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
+        <div style="padding-left: 10px;"><b>Files ({{ctrl.dataset.files.length}})</b></div>
+        <hr/>
+        <mcpub-dataset-details-outline dataset="ctrl.dataset"></mcpub-dataset-details-outline>
+        <hr/>
         <div class="row view-mode">
           <b class="text-left">Files ({{ctrl.dataset.files.length}})</b>
           <a ng-if="ctrl.user" class="theme" href="{{ctrl.zipFilePath}}" download="fullDataset.zip">

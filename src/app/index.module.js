@@ -19,6 +19,7 @@ import {BrowseAuthorsController} from './browse/authors/browse-author-controller
 import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive.js';
 import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive.js';
+import {DatasetDetailsOutlineDirective} from './details/mcpub-dataset-details-outline-directive';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -66,6 +67,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('commentDirective', CommentDirective)
     .directive('mcpubDatasetDetailsSummary', DatasetDetailsSummaryDirective)
     .directive('mcpubDatasetDetailsOtherds', DatasetDetailsOtherdsDirective)
+    .directive('datasetDetailsOutline', DatasetDetailsOutlineDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
