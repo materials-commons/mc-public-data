@@ -24,7 +24,6 @@ class PropertyValueController {
   }
 
   formatAuthor(a) {
-    console.log(a);
     return a.lastname + ", " + a.firstname + " (" + a.affiliation + ")";
   }
 

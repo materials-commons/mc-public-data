@@ -8,8 +8,8 @@
             <b><a class="title" ui-sref="details({id: ds.id})">{{ds.title}}</a></b>
             <p class="field-value">{{ds.description | limitTo: 100}}</p>
             <property-value property="Authors" value="ds.authors"></property-value>
-            <property-value property="Files" value="ds.files.length"></property-value>
             <property-value property="DOI" value="ds.DOI" ui-sref="details({id: ds.id})" apply="theme"></property-value>
+            <property-value property="Files" value="ds"></property-value>
           </div>
         </div>
       </li>
