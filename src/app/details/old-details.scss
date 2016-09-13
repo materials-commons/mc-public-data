@@ -1,0 +1,56 @@
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+  background-color: $orange;
+}
+
+.btn-circle.btn-xl .fa.fa-thumbs-up {
+  color: white;
+}
+
+.details {
+  .view-mode {
+    float: right;
+    margin-top: -10px;
+  }
+
+  .image-area {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding: 0px 10px 0px 10px;
+    .thumbnail {
+      height: 100px;
+      width: 100px;
+      .object-fit_fill {
+        object-fit: fill
+      }
+    }
+  }
+  .list-group-item {
+    border: none;
+  }
+  .list-area{
+    padding: 0px 20px 0px 20px;
+    .thumbnail{
+      margin-top: 5px;
+      height: 40px;
+      margin-bottom: 0;
+      width: 40px;
+      .object-fit_fill {
+        object-fit: fill
+      }
+    }
+  }
+}
+
+.more-datasets {
+  margin-top: 150px;
+}
+
+
+
+
