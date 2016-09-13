@@ -9,6 +9,8 @@
           <a ng-if="false" class="pull-right theme"><i class="fa fa-fw fa-bookmark-o"></i>Bookmark</a></p>
         <div style="padding-left: 10px;"><b>Files ({{ctrl.dataset.files.length}})</b></div>
         <hr/>
+        <mcpub-dataset-details-outline dataset="ctrl.dataset"></mcpub-dataset-details-outline>
+        <hr/>
         <div class="row view-mode">
           <a ng-if="ctrl.user" class="theme" href="{{ctrl.zipFilePath}}" download="fullDataset.zip"><i
             class="fa fa-fw fa-download"></i>Download

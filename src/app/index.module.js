@@ -17,6 +17,7 @@ import {BrowseDatasetsController} from './browse/datasets/browse-datasets-contro
 import {BrowseTagsController} from './browse/tags/browse-tags-controller';
 import {BrowseAuthorsController} from './browse/authors/browse-author-controller';
 import {CommentDirective} from './details/comment-directive';
+import {DatasetDetailsOutlineDirective} from './details/mcpub-dataset-details-outline-directive';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -62,6 +63,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('loginDirective', LoginDirective)
     .directive('registerDirective', RegisterDirective)
     .directive('commentDirective', CommentDirective)
+    .directive('datasetDetailsOutline', DatasetDetailsOutlineDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
