@@ -1,4 +1,4 @@
-class DatasetDetailsOutlineController {
+export class DatasetDetailsOutlineController {
 
     constructor(userService, actionsService, toastr) {
         'ngInject';
@@ -17,10 +17,3 @@ class DatasetDetailsOutlineController {
 
 }
 
-angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
-    templateUrl: 'app/details/mcpub-dataset-details-outline.html',
-    controller: DatasetDetailsOutlineController,
-    bindings: {
-        dataset: '<'
-    }
-});
