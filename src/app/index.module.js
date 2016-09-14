@@ -20,6 +20,7 @@ import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
 import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive';
 import {DatasetDetailsOutlineController} from './details/mcpub-dataset-details-outline.component';
+import {DatasetDetailsFilelistController} from './details/mcpub-dataset-details-filelist.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -85,4 +86,12 @@ angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
     bindings: {
         dataset: '<'
     }
+});
+
+angular.module('mcpub').component('mcpubDatasetDetailsFilelist', {
+  templateUrl: 'app/details/mcpub-dataset-details-filelist.html',
+  controller: DatasetDetailsFilelistController,
+  bindings: {
+    dataset: '='
+  }
 });
