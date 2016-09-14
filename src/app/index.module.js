@@ -17,7 +17,7 @@ import {BrowseDatasetsController} from './browse/datasets/browse-datasets-contro
 import {BrowseTagsController} from './browse/tags/browse-tags-controller';
 import {BrowseAuthorsController} from './browse/authors/browse-author-controller';
 import {CommentDirective} from './details/comment-directive';
-import {DatasetDetailsOutlineController} from './details/mcpub-dataset-details-outline.component';
+import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -37,7 +37,7 @@ import {ValidateController} from './components/sign/validate/validate.controller
 
 angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
     'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras',
-    'angularUtils.directives.dirPagination',
+    'angularUtils.directives.dirPagination', 'RecursionHelper',
     'ngTagsInput', 'ngFileUpload'])
     .config(config)
     .config(routerConfig)
@@ -82,3 +82,5 @@ angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
         dataset: '<'
     }
 });
+
+angular.module('mcpub').directive('mcpubDatasetDetailsOutlineDir', mcpubDatasetDetailsOutlineDirDirective);
