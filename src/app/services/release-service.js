@@ -36,7 +36,6 @@ export class releaseService {
     }
 
     getByID(id) {
-        console.log('calling getByID', this.user);
         if (this.user) {
             return this.pubAPI('datasets', id).get().then(function(dataset) {
                 return dataset.plain();

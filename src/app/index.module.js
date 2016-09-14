@@ -19,9 +19,9 @@ import {BrowseAuthorsController} from './browse/authors/browse-author-controller
 import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
 import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive';
-import {DatasetDetailsOutlineController} from './details/mcpub-dataset-details-outline.component';
 import {DatasetDetailsFilelistController} from './details/mcpub-dataset-details-filelist.component';
 import {DatasetDetailsVotesController} from './details/mcpub-dataset-details-votes.component';
+import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -41,7 +41,7 @@ import {ValidateController} from './components/sign/validate/validate.controller
 
 angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
     'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras',
-    'angularUtils.directives.dirPagination',
+    'angularUtils.directives.dirPagination', 'RecursionHelper',
     'ngTagsInput', 'ngFileUpload'])
     .config(config)
     .config(routerConfig)
@@ -104,3 +104,4 @@ angular.module('mcpub').component('mcpubDatasetDetailsVotes', {
     dataset: '='
   }
 });
+angular.module('mcpub').directive('mcpubDatasetDetailsOutlineDir', mcpubDatasetDetailsOutlineDirDirective);
