@@ -2,8 +2,8 @@
   <!-- Author -->
   <div ng-switch-when="Author">
     <div class="form-group">
-      <label class="col-sm-1 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-11 field-value">
+      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
+      <div class="col-sm-10 field-value">
         <a ng-click="ctrl.authorDetails()" class="theme">{{ctrl.formatAuthor(ctrl.value)}}</a>
         <!--<span ng-repeat="a in ctrl.value"><a ng-click="ctrl.authorDetails()" class="theme">{{a}}</a><span-->
         <!--ng-show=" ! $last ">, </span></span>-->
@@ -13,8 +13,8 @@
   <!-- Files -->
   <div ng-switch-when="Files">
     <div class="form-group">
-      <label class="col-sm-1 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-11 field-value">
+      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
+      <div class="col-sm-10 field-value">
         <span ng-if="!ctrl.user">{{ctrl.value.files.length}} files</span>
         <a ng-if="ctrl.user" href="{{ctrl.urlForDownload(ctrl.value.id)}}" download="fullDataset.zip" class="theme">{{ctrl.value.files.length}} files
           <i class="fa fa-fw fa-download"></i></a>
@@ -24,8 +24,8 @@
   <!-- Publication -->
   <div ng-switch-when="Publication">
     <div class="form-group">
-      <label class="col-sm-1 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-11 field-value">
+      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
+      <div class="col-sm-10 field-value">
         <span class="theme">{{ctrl.value}}</span>
       </div>
     </div>
@@ -33,22 +33,17 @@
   <!-- (all) Authors-->
   <div ng-switch-when="Authors">
     <div class="form-group">
-      <label class="col-sm-1 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-11 field-value">{{ctrl.formatAuthorList(ctrl.value)}}</div>
+      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
+      <div class="col-sm-10 field-value">{{ctrl.formatAuthorList(ctrl.value)}}</div>
     </div>
   </div>
   <!--Others-->
   <div ng-switch-default>
     <div class="form-group">
-      <label class="col-sm-1 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-11 field-value">
+      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
+      <div class="col-sm-10 field-value">
         {{ctrl.value}}
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-

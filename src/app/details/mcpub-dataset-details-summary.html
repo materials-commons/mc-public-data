@@ -2,12 +2,13 @@
   <div class="summary">
     <h4 class="title">{{ctrl.dataset.title}}</h4>
     <b class="title">Description</b>
-    <p class="field-value">{{ctrl.dataset.description }}</p>
+    <p>{{ctrl.dataset.description }}</p>
     <div class="form-horizontal">
       <div class="dataset">
         <property-value property="Authors" value="ctrl.dataset.authors"></property-value>
         <property-value property="DOI" value="ctrl.dataset.DOI"></property-value>
         <property-value property="Date" value="ctrl.dataset.birthtime | toDateStringFilter"></property-value>
+        <property-value property="Published by" value="ctrl.dataset.owner"></property-value>
       </div>
     </div>
   </div>
