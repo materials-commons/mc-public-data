@@ -19,7 +19,7 @@ import {BrowseAuthorsController} from './browse/authors/browse-author-controller
 import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
 import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive';
-import {DatasetDetailsOutlineDirective} from './details/mcpub-dataset-details-outline.directive';
+import {DatasetDetailsOutlineController} from './details/mcpub-dataset-details-outline.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -38,8 +38,9 @@ import {AccountsService} from './services/accounts-service.service';
 import {ValidateController} from './components/sign/validate/validate.controller';
 
 angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
-        'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras', 'angularUtils.directives.dirPagination',
-        'ngTagsInput', 'ngFileUpload'])
+    'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras',
+    'angularUtils.directives.dirPagination',
+    'ngTagsInput', 'ngFileUpload'])
     .config(config)
     .config(routerConfig)
     .run(runBlock)
@@ -67,7 +68,6 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('commentDirective', CommentDirective)
     .directive('mcpubDatasetDetailsSummary', DatasetDetailsSummaryDirective)
     .directive('mcpubDatasetDetailsOtherds', DatasetDetailsOtherdsDirective)
-    .directive('datasetDetailsOutline', DatasetDetailsOutlineDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
@@ -79,3 +79,10 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .filter('bytesFilter', bytesFilter)
     .filter('toDateStringFilter', toDateStringFilter);
 
+angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
+    templateUrl: 'app/details/mcpub-dataset-details-outline.html',
+    controller: DatasetDetailsOutlineController,
+    bindings: {
+        dataset: '<'
+    }
+});
