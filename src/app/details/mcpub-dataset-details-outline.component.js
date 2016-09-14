@@ -1,7 +1,6 @@
 export class DatasetDetailsOutlineController {
     constructor() {
         'ngInject';
-        console.log('dataset', this.dataset);
         this.processes = this.dataset.processes;
     }
 
@@ -10,7 +9,6 @@ export class DatasetDetailsOutlineController {
         this.root = treeModel.parse({id: 1, children: []});
         this.rootNode = this.root.first(node => node.model.id === 1);
         let sample2InputProcesses = {};
-        console.log('processes', this.processes);
         this.processes.forEach(p => {
             p.input_samples.forEach(s => {
                 let id = `${s.id}/${s.property_set_id}`;
