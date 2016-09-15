@@ -38,5 +38,19 @@ export class DatasetDetailsVotesController {
       this.toastr.warning("Please sign in to appreciate the work");
     }
   }
+
+  addTag(params) {
+    return this.actionsService.addTag(this.dataset.id, this.user.id, params.id);
+  }
+
+
+  removeTag(params) {
+    this.actionsService.removeTag(this.dataset.id, params.user_id, params.id);
+  }
+
+  loadTags() {
+    return this.actionsService.getAllTags();
+  }
+
 }
 
