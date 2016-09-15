@@ -18,6 +18,7 @@ import {BrowseTagsController} from './browse/tags/browse-tags-controller';
 import {BrowseAuthorsController} from './browse/authors/browse-author-controller';
 import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
+import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -78,6 +79,14 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
 angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
     templateUrl: 'app/details/mcpub-dataset-details-outline.html',
     controller: DatasetDetailsOutlineController,
+    bindings: {
+        dataset: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubDatasetDetailsFilesList', {
+    templateUrl: 'app/details/mcpub-dataset-details-files-list.html',
+    controller: MCPubDatasetDetailsFilesListComponentController,
     bindings: {
         dataset: '<'
     }

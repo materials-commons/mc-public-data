@@ -41,14 +41,18 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   color: $values;
 }
 
-
 tags-input .tags{
   border: none;
   box-shadow: none;
   background-color: white;
 }
+
 tags-input[disabled] .tags{
   background-color: #ffffff;
+}
+
+.primary-color {
+  color: $orange;
 }
 
 /**
