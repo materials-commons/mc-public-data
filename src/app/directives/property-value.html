@@ -13,28 +13,43 @@
   <!-- Files -->
   <div ng-switch-when="Files">
     <div class="form-group">
-      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-10 field-value">
+      <label ng-if="ctrl.user" class="col-sm-2 field-label">Download</label>
+      <label ng-if="!ctrl.user" class="col-sm-2 field-label">Files</label>
+      <div class="col-sm-10 field-value text-left">
         <span ng-if="!ctrl.user">{{ctrl.value.files.length}} files</span>
-        <a ng-if="ctrl.user" href="{{ctrl.urlForDownload(ctrl.value.id)}}" download="fullDataset.zip" class="theme">{{ctrl.value.files.length}} files
+        <a ng-if="ctrl.user" href="{{ctrl.urlForDownload(ctrl.value.id)}}" download="fullDataset.zip" class="theme">Download Dataset - {{ctrl.value.files.length}} files
           <i class="fa fa-fw fa-download"></i></a>
-      </div>
-    </div>
-  </div>
-  <!-- Publication -->
-  <div ng-switch-when="Publication">
-    <div class="form-group">
-      <label class="col-sm-2 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-10 field-value">
-        <span class="theme">{{ctrl.value}}</span>
       </div>
     </div>
   </div>
   <!-- (all) Authors-->
   <div ng-switch-when="Authors">
     <div class="form-group">
+      <label class="col-sm-12 field-label">By {{ctrl.formatAuthorList(ctrl.value)}}</label>
+    </div>
+  </div>
+  <!-- Publisher: value is user id of publisher-->
+  <div ng-switch-when="Publisher">
+    <div class="form-group">
+      <label class="col-sm-2 field-label">Published By</label>
+      <div class="col-sm-10 field-value">
+        {{ctrl.getPublisherName(ctrl.value)}}
+      </div>
+    </div>
+  </div>
+  <!-- Papers -->
+  <div ng-switch-when="Papers">
+    <div class="form-group">
       <label class="col-sm-2 field-label">{{ctrl.property}}</label>
-      <div class="col-sm-10 field-value">{{ctrl.formatAuthorList(ctrl.value)}}</div>
+      <div class="col-sm-10 field-value">
+        <div class="form-horizontal" ng-repeat="paper in ctrl.value">
+          <div ng-if="paper.title">
+            <div class="paper-title"><span class="fa fa-fw  fa-chevron-right"></span><b>{{paper.title}}</b>
+              <span ng-if="paper.link"><a href="{{paper.link}}"><i class="fa fa-fw fa-file-text-o"></i></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!--Others-->

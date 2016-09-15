@@ -35,15 +35,15 @@ class PropertyValueController {
     return
   }
 
-  authorDetails(author) {
-    console.log("authorDetails: " + author);
+  formatAuthors(authors) {
+    return authors.map(a => `${a.lastname}, ${a.firstname} (${a.affiliation})`).join('; ');
   }
 
-    formatAuthors(authors) {
-        return authors.map(a => `${a.lastname}, ${a.firstname} (${a.affiliation})`).join('; ');
-    }
+  getPublisherName(userId) {
+    return userId;
+  }
 
-    urlForDownload(datasetId) {
-        return "api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey();
-    }
+  urlForDownload(datasetId) {
+    return "api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey();
+  }
 }
