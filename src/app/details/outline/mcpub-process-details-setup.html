@@ -1,0 +1,25 @@
+<div style="margin-left: 80px">
+    <pre ng-if="false">{{$ctrl.processSetup | json}}</pre>
+    <table class="table table-hover" ng-if="true">
+        <thead class="field-value">
+        <th>Setup From</th>
+        <th>Property</th>
+        <th>Value</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat-start="setupItem in $ctrl.processSetup">
+            <td>{{setupItem.name}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat-end ng-repeat="prop in setupItem.properties | filter:$ctrl.removeEmpty()">
+            <td></td>
+            <td>{{prop.name}}</td>
+            <td>
+                {{prop.value}}
+                <span ng-if="prop.unit !== ''"> {{prop.unit}}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

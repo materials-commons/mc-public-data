@@ -1,0 +1,25 @@
+<mcpub-process-details-setup process-setup="$ctrl.process.setup"></mcpub-process-details-setup>
+<div ng-if="::$ctrl.process.input_samples.length" style="margin-left:80px">
+    <h5>Input Samples</h5>
+    <ul>
+        <li ng-repeat="sample in ::$ctrl.process.input_samples">
+            {{::sample.name}}
+        </li>
+    </ul>
+</div>
+<div ng-if="::$ctrl.process.output_samples.length" style="margin-left:80px">
+    <h5>Output Samples</h5>
+    <ul>
+        <li ng-repeat="sample in ::$ctrl.process.output_samples">
+            {{::sample.name}}
+        </li>
+    </ul>
+</div>
+<div ng-if="::$ctrl.process.files.length" style="margin-left:80px">
+    <h5>Files</h5>
+    <ul>
+        <li ng-repeat="file in ::$ctrl.process.files">
+            {{::file.name}}
+        </li>
+    </ul>
+</div>

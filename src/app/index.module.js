@@ -17,11 +17,16 @@ import {BrowseDatasetsController} from './browse/datasets/browse-datasets-contro
 import {BrowseTagsController} from './browse/tags/browse-tags-controller';
 import {BrowseAuthorsController} from './browse/authors/browse-author-controller';
 import {CommentDirective} from './details/comment-directive';
+import {
+    DatasetDetailsOutlineController,
+    mcpubDatasetDetailsOutlineDirDirective
+} from './details/outline/mcpub-dataset-details-outline.component';
+import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
+import {MCPubProcessDetailsComponentController} from './details/outline/mcpub-process-details.component';
+import {MCPubProcessDetailsSetupComponentController} from './details/outline/mcpub-process-details-setup.component';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
 import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive';
-import {DatasetDetailsFilelistController} from './details/mcpub-dataset-details-filelist.component';
 import {DatasetDetailsVotesController} from './details/mcpub-dataset-details-votes.component';
-import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -82,26 +87,43 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .filter('toDateStringFilter', toDateStringFilter);
 
 angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
-    templateUrl: 'app/details/mcpub-dataset-details-outline.html',
+    templateUrl: 'app/details/outline/mcpub-dataset-details-outline.html',
     controller: DatasetDetailsOutlineController,
     bindings: {
         dataset: '<'
     }
 });
 
-angular.module('mcpub').component('mcpubDatasetDetailsFilelist', {
-  templateUrl: 'app/details/mcpub-dataset-details-filelist.html',
-  controller: DatasetDetailsFilelistController,
-  bindings: {
-    dataset: '='
-  }
+angular.module('mcpub').component('mcpubDatasetDetailsFilesList', {
+    templateUrl: 'app/details/mcpub-dataset-details-files-list.html',
+    controller: MCPubDatasetDetailsFilesListComponentController,
+    bindings: {
+        dataset: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubProcessDetails', {
+    templateUrl: 'app/details/outline/mcpub-process-details.html',
+    controller: MCPubProcessDetailsComponentController,
+    bindings: {
+        process: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubProcessDetailsSetup', {
+    templateUrl: 'app/details/outline/mcpub-process-details-setup.html',
+    controller: MCPubProcessDetailsSetupComponentController,
+    bindings: {
+        processSetup: '<'
+    }
 });
 
 angular.module('mcpub').component('mcpubDatasetDetailsVotes', {
-  templateUrl: 'app/details/mcpub-dataset-details-votes.html',
-  controller: DatasetDetailsVotesController,
-  bindings: {
-    dataset: '='
-  }
+    templateUrl: 'app/details/mcpub-dataset-details-votes.html',
+    controller: DatasetDetailsVotesController,
+    bindings: {
+        dataset: '='
+    }
 });
+
 angular.module('mcpub').directive('mcpubDatasetDetailsOutlineDir', mcpubDatasetDetailsOutlineDirDirective);
