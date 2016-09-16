@@ -13,7 +13,7 @@ export function config($logProvider, toastrConfig, RestangularProvider, $windowP
 
     //
     tagsInputConfigProvider.setDefaults('tagsInput', {
-        placeholder: 'Tags List'
+        placeholder: 'Type here to add tags; end with return.'
     });
 
     //set the base url for api calls on RESTful services
