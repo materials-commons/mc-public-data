@@ -24,6 +24,9 @@ import {
 import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
 import {MCPubProcessDetailsComponentController} from './details/outline/mcpub-process-details.component';
 import {MCPubProcessDetailsSetupComponentController} from './details/outline/mcpub-process-details-setup.component';
+import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
+import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-otherds.directive';
+import {DatasetDetailsVotesController} from './details/mcpub-dataset-details-votes.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -70,6 +73,8 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('loginDirective', LoginDirective)
     .directive('registerDirective', RegisterDirective)
     .directive('commentDirective', CommentDirective)
+    .directive('mcpubDatasetDetailsSummary', DatasetDetailsSummaryDirective)
+    .directive('mcpubDatasetDetailsOtherds', DatasetDetailsOtherdsDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
@@ -110,6 +115,14 @@ angular.module('mcpub').component('mcpubProcessDetailsSetup', {
     controller: MCPubProcessDetailsSetupComponentController,
     bindings: {
         processSetup: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubDatasetDetailsVotes', {
+    templateUrl: 'app/details/mcpub-dataset-details-votes.html',
+    controller: DatasetDetailsVotesController,
+    bindings: {
+        dataset: '='
     }
 });
 

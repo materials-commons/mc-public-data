@@ -1,0 +1,19 @@
+<div class="more-datasets">
+  <div class="col-sm-12" ng-show="ctrl.dataset.other_datasets.length > 1">
+    Links to releated datasets by <b>{{ctrl.dataset.authors[0].firstname}} {{ctrl.dataset.authors[0].lastname}}</b>
+    <ul>
+      <li>
+        <div class="form-horizontal" ng-repeat="ds in ctrl.dataset.other_datasets">
+          <div ng-if="ds.id !== ctrl.dataset.id">
+            <b><a class="title" ui-sref="details({id: ds.id})">{{ds.title}}</a></b>
+            <p class="field-value">{{ds.description | limitTo: 100}}</p>
+            <property-value property="Authors" value="ds.authors"></property-value>
+            <property-value property="DOI" value="ds.DOI" ui-sref="details({id: ds.id})" apply="theme"></property-value>
+            <property-value property="Files" value="ds"></property-value>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

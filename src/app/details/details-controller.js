@@ -12,6 +12,8 @@ export class DetailsController {
     this.$uibModal = $uibModal;
     this.$previousState = $previousState;
     this.zipFilePath = "api/pub/datasets/download/" + dataset.id + "?apikey=" + this.userService.apikey();
+    this.dataset.author = dataset.authors[0];
+    this.dataset.other_authors = dataset.authors.slice(1);
   }
 
   appreciate() {

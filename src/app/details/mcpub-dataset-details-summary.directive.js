@@ -1,17 +1,28 @@
-export class DetailsController {
-  constructor(dataset, actionsService, toastr, userService, $uibModal, $previousState) {
+export function DatasetDetailsSummaryDirective() {
+  'ngInject';
+
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/details/mcpub-dataset-details-summary.html',
+    scope: {
+      dataset: "=",
+    },
+  controller: DatasetDetailsSummaryController,
+    controllerAs: 'ctrl',
+    bindToController: true
+  };
+  return directive;
+}
+
+class DatasetDetailsSummaryController {
+
+  constructor(userService, actionsService, toastr) {
     'ngInject';
-    this.dataset = dataset;
+    this.user = userService.u();
     this.toastr = toastr;
     this.userService = userService;
     this.actionsService = actionsService;
-    this.user = this.userService.u();
     this.getActions();
-    this.viewDataset();
-    this.view = "list";
-    this.$uibModal = $uibModal;
-    this.$previousState = $previousState;
-    this.zipFilePath = "api/pub/datasets/download/" + dataset.id + "?apikey=" + this.userService.apikey();
   }
 
   appreciate() {
@@ -44,45 +55,6 @@ export class DetailsController {
     });
   }
 
-  viewDataset() {
-    if (this.user) {
-      this.actionsService.viewDataset(this.dataset.id, this.user.id);
-    } else {
-      this.actionsService.viewDataset(this.dataset.id, "anonymous");
-    }
-  }
-
-  downloadSrc() {
-    //var apikey = this.user.apikey;
-    //var url = "datafiles/static/" + fileID + "?apikey=" + apikey + "&original=true";
-    //return url;
-  }
-
-  setView(view) {
-    this.view = view;
-  }
-
-  isActive(what) {
-    return this.view === what;
-  }
-
-  openImage(file) {
-    var modalInstance = this.$uibModal.open({
-      animation: true,
-      templateUrl: 'app/details/pop-up.html',
-      controller: 'PopUpController',
-      controllerAs: 'ctrl',
-      bindToController: true,
-      size: 'lg',
-      keyboard: true,
-      resolve: {
-        file: function () {
-          return file;
-        }
-      }
-    });
-  }
-
   addTag(params) {
     return this.actionsService.addTag(this.dataset.id, this.user.id, params.id);
   }
@@ -96,9 +68,4 @@ export class DetailsController {
     return this.actionsService.getAllTags();
   }
 
-  previousState() {
-    this.$previousState.go();
-  }
-
 }
-
