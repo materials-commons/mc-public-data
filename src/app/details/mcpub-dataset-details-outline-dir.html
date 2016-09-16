@@ -11,35 +11,7 @@
             </span>
             (<a ng-click="node.model.showDetails = !node.model.showDetails">Details</a>)
         </div>
-        <div ng-if="node.model.showDetails">
-            <div ng-if="::node.model.input_samples.length" style="margin-left:80px">
-                <h5>Input Samples</h5>
-                <ul>
-                    <li ng-repeat="sample in ::node.model.input_samples">
-                        {{::sample.name}}
-                        <pre>{{::sample | json:4}}</pre>
-                    </li>
-                </ul>
-            </div>
-            <div ng-if="::node.model.output_samples.length" style="margin-left:80px">
-                <h5>Output Samples</h5>
-                <ul>
-                    <li ng-repeat="sample in ::node.model.output_samples">
-                        {{::sample.name}}
-                        <pre>{{::sample | json:4}}</pre>
-                    </li>
-                </ul>
-            </div>
-            <div ng-if="::node.model.files.length" style="margin-left:80px">
-                <h5>Files</h5>
-                <ul>
-                    <li ng-repeat="file in ::node.model.files">
-                        {{::file.name}}
-                        {{::file | json}}
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <mcpub-process-details process="node.model" ng-if="node.model.showDetails"></mcpub-process-details>
         <mcpub-dataset-details-outline-dir process="node"
                                            ng-if="node.model.show">
         </mcpub-dataset-details-outline-dir>

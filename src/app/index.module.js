@@ -19,6 +19,7 @@ import {BrowseAuthorsController} from './browse/authors/browse-author-controller
 import {CommentDirective} from './details/comment-directive';
 import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
 import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
+import {MCPubProcessDetailsComponentController} from './details/mcpub-process-details.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -89,6 +90,14 @@ angular.module('mcpub').component('mcpubDatasetDetailsFilesList', {
     controller: MCPubDatasetDetailsFilesListComponentController,
     bindings: {
         dataset: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubProcessDetails', {
+    templateUrl: 'app/details/mcpub-process-details.html',
+    controller: MCPubProcessDetailsComponentController,
+    bindings: {
+        process: '<'
     }
 });
 
