@@ -17,9 +17,13 @@ import {BrowseDatasetsController} from './browse/datasets/browse-datasets-contro
 import {BrowseTagsController} from './browse/tags/browse-tags-controller';
 import {BrowseAuthorsController} from './browse/authors/browse-author-controller';
 import {CommentDirective} from './details/comment-directive';
-import {DatasetDetailsOutlineController, mcpubDatasetDetailsOutlineDirDirective} from './details/mcpub-dataset-details-outline.component';
+import {
+    DatasetDetailsOutlineController,
+    mcpubDatasetDetailsOutlineDirDirective
+} from './details/outline/mcpub-dataset-details-outline.component';
 import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
-import {MCPubProcessDetailsComponentController} from './details/mcpub-process-details.component';
+import {MCPubProcessDetailsComponentController} from './details/outline/mcpub-process-details.component';
+import {MCPubProcessDetailsSetupComponentController} from './details/outline/mcpub-process-details-setup.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
 import {SearchBarDirective} from '../app/directives/search-bar-directive';
@@ -78,7 +82,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .filter('toDateStringFilter', toDateStringFilter);
 
 angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
-    templateUrl: 'app/details/mcpub-dataset-details-outline.html',
+    templateUrl: 'app/details/outline/mcpub-dataset-details-outline.html',
     controller: DatasetDetailsOutlineController,
     bindings: {
         dataset: '<'
@@ -94,10 +98,18 @@ angular.module('mcpub').component('mcpubDatasetDetailsFilesList', {
 });
 
 angular.module('mcpub').component('mcpubProcessDetails', {
-    templateUrl: 'app/details/mcpub-process-details.html',
+    templateUrl: 'app/details/outline/mcpub-process-details.html',
     controller: MCPubProcessDetailsComponentController,
     bindings: {
         process: '<'
+    }
+});
+
+angular.module('mcpub').component('mcpubProcessDetailsSetup', {
+    templateUrl: 'app/details/outline/mcpub-process-details-setup.html',
+    controller: MCPubProcessDetailsSetupComponentController,
+    bindings: {
+        processSetup: '<'
     }
 });
 

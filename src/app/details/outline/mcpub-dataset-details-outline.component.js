@@ -77,7 +77,7 @@ export function mcpubDatasetDetailsOutlineDirDirective(RecursionHelper) {
         replace: true,
         controllerAs: '$ctrl',
         bindToController: true,
-        templateUrl: 'app/details/mcpub-dataset-details-outline-dir.html',
+        templateUrl: 'app/details/outline/mcpub-dataset-details-outline-dir.html',
         compile: function(element) {
             return RecursionHelper.compile(element, function() {});
         }
