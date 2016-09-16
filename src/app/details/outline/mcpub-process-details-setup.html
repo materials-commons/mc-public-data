@@ -1,18 +1,18 @@
 <div style="margin-left: 80px">
     <pre ng-if="false">{{$ctrl.processSetup | json}}</pre>
-    <table class="table table-hover" ng-if="true">
+    <table class="table table-hover" ng-if="$ctrl.processHasSetupValues">
         <thead class="field-value">
         <th>Setup From</th>
         <th>Property</th>
         <th>Value</th>
         </thead>
         <tbody>
-        <tr ng-repeat-start="setupItem in $ctrl.processSetup">
+        <tr ng-repeat-start="setupItem in $ctrl.processSetupWithValues" ng-show="setupItem.properties.length">
             <td>{{setupItem.name}}</td>
             <td></td>
             <td></td>
         </tr>
-        <tr ng-repeat-end ng-repeat="prop in setupItem.properties | filter:$ctrl.removeEmpty()">
+        <tr ng-repeat-end ng-repeat="prop in setupItem.properties">
             <td></td>
             <td>{{prop.name}}</td>
             <td>
@@ -22,4 +22,5 @@
         </tr>
         </tbody>
     </table>
+    <h5 ng-if="!$ctrl.processHasSetupValues">No setup information</h5>
 </div>

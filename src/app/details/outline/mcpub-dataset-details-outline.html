@@ -1,5 +1,5 @@
 <div style="margin-top: 20px">
-    <h4>Provenance Details Outline</h4>
+    <h4>Provenance</h4>
     <div style="max-height: 75vh; overflow: auto">
         <ul style="list-style-type:none">
             <li ng-repeat="node in $ctrl.rootNode.children" layout="column">
@@ -7,10 +7,10 @@
                     <a ng-if="node.children.length" ng-click="node.model.show = !node.model.show">
                         <i class="primary-color fa fa-fw"
                            ng-class="{'fa-folder': !node.model.show, 'fa-folder-open': node.model.show}"></i>
-                        {{::node.model.name}}/{{::node.model.id}}
+                        {{::node.model.name}}
                     </a>
                     <span ng-if="!node.children.length">
-                        <i class="primary-color fa fa-fw fa-file"></i> {{::node.model.name}}/{{::node.model.id}}
+                        <i class="primary-color fa fa-fw fa-file"></i> {{::node.model.name}}
                     </span>
                     (<a ng-click="node.model.showDetails = !node.model.showDetails">Details</a>)
                 </div>
