@@ -1,6 +1,8 @@
 <div style="margin-top: 20px">
-    <h4>Provenance</h4>
-    <div>
+    <h4>Details
+        <a ng-click="$ctrl.showOutline = !$ctrl.showOutline">{{$ctrl.showOutline ? "Hide" : "View"}}</a>
+    </h4>
+    <div ng-if="$ctrl.showOutline">
         <ul style="list-style-type:none">
             <li ng-repeat="node in $ctrl.rootNode.children" layout="column">
                 <div>

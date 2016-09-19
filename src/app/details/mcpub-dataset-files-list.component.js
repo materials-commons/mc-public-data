@@ -1,8 +1,8 @@
-export class MCPubDatasetDetailsFilesListComponentController {
-    constructor() {
-        'ngInject';
-
+export class MCPubDatasetFilesListComponentController {
+    /*@ngInject*/
+    constructor(userService) {
         this.view = "list";
+        this.user = userService.u();
     }
 
     setView(view) {

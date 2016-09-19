@@ -2,6 +2,7 @@ export class DatasetDetailsOutlineController {
     constructor() {
         'ngInject';
         this.processes = this.dataset.processes;
+        this.showOutline = true;
     }
 
     $onInit() {
