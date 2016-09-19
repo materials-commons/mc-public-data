@@ -1,5 +1,5 @@
 <div>
-  <form class="search" ng-submit="ctrl.searchResults(item)">
+  <form class="search" ng-submitx="ctrl.searchResults(item)">
     <div class="input-group">
       <div class="input-group-btn">
         <div class="btn-group" uib-dropdown >
@@ -11,7 +11,9 @@
           </ul>
         </div>
       </div><!-- /btn-group -->
-      <input type="text" class="form-control" ng-model="ctrl.searchTerm" placeholder="Search for...">
+      <input id="searchInput" type="text" ng-model="ctrl.searchTerm" class="form-control"
+             on-enter="ctrl.searchResults()"
+             placeholder="Search for...">
     </div><!-- /input-group -->
   </form>
 </div>

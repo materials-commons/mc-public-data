@@ -54,8 +54,9 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
             controller: 'SearchController',
             controllerAs: 'search',
             resolve: {
-                results: ["searchService", function(searchService) {
-                    return searchService.searchByDOI();
+                results: ["searchService", "$stateParams", function(searchService, $stateParams) {
+                    console.log($stateParams);
+                    return searchService.search($stateParams.searchTerm);
                 }]
             }
         })

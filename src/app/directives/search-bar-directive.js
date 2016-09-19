@@ -1,35 +1,35 @@
 export function SearchBarDirective() {
-  'ngInject';
+    'ngInject';
 
-  let directive = {
-    restrict: 'E',
-    templateUrl: 'app/directives/search-bar.html',
-    controller: SearchBarController,
-    controllerAs: 'ctrl',
-    bindToController: true
-  };
+    let directive = {
+        restrict: 'E',
+        templateUrl: 'app/directives/search-bar.html',
+        controller: SearchBarController,
+        controllerAs: 'ctrl',
+        bindToController: true
+    };
 
-  return directive;
+    return directive;
 }
 
 class SearchBarController {
 
-  constructor ($state) {
-    'ngInject';
-    this.dropdown_list  = ["All", "DOI", "Authors", "Institution", "Process Type", "Sample"];
-    this.$state = $state;
-    if (Object.keys($state.params).length > 0){
-      this.selection = $state.params.selection;
-      this.searchTerm = $state.params.searchTerm;
+    constructor($state) {
+        'ngInject';
+        this.dropdown_list = ["All", "DOI", "Authors", "Institution", "Process Type", "Sample"];
+        this.$state = $state;
+        if (Object.keys($state.params).length > 0) {
+            this.selection = $state.params.selection;
+            this.searchTerm = $state.params.searchTerm;
+        }
+        else {
+            this.selection = "All";
+            this.searchTerm = "";
+        }
     }
-    else{
-      this.selection = "All" ;
-      this.searchTerm = "";
-    }
-  }
 
-  searchResults(){
-    this.$state.go("search", {selection: this.selection, searchTerm: this.searchTerm});
-  }
+    searchResults() {
+        this.$state.go("search", {selection: this.selection, searchTerm: this.searchTerm});
+    }
 
 }

@@ -43,6 +43,9 @@ import {pubAPIService} from './services/pub-api.service';
 import {mcapiService} from './services/mc-api.service';
 import {AccountsService} from './services/accounts-service.service';
 import {ValidateController} from './components/sign/validate/validate.controller';
+import {SearchModel} from './services/search-model.service';
+import {focusService} from './services/focus.service';
+import {onEnterDirective} from './directives/on-enter.directive';
 
 angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria',
     'restangular', 'ui.router', 'ui.bootstrap', 'toastr', 'ct.ui.router.extras',
@@ -75,6 +78,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .directive('commentDirective', CommentDirective)
     .directive('mcpubDatasetDetailsSummary', DatasetDetailsSummaryDirective)
     .directive('mcpubDatasetDetailsOtherds', DatasetDetailsOtherdsDirective)
+    .directive('onEnter', onEnterDirective)
     .service('pubAPI', pubAPIService)
     .service('mcapi', mcapiService)
     .service('accountsService', AccountsService)
@@ -83,6 +87,8 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .service('userService', userService)
     .service('actionsService', actionsService)
     .service('browseService', browseService)
+    .service('searchModel', SearchModel)
+    .factory('focus', focusService)
     .filter('bytesFilter', bytesFilter)
     .filter('toDateStringFilter', toDateStringFilter);
 
