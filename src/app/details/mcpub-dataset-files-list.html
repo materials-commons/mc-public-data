@@ -1,8 +1,4 @@
-<h4 style="margin-top:30px">
-    Files ({{::$ctrl.files.length}})
-    <a ng-click="$ctrl.showFiles = !$ctrl.showFiles">{{$ctrl.showFiles ? "Hide" : "View"}}</a>
-</h4>
-<div ng-if="$ctrl.showFiles">
+<div>
     <div ng-if="$ctrl.isActive('thumbnail')" class="row image-area">
         <div ng-if="$ctrl.user" ng-click="$ctrl.openImage(file)"
              dir-paginate="file in $ctrl.files | itemsPerPage: 12"
