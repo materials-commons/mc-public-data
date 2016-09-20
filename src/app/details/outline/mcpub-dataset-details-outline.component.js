@@ -2,6 +2,7 @@ export class DatasetDetailsOutlineController {
     constructor() {
         'ngInject';
         this.processes = this.dataset.processes;
+        this.showOutline = true;
     }
 
     $onInit() {
@@ -23,6 +24,7 @@ export class DatasetDetailsOutlineController {
             if (!p.input_samples.length) {
                 // No inputs so top level node
                 p.children = [];
+                p.show = true;
                 let n = treeModel.parse(p);
                 addedIds.push(p.id);
                 this.rootNode.addChild(n);
@@ -41,6 +43,7 @@ export class DatasetDetailsOutlineController {
                     if (processes && processes.length) {
                         processes.forEach(p => {
                             p.children = [];
+                            p.show = true;
                             let node = treeModel.parse(p);
                             n.addChild(node);
                             newlyAdded.push(p.id);

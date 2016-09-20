@@ -3,8 +3,16 @@
         <mcpub-dataset-details-summary dataset="ctrl.dataset"></mcpub-dataset-details-summary>
         <hr class="top-seperator"/>
         <mcpub-dataset-details-outline dataset="ctrl.dataset"></mcpub-dataset-details-outline>
-        <hr ng-if="false"/>
-        <mcpub-dataset-details-files-list ng-if="false" dataset="ctrl.dataset"></mcpub-dataset-details-files-list>
+        <hr>
+        <h4 style="margin-top:30px">
+            Files ({{::ctrl.dataset.files.length}})
+            <a ng-click="ctrl.showFiles = !ctrl.showFiles">{{ctrl.showFiles ? "Hide" : "View"}}</a>
+        </h4>
+        <p>
+            View a list of all the files that comprise this dataset, including thumbnails of all
+            the images.
+        </p>
+        <mcpub-dataset-files-list ng-if="ctrl.showFiles" files="ctrl.dataset.files"></mcpub-dataset-files-list>
     </div>
     <div class="col-sm-4 votes">
         <mcpub-dataset-details-votes dataset="ctrl.dataset"></mcpub-dataset-details-votes>

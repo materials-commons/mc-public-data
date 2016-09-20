@@ -1,6 +1,13 @@
 <div style="margin-top: 20px">
-    <h4>Provenance</h4>
-    <div>
+    <h4>Processing and Analysis Details
+        <a ng-click="$ctrl.showOutline = !$ctrl.showOutline">{{$ctrl.showOutline ? "Hide" : "View"}}</a>
+    </h4>
+    <p>
+        View an outline of the processing and analysis for this data including workflow steps, instrument setup,
+        samples, and the files involved for each step. The relationships in the workflow are
+        presented in an outline format.
+    </p>
+    <div ng-if="$ctrl.showOutline">
         <ul style="list-style-type:none">
             <li ng-repeat="node in $ctrl.rootNode.children" layout="column">
                 <div>

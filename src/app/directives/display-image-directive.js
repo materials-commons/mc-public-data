@@ -17,9 +17,9 @@ export function DisplayImageDirective() {
 
 class DisplayImageController {
 
-  constructor() {
+  constructor(userService) {
     'ngInject';
-    this.file.src = "app/datafiles/static/" + this.file.id + "?apikey=" + "35619b6840cc11e3a280ac162d80f1bf";
+    this.file.src = "app/datafiles/static/" + this.file.original_id + "?apikey=" + userService.apikey();
     this.file.fileType = this.determineFileType(this.file.mediatype);
   }
 

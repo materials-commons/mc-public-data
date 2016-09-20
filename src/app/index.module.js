@@ -21,7 +21,7 @@ import {
     DatasetDetailsOutlineController,
     mcpubDatasetDetailsOutlineDirDirective
 } from './details/outline/mcpub-dataset-details-outline.component';
-import {MCPubDatasetDetailsFilesListComponentController} from './details/mcpub-dataset-details-files-list.component';
+import {MCPubDatasetFilesListComponentController} from './details/mcpub-dataset-files-list.component';
 import {MCPubProcessDetailsComponentController} from './details/outline/mcpub-process-details.component';
 import {MCPubProcessDetailsSetupComponentController} from './details/outline/mcpub-process-details-setup.component';
 import {DatasetDetailsSummaryDirective} from './details/mcpub-dataset-details-summary.directive';
@@ -100,11 +100,11 @@ angular.module('mcpub').component('mcpubDatasetDetailsOutline', {
     }
 });
 
-angular.module('mcpub').component('mcpubDatasetDetailsFilesList', {
-    templateUrl: 'app/details/mcpub-dataset-details-files-list.html',
-    controller: MCPubDatasetDetailsFilesListComponentController,
+angular.module('mcpub').component('mcpubDatasetFilesList', {
+    templateUrl: 'app/details/mcpub-dataset-files-list.html',
+    controller: MCPubDatasetFilesListComponentController,
     bindings: {
-        dataset: '<'
+        files: '<'
     }
 });
 
@@ -129,6 +129,13 @@ angular.module('mcpub').component('mcpubDatasetDetailsVotes', {
     controller: DatasetDetailsVotesController,
     bindings: {
         dataset: '='
+    }
+});
+
+angular.module('mcpub').component('mcpubSetupPropertyValue', {
+    templateUrl: 'app/details/outline/mcpub-setup-property-value.html',
+    bindings: {
+        property: '<'
     }
 });
 
