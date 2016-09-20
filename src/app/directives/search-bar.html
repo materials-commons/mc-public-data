@@ -1,20 +1,18 @@
 <div>
-  <form class="search" ng-submitx="ctrl.searchResults(item)">
-    <div class="input-group">
-      <div class="input-group-btn">
-        <div class="btn-group" uib-dropdown >
-          <button  type="button" class="btn btn-default" uib-dropdown-toggle>
-            {{ctrl.selection}} <span class="caret"></span>
-          </button>
-          <ul uib-dropdown-menu>
-            <li ng-repeat="item in ctrl.dropdown_list"><a ng-click="ctrl.selection = item">{{item}}</a></li>
-          </ul>
+    <form class="search">
+        <div class="input-group">
+            <div class="input-group-btn" uib-dropdown>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    {{ctrl.selection}} <span class="caret"></span>
+                </button>
+                <ul uib-dropdown-menu>
+                    <li ng-repeat="item in ctrl.dropdown_list"><a ng-click="ctrl.selection = item">{{item}}</a></li>
+                </ul>
+            </div>
+            <input id="searchInput" type="text" ng-model="ctrl.searchTerm" class="form-control"
+                   on-enter="ctrl.searchResults()"
+                   placeholder="Search for...">
         </div>
-      </div><!-- /btn-group -->
-      <input id="searchInput" type="text" ng-model="ctrl.searchTerm" class="form-control"
-             on-enter="ctrl.searchResults()"
-             placeholder="Search for...">
-    </div><!-- /input-group -->
-  </form>
+    </form>
 </div>
 
