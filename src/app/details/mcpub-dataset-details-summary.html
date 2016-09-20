@@ -8,7 +8,7 @@
     <p ng-if="ctrl.dataset.description">{{ctrl.dataset.description }}</p>
     <div class="form-horizontal">
       <div class="dataset">
-        <property-value property="Publisher" value="ctrl.dataset.owner"></property-value>
+        <property-value property="Publisher" value="ctrl.dataset.publisher"></property-value>
         <property-value ng-if="ctrl.dataset.funding" property="Funding" value="ctrl.dataset.funding"></property-value>
         <property-value ng-if="ctrl.dataset.doi" property="DOI" value="ctrl.dataset.doi"></property-value>
         <property-value property="Date" value="ctrl.dataset.birthtime | toDateStringFilter"></property-value>

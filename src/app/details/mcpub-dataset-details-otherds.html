@@ -1,6 +1,6 @@
 <div class="more-datasets">
   <div class="col-sm-12" ng-show="ctrl.dataset.other_datasets.length > 1">
-    Other datasets published by <b>{{ctrl.dataset.owner}}</b>
+    Other datasets published by <b>{{ctrl.dataset.publisher}}</b>
     <hr />
     <div class="form-horizontal" ng-repeat="ds in ctrl.dataset.other_datasets">
       <div ng-if="ds.id !== ctrl.dataset.id">
