@@ -13,12 +13,11 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr ng-repeat-end ng-repeat="prop in setupItem.properties">
+            <tr ng-repeat-end ng-repeat="prop in setupItem.properties | orderBy:'name'">
                 <td></td>
                 <td>{{prop.name}}</td>
                 <td>
-                    {{prop.value}}
-                    <span ng-if="prop.unit !== ''"> {{prop.unit}}</span>
+                    <mcpub-setup-property-value property="prop"></mcpub-setup-property-value>
                 </td>
             </tr>
             </tbody>
