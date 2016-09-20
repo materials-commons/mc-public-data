@@ -92,6 +92,11 @@ tags-input[disabled] .tags{
   }
 }
 
+tags-input[disabled] .tags .input {
+  background-color: #ffffff;
+  cursor: default;
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
