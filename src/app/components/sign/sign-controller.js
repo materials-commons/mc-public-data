@@ -37,8 +37,6 @@ export class SignController {
                     this.Restangular.setDefaultRequestParams(['post', 'get', 'put', 'remove'], {apikey: this.userService.apikey()});
                     this.$state.go('home.top', null, {reload: true});
                     this.$uibModalInstance.close();
-                    this.toastr.options = {"closeButton": true};
-                    this.toastr.success('Logged in Successfully', this.user.email)
                 },
                 (err) => {
                     this.toastr.options = {"closeButton": true};

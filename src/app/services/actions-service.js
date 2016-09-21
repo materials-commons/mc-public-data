@@ -49,9 +49,8 @@ export class actionsService {
             user_id: user_id,
             dataset_id: dataset_id,
             tag: tag
-        }).then((result)=> {
-                this.toastr.success("Tagged Successfully! ", {closeButton: true});
-            },
+        }).then(
+            result => result,
             (error) => {
                 this.toastr.warning("Duplicate request");
             });
@@ -62,9 +61,7 @@ export class actionsService {
             dataset_id: dataset_id,
             user_id: user_id,
             tag: tag
-        }).then((result)=> {
-            this.toastr.success("Removed Tag! ");
-        });
+        }).then(result => result);
     }
 
 
