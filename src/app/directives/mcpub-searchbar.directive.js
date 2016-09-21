@@ -13,23 +13,22 @@ export function MCPubSearchbarDirective() {
 }
 
 class MCPubSearchBarController {
-
-    constructor($state) {
-        'ngInject';
-        this.dropdown_list = ["All", "DOI", "Authors", "Institution", "Process Type", "Sample"];
+    /*@ngInject*/
+    constructor($state, $stateParams, searchService) {
+        this.searchChoices = searchService.getSearchChoices();
         this.$state = $state;
-        if (Object.keys($state.params).length > 0) {
-            this.selection = $state.params.selection;
-            this.searchTerm = $state.params.searchTerm;
+        if (typeof $stateParams.selection !== 'undefined') {
+            this.selection = searchService.findSearchChoiceByValue($stateParams.selection);
+            this.searchTerm = $stateParams.searchTerm;
         }
         else {
-            this.selection = "All";
+            this.selection = this.searchChoices[0];
             this.searchTerm = "";
         }
     }
 
     searchResults() {
-        this.$state.go("search", {selection: this.selection, searchTerm: this.searchTerm});
+        this.$state.go("search", {selection: this.selection.value, searchTerm: this.searchTerm});
     }
 
 }
