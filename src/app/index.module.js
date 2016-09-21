@@ -139,4 +139,11 @@ angular.module('mcpub').component('mcpubSetupPropertyValue', {
     }
 });
 
+angular.module('mcpub').component('mcpubDatasetOverview', {
+    templateUrl: 'app/home/datasets/mcpub-dataset-overview.html',
+    bindings: {
+        dataset: '<'
+    }
+});
+
 angular.module('mcpub').directive('mcpubDatasetDetailsOutlineDir', mcpubDatasetDetailsOutlineDirDirective);
