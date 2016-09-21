@@ -4,7 +4,7 @@
       <div class="dataset">
         <h4><a class="title" ui-sref="details({id: dataset.id})">{{dataset.title}}</a></h4>
         <p class="small action-count">{{dataset.birthtime | date:'fullDate'}}</p>
-        <p class="field-value">{{dataset.description | limitTo: 190}} ... </p>
+        <p class="field-value">{{dataset.description | limitTo: 400}} ... </p>
         <property-value property="Authors" value="dataset.authors"></property-value>
         <property-value property="Files" value="dataset"></property-value>
         <property-value property="DOI" value="dataset.DOI"></property-value>
