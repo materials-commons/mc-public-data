@@ -29,7 +29,7 @@ import {DatasetDetailsOtherdsDirective} from './details/mcpub-dataset-details-ot
 import {DatasetDetailsVotesController} from './details/mcpub-dataset-details-votes.component';
 import {NavbarDirective} from '../app/components/navbar/navbar.directive';
 import {HomeTabDirective} from '../app/home/home-tab-directive';
-import {SearchBarDirective} from '../app/directives/search-bar-directive';
+import {MCPubSearchbarDirective} from '../app/directives/mcpub-searchbar.directive';
 import {PropertyValueDirective} from '../app/directives/property-value-directive';
 import {DisplayImageDirective} from '../app/directives/display-image-directive';
 import {releaseService} from './services/release-service';
@@ -70,7 +70,7 @@ angular.module('mcpub', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngM
     .controller('ValidateController', ValidateController)
     .directive('mcpubNavbar', NavbarDirective)
     .directive('homeTabDirective', HomeTabDirective)
-    .directive('searchBarDirective', SearchBarDirective)
+    .directive('mcpubSearchbar', MCPubSearchbarDirective)
     .directive('propertyValue', PropertyValueDirective)
     .directive('displayImage', DisplayImageDirective)
     .directive('loginDirective', LoginDirective)

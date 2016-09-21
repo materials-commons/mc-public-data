@@ -1,10 +1,10 @@
-export function SearchBarDirective() {
+export function MCPubSearchbarDirective() {
     'ngInject';
 
     let directive = {
         restrict: 'E',
-        templateUrl: 'app/directives/search-bar.html',
-        controller: SearchBarController,
+        templateUrl: 'app/directives/mcpub-searchbar.html',
+        controller: MCPubSearchBarController,
         controllerAs: 'ctrl',
         bindToController: true
     };
@@ -12,7 +12,7 @@ export function SearchBarDirective() {
     return directive;
 }
 
-class SearchBarController {
+class MCPubSearchBarController {
 
     constructor($state) {
         'ngInject';

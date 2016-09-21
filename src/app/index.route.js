@@ -50,12 +50,11 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         })
         .state('search', {
             url: '/search/:selection/:searchTerm',
-            templateUrl: 'app/search/search_results.html',
+            templateUrl: 'app/search/search-results.html',
             controller: 'SearchController',
             controllerAs: 'search',
             resolve: {
                 results: ["searchService", "$stateParams", function(searchService, $stateParams) {
-                    console.log($stateParams);
                     return searchService.search($stateParams.searchTerm);
                 }]
             }
