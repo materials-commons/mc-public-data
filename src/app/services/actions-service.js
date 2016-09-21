@@ -11,17 +11,12 @@ export class actionsService {
         return this.pubAPI('appreciate').customPOST({
             user_id: user_id,
             dataset_id: dataset_id
-        }).then((result)=> {
-            this.toastr.success("Appreciated!");
         });
     }
 
     removeAppreciation(dataset_id, user_id) {
         return this.pubAPI('appreciate').one('remove')
-            .customPUT({user_id: user_id, dataset_id: dataset_id}).then((result)=> {
-
-                this.toastr.success("Removed Appreciation! ");
-            });
+            .customPUT({user_id: user_id, dataset_id: dataset_id});
     }
 
     viewDataset(dataset_id, user_id) {
