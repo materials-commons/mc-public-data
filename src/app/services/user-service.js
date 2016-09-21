@@ -11,7 +11,7 @@ export class userService {
             try {
                 this.mcuser = JSON.parse($window.sessionStorage.mcuser);
             } catch (err) {
-                console.log("Error parse mcuser in sessionStorage");
+                console.log("Error parsing mcuser in sessionStorage");
                 this.mcuser = null;
             }
         }
