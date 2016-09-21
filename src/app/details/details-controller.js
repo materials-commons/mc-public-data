@@ -2,6 +2,7 @@ export class DetailsController {
     /*@ngInject*/
     constructor(dataset, actionsService, toastr, userService, $uibModal, $previousState) {
         this.dataset = dataset;
+        this.dataset.tags = _.sortBy(this.dataset.tags, "id");
         this.toastr = toastr;
         this.userService = userService;
         this.actionsService = actionsService;
