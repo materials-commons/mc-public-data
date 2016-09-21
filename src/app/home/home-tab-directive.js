@@ -2,7 +2,7 @@ export function HomeTabDirective(){
   'ngInject';
 
   let directive ={
-    restrict: 'A',
+    restrict: 'E',
     templateUrl: 'app/home/home-tabs.html'
   };
   return directive;
