@@ -19,6 +19,7 @@ class NavbarController {
         this.$uibModal = $uibModal;
         this.$log = $log;
         this.$state = $state;
+        this.navbarCollapsed = true;
     }
 
 

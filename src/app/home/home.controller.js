@@ -9,11 +9,11 @@ export class HomeController {
     this.count_tags = tags.length;
     this.count_authors = count_authors;
     this.count_datasets = count_datasets;
-    this.placeholder_tag = "";
+    this.tagPlaceholder = " ";
     if (this.count_tags === 0) {
-      this.placeholder_tag = 'No Tags';
+      this.tagPlaceholder = 'No Tags';
     } else {
-      this.placeholder_tag = '';
+      this.tagPlaceholder = ' ';
     }
   }
 

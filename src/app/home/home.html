@@ -27,7 +27,7 @@
                                 key-property="id"
                                 template="my-custom-template"
                                 replace-spaces-with-dashes="false"
-                                placeholder="{{home.placeholder_tag}}"
+                                placeholder="{{home.tagPlaceholder}}"
                                 disabled="true"
                                 on-tag-clicked="home.viewTagResults($tag)">
                     </tags-input>
@@ -37,9 +37,6 @@
                         </div>
                     </script>
                 </div>
-            </div>
-            <div ng-if="home.isUserLoggedIn() && home.tags.length > 0">
-                <a>Edit tags</a>
             </div>
             <br><br>
             <div class="row">
