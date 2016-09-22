@@ -19,7 +19,7 @@
         <ul>
             <div class="row form-horizontal" ng-repeat="tag in ctrl.tags">
                 <li>
-                    <h4>{{tag.id}}</h4>
+                    <h4>Tag: {{tag.id}}</h4>
                     <div ng-if="ctrl.datasetForTag(tag.id).wait"><i>Fetching Data</i></div>
                     <div ng-if="ctrl.datasetForTag(tag.id).data">
                         <i>Datasets</i>
@@ -29,7 +29,6 @@
                             </div>
                         </ul>
                     </div>
-                    <hr/>
                 </li>
             </div>
         </ul>

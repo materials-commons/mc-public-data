@@ -21,6 +21,7 @@ export class BrowseTagsController {
         ds.then(x => {
             this.tagDatasets[tag] = {data: x};
         });
+        return this.tagDatasets[tag];
     }
 }
 
