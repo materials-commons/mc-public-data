@@ -93,7 +93,8 @@ export class actionsService {
 
     getDatasetsByTag(tag) {
         return this.pubAPI('tags', tag).one('datasets').getList().then(function(tags) {
-            return tags.plain();
+            let res = tags.plain();
+            return res;
         });
     }
 
