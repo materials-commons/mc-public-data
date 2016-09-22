@@ -3,7 +3,7 @@ export class BrowseAuthorsController {
     'ngInject';
     console.dir(authors);
     this.authors = authors;
-    this.pageSize = 4;
+    this.pageSize = 10;
 
   }
 

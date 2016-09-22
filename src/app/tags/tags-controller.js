@@ -4,7 +4,7 @@ export class TagController {
     this.results = results;
     this.$previousState = $previousState;
     this.tag = $stateParams.id;
-    this.pageSize = 2;
+    this.pageSize = 10;
   }
 
   previousState(){
