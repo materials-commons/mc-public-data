@@ -16,11 +16,12 @@ export function PropertyValueDirective() {
 }
 
 class PropertyValueController {
-    constructor(userService) {
+    constructor(userService, $window) {
         'ngInject';
 
         this.userService = userService;
         this.user = this.userService.isAuthenticated();
+        this.$window = $window;
     }
 
     formatAuthor(a) {
@@ -41,6 +42,7 @@ class PropertyValueController {
     }
 
     urlForDownload(datasetId) {
-        return "api/pub/datasets/download/" + datasetId + "?apikey=" + this.userService.apikey();
+        var baseURL = `${this.$window.location.protocol}//${this.$window.location.hostname}:${this.$window.location.port}/api`;
+        return `${baseURL}/pub/datasets/download/${datasetId}?apikey=${this.userService.apikey()}`;
     }
 }
